@@ -42,6 +42,11 @@ DB.on("error", function(error) {
     console.log("Mongoose Error: ", error);
 });
 
+// Added for heroku deploy to work
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  });
+
 // Once logged in to the db through mongoose, log a success message
 DB.once("open", function() {
     console.log("Mongoose connected SUCCESSFULLY");
