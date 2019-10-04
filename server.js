@@ -43,6 +43,15 @@ mongoose.connect(dbURI, { useNewUrlParser: true });
 const DB = mongoose.connection;
 const db = require("./config/keys").dbURI;
 
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+  }
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  });
+
 // Show any mongoose errors
 DB.on("error", function(error) {
     console.log("Mongoose Error: ", error);
