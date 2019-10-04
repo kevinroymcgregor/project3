@@ -14,6 +14,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import LocalOfferIcon from '@material-ui/icons/LocalOffer'
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
@@ -103,6 +104,7 @@ function Navbar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
@@ -116,6 +118,7 @@ function Navbar() {
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
     </Menu>
   );
 
@@ -130,6 +133,15 @@ function Navbar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
+
+      <MenuItem>
+        <IconButton aria-label="sell item" color="inherit">
+          <Badge color="secondary">
+            <LocalOfferIcon />
+          </Badge>
+        </IconButton>
+        <p>Sell Item</p>
+      </MenuItem>
       <MenuItem>
         <IconButton aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="secondary">
@@ -172,16 +184,18 @@ function Navbar() {
           >
             <MenuIcon />
           </IconButton>
+          
           <Typography className={classes.title} variant="h6" noWrap>
-          <Link
-                to="/"
-                style={{
-                  color: "#ffffff"
-                }}
-                className="brand-logo">
-                RETRO-TRADE
+            <Link
+              to="/"
+              style={{
+                color: "#ffffff"
+              }}
+              className="brand-logo">
+              RETRO-TRADE
               </Link>
           </Typography>
+
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -197,6 +211,21 @@ function Navbar() {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
+
+            <Link
+              to="/addedititem"
+              style={{
+                color: "#ffffff"
+              }}
+              className="sell-button">
+
+              <IconButton aria-label="sell item" color="inherit">
+                <Badge color="secondary">
+                  <LocalOfferIcon />
+                </Badge>
+              </IconButton>
+            </Link>
+
             <IconButton aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="secondary">
                 <MailIcon />
@@ -265,7 +294,7 @@ export default Navbar;
 //                 <i className="material-icons">code</i>
 //                 RETRO-TRADE
 //               </Link>
-          
+
 //               <ul class="right hide-on-med-and-down">
 //                 <li><a href="#">Sell Item</a></li>
 //                 <li><a href="#">Messages</a></li>
@@ -275,6 +304,6 @@ export default Navbar;
 //           </nav>
 //       </div>
 //     );
-  
+
 // }
 // export default Navbar;

@@ -11,6 +11,7 @@ import store from "./store";
 import Landing from "./components/Pages/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
+import AddEditItem from "./components/Pages/AddEditItem";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/Pages/Dashboard";
 
@@ -44,6 +45,7 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/addedititem" component={AddEditItem} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
