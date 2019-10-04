@@ -32,6 +32,11 @@ mongoose.Promise = Promise;
 
 const dbURI = process.env.MONGODB_URI || "mongodb://localhost:27017/retrogamer";
 
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
 // Database configuration with mongoose
 mongoose.connect(dbURI, { useNewUrlParser: true });
 
