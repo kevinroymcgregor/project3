@@ -7,12 +7,12 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 
-import Navbar from "./components/layout/Navbar";
-import Landing from "./components/layout/Landing";
+import Navbar from "./components/Navbar/Navbar";
+import Landing from "./components/Pages/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
-import Dashboard from "./components/dashboard/Dashboard";
+import Dashboard from "./components/Pages/Dashboard";
 
 import "./App.css";
 
