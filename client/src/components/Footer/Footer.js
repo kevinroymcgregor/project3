@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Footer(props) {
     return (
-        <footer class="page-footer">
+        <footer className="page-footer grey darken-3">
             <div class="container">
                 <div class="row">
                     <div class="col l6 s12">

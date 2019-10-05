@@ -4,6 +4,7 @@ import Navbar from '../Navbar/Navbar';
 import Carousel from '../Carousel/Carousel';
 import ItemDetailsCard from '../ItemDetailsCard/ItemDetailsCard';
 import { Link } from "react-router-dom";
+import ItemCard from '../ItemCard/ItemCard';
 
 
 class ItemDetails extends Component {

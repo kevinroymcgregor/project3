@@ -28,10 +28,12 @@ class AddEditForm extends Component {
                         </div>
 
                         <div className="row">
+                            
                             <div className="input-field col s6">
                                 <textarea id="item_description" className="materialize-textarea" placeholder="Item description..."></textarea>
                                 <label for="textarea1">Description</label>
                             </div>
+
 
                             {/* <div class="input-field col s6">
                                 <select>

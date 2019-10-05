@@ -6,7 +6,6 @@ import M from "materialize-css";
 class Carousel extends Component {
 
     componentDidMount() {
-        // Auto initialize all the things!
         document.addEventListener('DOMContentLoaded', function () {
             var elems = document.querySelectorAll('.carousel');
             var instances = M.Carousel.init(elems);

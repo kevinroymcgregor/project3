@@ -5,6 +5,7 @@ import { logoutUser } from "../../actions/authActions";
 import Navbar from '../Navbar/Navbar'
 import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer.js";
+import ItemCard from "../ItemCard/ItemCard";
 
 
 class Dashboard extends Component {
@@ -20,10 +21,12 @@ class Dashboard extends Component {
       <>
 
       <Navbar />
-
+      <div className="container">
       <Link to="/itemdetails">
         Go to Item Details
       </Link>
+      <ItemCard />
+      </div>
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="landing-copy col s12 center-align">

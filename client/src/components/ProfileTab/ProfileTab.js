@@ -6,7 +6,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import ProfileImage from '../ProfileImage/ProfileImage';
+import ProfileDetailsCard from '../ProfileDetailsCard/ProfileDetailsCard';
+import ItemCard from '../ItemCard/ItemCard';
 
 
 
@@ -68,13 +69,13 @@ const ProfileTab = () => {
           </Tabs>
         </AppBar>
         <TabPanel value={value} index={0}>
-         <ProfileImage />
+         <ProfileDetailsCard />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Items for Sale
+         <ItemCard />
         </TabPanel>
         <TabPanel value={value} index={2}>
-          Watching
+          <ItemCard />
         </TabPanel>
       </div>
     );
