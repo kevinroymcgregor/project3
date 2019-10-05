@@ -1,0 +1,66 @@
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+// Create User Schema
+const ItemSchema = new Schema({
+    itemID: {
+        type: Schema.Types.ObjectId,
+        required: true
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    sellerID: {
+        type: Schema.Types.ObjectId,
+        required: true,
+        ref: "User"
+    },
+    imgs: {
+        type: String,
+        required: true
+    },
+    // price might need to be changed to Decimal128
+    price: {
+        type: Number,
+        required: true
+    },
+    desc: {
+        type: String,
+        required: true
+    },
+    createdDate: {
+        type: Date,
+        default: Date.now
+    },
+    lastMod:{
+        type: Date,
+        default: Date.now
+    },
+    enabled: {
+        type: Boolean,
+        default: true
+    },
+    // S = Sell, T = Trade, B = Bid.  
+    STB: {
+        type: String,
+        default: "S"
+    },
+    viewCount: {
+        type: Number,
+        default: 0
+    },
+    hiBid: {
+        type: Number,
+        default: 0
+    },
+    bidReserve: {
+        type: Number,
+        default: 0
+    },
+    currentHiBidUID:{
+        type: Schema.Types.ObjectId,
+        required: false,
+        ref: "User"
+    }
+});
+module.exports = Item = mongoose.model("items", ItemSchema);

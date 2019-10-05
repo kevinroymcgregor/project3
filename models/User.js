@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 // Create User Schema
 const UserSchema = new Schema({
+    uID: {
+        type: Schema.Types.ObjectId,
+        required: true
+    },
     firstName: {
         type: String,
         required: true
@@ -9,6 +13,10 @@ const UserSchema = new Schema({
     lastName: {
         type: String,
         required: true
+    },
+    avatar: {
+        type: String,
+        required: false
     },
     email: {
         type: String,
@@ -41,6 +49,10 @@ const UserSchema = new Schema({
     isActive: {
         type: Boolean,
         default: true
+    },
+    rating: {
+        type: Number,
+        required: false
     }
 });
 module.exports = User = mongoose.model("users", UserSchema);
