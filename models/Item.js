@@ -2,10 +2,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 // Create User Schema
 const ItemSchema = new Schema({
-    itemID: {
-        type: Schema.Types.ObjectId,
-        required: true
-    },
     name: {
         type: String,
         required: true
@@ -15,10 +11,13 @@ const ItemSchema = new Schema({
         required: true,
         ref: "User"
     },
-    imgs: {
-        type: String,
-        required: true
-    },
+    //The imgs is setup to accept an array of img file locations
+    imgs: [
+        {
+            type: String,
+            required: true
+        }
+    ],
     // price might need to be changed to Decimal128
     price: {
         type: Number,
@@ -32,7 +31,7 @@ const ItemSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    lastMod:{
+    lastMod: {
         type: Date,
         default: Date.now
     },
@@ -57,7 +56,7 @@ const ItemSchema = new Schema({
         type: Number,
         default: 0
     },
-    currentHiBidUID:{
+    currentHiBidUID: {
         type: Schema.Types.ObjectId,
         required: false,
         ref: "User"

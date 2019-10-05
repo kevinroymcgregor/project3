@@ -2,10 +2,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 // Create User Schema
 const UserSchema = new Schema({
-    uID: {
-        type: Schema.Types.ObjectId,
-        required: true
-    },
     firstName: {
         type: String,
         required: true
