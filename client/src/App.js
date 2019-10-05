@@ -14,9 +14,12 @@ import Login from "./components/auth/Login";
 import AddEditItem from "./components/Pages/AddEditItem";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/Pages/Dashboard";
+
 import Profile from "./components/Pages/Profile";
 import ItemDetails from "./components/Pages/ItemDetails";
 import 'materialize-css/dist/css/materialize.min.css';
+import PageLabel from "./components/PageLabel/PageLabel.js";
+
 
 import "./App.css";
 

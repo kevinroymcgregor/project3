@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import Navbar from '../Navbar/Navbar'
 import { Link } from "react-router-dom";
-
+import Footer from "../Footer/Footer.js";
 
 
 class Dashboard extends Component {
@@ -18,6 +18,7 @@ class Dashboard extends Component {
 
     return (
       <>
+
       <Navbar />
 
       <Link to="/itemdetails">
@@ -43,10 +44,12 @@ class Dashboard extends Component {
               className="btn btn-large waves-effect waves-light hoverable blue accent-3"
             >
               Logout
+
             </button>
+            </div>
           </div>
         </div>
-      </div>
+        <Footer />
       </>
     );
   }
