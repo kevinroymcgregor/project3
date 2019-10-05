@@ -18,7 +18,6 @@ const ItemSchema = new Schema({
             required: true
         }
     ],
-    // price might need to be changed to Decimal128
     price: {
         type: Number,
         required: true
