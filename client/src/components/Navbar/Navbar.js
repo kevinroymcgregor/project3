@@ -116,7 +116,9 @@ function Navbar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
+      <Link to='/profile' className='profile-button'>
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      </Link>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
       <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
     </Menu>

@@ -14,6 +14,9 @@ import Login from "./components/auth/Login";
 import AddEditItem from "./components/Pages/AddEditItem";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/Pages/Dashboard";
+import Profile from "./components/Pages/Profile";
+import ItemDetails from "./components/Pages/ItemDetails";
+import 'materialize-css/dist/css/materialize.min.css';
 
 import "./App.css";
 
@@ -46,6 +49,8 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/addedititem" component={AddEditItem} />
+            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/itemdetails" component={ItemDetails} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
