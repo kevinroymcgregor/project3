@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { logoutUser } from "../../actions/authActions";
+import Avatar from "../uploads/Avatar";
+import Items from "../uploads/Items";
+import PrivateRoute from "../private-route/PrivateRoute";
 
 class Dashboard extends Component {
   onLogoutClick = e => {
@@ -22,6 +26,20 @@ class Dashboard extends Component {
                 <span style={{ fontFamily: "monospace" }}>Main User Page</span>
               </p>
             </h4>
+
+            <Router>
+		      <div>
+          <PrivateRoute exact path="/dashboard" component={Avatar} />
+		      </div>
+	      </Router>
+
+        <Router>
+		      <div>
+          <PrivateRoute exact path="/dashboard" component={Items} />
+		      </div>
+	      </Router>
+
+
             <button
               style={{
                 width: "150px",
