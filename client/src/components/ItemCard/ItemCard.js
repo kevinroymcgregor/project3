@@ -13,9 +13,9 @@ function ItemCard(props) {
                 <p className="itemName">This is an item name</p>
                 <p className="itemDetailsPreview">These are items details</p>
                 <div className="buttonGroup">
-                    <button type="">button 1</button>
-                    <button type="">button 2</button>
-                    <button type="">button 3</button>
+                    <Button label="Button 1" />
+                    <Button label="Button 2" />
+                    <Button label="Button 3" />
                 </div>
             </div>
         </div>
