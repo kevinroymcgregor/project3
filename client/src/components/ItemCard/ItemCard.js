@@ -10,12 +10,14 @@ function ItemCard(props) {
                 <img src="https://via.placeholder.com/1000" alt="placeholder" />
             </div>
             <div className="itemCardInfoGroup">
-                <p className="itemName">This is an item name</p>
+                <p className="itemName">{props.itemName}</p>
+                <hr></hr>
                 <div className="itemPriceLocationGroup">
-                    <p className="itemPrice">Item Price</p>
-                    <p className="itemLocation">Item Location</p>
+                    <p className="itemPrice">{props.itemPrice}</p>
+                    <p className="itemLocation">{props.itemLocation}</p>
                 </div>
-                <p className="itemDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dolor ante, sodales in viverra vel, cursus ullamcorper felis. Donec gravida.</p>
+                <p className="itemDescription">{props.itemDescription}</p>
+                <hr></hr>
                 <div className="buttonGroup">
                     <Button label="Button 1" />
                     <Button label="Button 2" />
