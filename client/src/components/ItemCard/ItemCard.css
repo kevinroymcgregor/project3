@@ -1,23 +1,66 @@
 .itemCard {
+    margin: 15px 0;
     display: grid;
     grid-template-columns: 1fr 2fr;
     height: 200px;  
+    border: solid #222 1px;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 
+    0 15px 12px rgba(0,0,0,0.22);
 }
 
 .itemCardInfoGroup {
+    background-color: green;
     display: grid;
-    grid-template-columns: 1fr;
     align-content: space-between;
 }
 
 .itemCardImage {
     display: flex;
-    width: 100%;
     overflow: hidden;
     align-content: center;
     align-items: center;
+    border-right: solid #222 1px;
 }
 
 .itemCardImage img {
     max-width: 100%;
+}
+
+.buttonGroup {
+    background-color: orange;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+p.itemName {
+    background-color: darksalmon;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.itemPriceLocationGroup {
+    display: flex;
+    justify-content: space-evenly;
+    transform: translateY(-50%);
+}
+
+p.itemPrice {
+    background-color: cornflowerblue;
+    max-height: 500%;
+    width: 45%;
+    font-size: 1.1rem;
+}
+
+p.itemLocation {
+    background-color: blanchedalmond;
+    max-height: 500%;
+    width: 45%;
+    font-size: 1.1rem;
+}
+
+p.itemDescription {
+    background-color: hotpink;
+    font-size: 1.1rem;
+    transform: translateY(-30%);
+    height: 175%;
 }

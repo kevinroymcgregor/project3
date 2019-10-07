@@ -11,7 +11,11 @@ function ItemCard(props) {
             </div>
             <div className="itemCardInfoGroup">
                 <p className="itemName">This is an item name</p>
-                <p className="itemDetailsPreview">These are items details</p>
+                <div className="itemPriceLocationGroup">
+                    <p className="itemPrice">Item Price</p>
+                    <p className="itemLocation">Item Location</p>
+                </div>
+                <p className="itemDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dolor ante, sodales in viverra vel, cursus ullamcorper felis. Donec gravida.</p>
                 <div className="buttonGroup">
                     <Button label="Button 1" />
                     <Button label="Button 2" />
