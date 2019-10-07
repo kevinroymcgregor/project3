@@ -1,0 +1,23 @@
+.itemCard {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    height: 200px;  
+}
+
+.itemCardInfoGroup {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-content: space-between;
+}
+
+.itemCardImage {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    align-content: center;
+    align-items: center;
+}
+
+.itemCardImage img {
+    max-width: 100%;
+}
