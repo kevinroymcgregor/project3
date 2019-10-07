@@ -23,7 +23,11 @@ class Dashboard extends Component {
         <Navbar />
 
         <div id="itemCardContainer">
-          <ItemCard />
+          <ItemCard
+            itemName="Retro Item"
+            itemPrice="$100"
+            itemLocation="Phoenix, AZ"
+            itemDescription="This is a bunch of placeholder text that can be removed. It was only added to make the demo ItemCard component display properly. I am writing extra text in here so that it will properly test the overflow css." />
         </div>
 
         <Link to="/itemdetails">
@@ -49,7 +53,7 @@ class Dashboard extends Component {
                 className="btn btn-large waves-effect waves-light hoverable blue accent-3"
               >
                 Logout
-  
+
             </button>
             </div>
           </div>
