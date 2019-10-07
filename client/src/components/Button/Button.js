@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Button(props) {
     return (
-        <a className="waves-effect waves-light btn">button</a>
+        <a className="waves-effect waves-light btn">{props.label}</a>
     )
 }
 
