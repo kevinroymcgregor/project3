@@ -2,14 +2,13 @@
     margin: 15px 0;
     display: grid;
     grid-template-columns: 1fr 2fr;
-    height: 200px;  
+    height: 250px;  
     border: solid #222 1px;
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 
     0 15px 12px rgba(0,0,0,0.22);
 }
 
 .itemCardInfoGroup {
-    background-color: green;
     display: grid;
     align-content: space-between;
 }
@@ -27,40 +26,45 @@
 }
 
 .buttonGroup {
-    background-color: orange;
+    padding: 5px 0;
     display: flex;
     justify-content: space-evenly;
+    max-height: 100%;
+    min-height: 100%;
 }
 
 p.itemName {
-    background-color: darksalmon;
+    padding-left: 5px;
     font-size: 2rem;
     font-weight: bold;
+    text-align: center;
 }
 
 .itemPriceLocationGroup {
     display: flex;
     justify-content: space-evenly;
-    transform: translateY(-50%);
+    text-align: center;
 }
 
 p.itemPrice {
-    background-color: cornflowerblue;
     max-height: 500%;
     width: 45%;
     font-size: 1.1rem;
 }
 
 p.itemLocation {
-    background-color: blanchedalmond;
     max-height: 500%;
     width: 45%;
     font-size: 1.1rem;
 }
 
 p.itemDescription {
-    background-color: hotpink;
+    padding: 0 5px;
     font-size: 1.1rem;
-    transform: translateY(-30%);
-    height: 175%;
+    max-height: 75px;
+    overflow: hidden;
+}
+
+hr {
+    margin: 0 12.5%;
 }
