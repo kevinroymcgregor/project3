@@ -26,20 +26,6 @@ class Dashboard extends Component {
                 <span style={{ fontFamily: "monospace" }}>Main User Page</span>
               </p>
             </h4>
-
-            <Router>
-		      <div>
-          <PrivateRoute exact path="/dashboard" component={Avatar} />
-		      </div>
-	      </Router>
-
-        <Router>
-		      <div>
-          <PrivateRoute exact path="/dashboard" component={Items} />
-		      </div>
-	      </Router>
-
-
             <button
               style={{
                 width: "150px",
