@@ -25,4 +25,14 @@ router.post("/addItem", (req, res) => {
         .catch(err => console.log(err));
 });
 
+router.get("/getItems", (req,res) => {
+    Item.find()
+    .then(itemList => res.json(itemList));
+})
+
+router.get("/getItemByID/:ID", (req,res) => {
+    Item.findById(req.params.ID)
+    .then(itemList => res.json(itemList));
+})
+
 module.exports = router;
