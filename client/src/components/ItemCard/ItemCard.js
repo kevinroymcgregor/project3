@@ -19,9 +19,9 @@ function ItemCard(props) {
                 <p className="itemDescription">{props.itemDescription}</p>
                 <hr></hr>
                 <div className="buttonGroup">
-                    <Button label="Button 1" />
-                    <Button label="Button 2" />
-                    <Button label="Button 3" />
+                    <Button label="Details" icon="search" />
+                    <Button label="Message" icon="message" />
+                    <Button label="Make Offer" icon="attach_money" />
                 </div>
             </div>
         </div>
