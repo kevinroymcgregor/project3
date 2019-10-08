@@ -3,6 +3,10 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { logoutUser } from "../../actions/authActions";
+import Navbar from '../Navbar/Navbar'
+import { Link } from "react-router-dom";
+import Footer from "../Footer/Footer.js";
+
 
 class Dashboard extends Component {
   onLogoutClick = e => {
@@ -14,6 +18,13 @@ class Dashboard extends Component {
     const { user } = this.props.auth;
 
     return (
+      <>
+
+      <Navbar />
+
+      <Link to="/itemdetails">
+        Go to Item Details
+      </Link>
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="landing-copy col s12 center-align">
@@ -34,10 +45,13 @@ class Dashboard extends Component {
               className="btn btn-large waves-effect waves-light hoverable blue accent-3"
             >
               Logout
+
             </button>
+            </div>
           </div>
         </div>
-      </div>
+        <Footer />
+      </>
     );
   }
 }

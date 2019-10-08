@@ -7,12 +7,19 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 
-import Navbar from "./components/Navbar/Navbar";
+
 import Landing from "./components/Pages/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
+import AddEditItem from "./components/Pages/AddEditItem";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/Pages/Dashboard";
+
+import Profile from "./components/Pages/Profile";
+import ItemDetails from "./components/Pages/ItemDetails";
+import 'materialize-css/dist/css/materialize.min.css';
+import PageLabel from "./components/PageLabel/PageLabel.js";
+
 
 import "./App.css";
 
@@ -41,10 +48,12 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
-            <Navbar />
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/addedititem" component={AddEditItem} />
+            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/itemdetails" component={ItemDetails} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
