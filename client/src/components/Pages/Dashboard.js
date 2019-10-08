@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { logoutUser } from "../../actions/authActions";
 import Navbar from '../Navbar/Navbar'
 import { Link } from "react-router-dom";
