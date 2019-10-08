@@ -26,7 +26,7 @@ app.use("/api/users", users);
 
 // DATABASE CONFIG =============================================================
 
-const port = process.env.port || 8080; // process.env.port is Heroku's port if you choose to deploy the app there
+const PORT = process.env.PORT || 8080; // process.env.port is Heroku's port if you choose to deploy the app there
 
 mongoose.Promise = Promise;
 
@@ -66,7 +66,7 @@ app.get("*", (req, res) => {
 DB.once("open", function() {
     console.log("Mongoose connected SUCCESSFULLY");
     // start the server, listen on port
-    app.listen(port, function() {
-        console.log("App running on port " + port);
+    app.listen(PORT, function() {
+        console.log("App running on port " + PORT);
     });
 });
