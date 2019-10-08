@@ -30,12 +30,14 @@ router.post("/register", (req, res) => {
       const newUser = new User({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
+        avatar: req.body.avatar,
         email: req.body.email,
         password: req.body.password,
         city: req.body.city,
         state: req.body.state,
         zipCode: req.body.zipCode,
-        phone: req.body.phone
+        phone: req.body.phone,
+        rating: req.body.rating
       });
 
       // Hash password before saving in database
@@ -45,7 +47,7 @@ router.post("/register", (req, res) => {
           newUser.password = hash;
           newUser
             .save()
-            .then(user => res.json(user))
+            .then(user => console.log(res.json(user)))
             .catch(err => console.log(err));
         });
       });
