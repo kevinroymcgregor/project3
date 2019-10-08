@@ -8,7 +8,7 @@
   "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix client",
-    "start": "node server.js",
+    "start": "node server.js && npm install --prefix client",
     "postinstall": "npm run build --prefix client",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
