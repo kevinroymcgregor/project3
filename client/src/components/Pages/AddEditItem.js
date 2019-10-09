@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import AddEditForm from '../AddEditForm/AddEditForm';
 import Navbar from '../Navbar/Navbar';
 import { Link } from "react-router-dom";
 
-function AddEditItem () {
+class AddEditItem extends Component {
+
+
+    
+    render() {
     return (
         <>
         <Navbar />
@@ -16,6 +20,7 @@ function AddEditItem () {
 
         </>
     )
+    }
 }
 
 export default AddEditItem;

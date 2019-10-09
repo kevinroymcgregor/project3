@@ -4,11 +4,10 @@ import "./PageLabel.css";
 
 function PageLabel(props) {
     return (
-        <div className="jumbotron jumbotron-fluid">
-            <div className="container">
-                <h1 className="display-4">RETRO-TRADE</h1>
-                <p className="lead">This is where our tagline will go.</p>
-            </div>
+        <div className="jumbotron">
+            <h1>
+                RETRO-TRADE
+            </h1>
         </div>
     )
 }

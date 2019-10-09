@@ -1,0 +1,55 @@
+.brand-logo {
+    margin-left: 5px;
+}
+
+.sidenav-overlay {
+    z-index: 1;
+}
+
+.input-field.main {
+    background-color: #4e4e4e;
+}
+
+/* nav{
+    padding: 0 10px 0 10px;
+    background-color: #656566;
+} */
+
+nav .right{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+
+
+.nav-wrapper form{
+    margin: auto;
+    width: 50%;
+}
+
+.nav-wrapper .input-field{
+    padding-top: 7px;
+}
+
+.nav-wrapper form #search{
+    height: 50px;
+}
+
+
+nav .right img{
+    margin: 17px;
+    height: 30px;
+    width: 30px;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+nav .right .imgProfil a{
+    height: 64px;
+}
+
+.hidden{
+    display: none;
+}
+

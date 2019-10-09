@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Container from '@material-ui/core/Container';
 import ProfileTab from '../ProfileTab/ProfileTab';
 import Navbar from '../Navbar/Navbar';
 import { Link } from "react-router-dom";
@@ -17,21 +16,20 @@ class Profile extends Component {
         selling: []
     }
 
-    // functional components will go here
 
     // render to page
     render() {
         return (
             <>
                 <Navbar />
-                <Container maxWidth="md">
+                <div className="container" maxWidth="md">
                     <ProfileTab />
                     <div className="back-to-dashboard">
                         <Link to="/dashboard">
                             Back to Item...
             </Link>
                     </div>
-                </Container>
+                </div>
             </>
         )
     }
