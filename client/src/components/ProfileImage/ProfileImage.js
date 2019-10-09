@@ -17,7 +17,7 @@ const ProfileImage = (props) => {
     return (
         <div>
             <div className="container center-align">
-                <img alt="User Name" src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" className="avatar center-align" id="user-avatar" />
+                <img alt="User Name" src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" className="avatar" id="user-avatar" />
             </div>
         </div>
     )

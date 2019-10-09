@@ -21,7 +21,9 @@ const ItemCard = (props) => {
                 <p className="itemDescription">{props.itemDescription}</p>
                 <hr></hr>
                 <div className="buttonGroup">
+                    <Link to="/itemdetails">
                     <Button label="Details" icon="search" />
+                    </Link>
                     <Button label="Message" icon="message" />
                     <Button label="Make Offer" icon="attach_money" />
                 </div>
