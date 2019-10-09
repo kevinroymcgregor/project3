@@ -31,9 +31,7 @@ class Dashboard extends Component {
             itemDescription="This is a bunch of placeholder text that can be removed. It was only added to make the demo ItemCard component display properly. I am writing extra text in here so that it will properly test the overflow css." />
         </div>
 
-        <Link to="/itemdetails">
-          Go to Item Details
-      </Link>
+        
         <div style={{ height: "75vh" }} className="container valign-wrapper">
           <div className="row">
             <div className="landing-copy col s12 center-align">
