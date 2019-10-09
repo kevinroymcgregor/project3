@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Container from '@material-ui/core/Container';
 import Navbar from '../Navbar/Navbar';
 import Carousel from '../Carousel/Carousel';
 import ItemDetailsCard from '../ItemDetailsCard/ItemDetailsCard';
@@ -12,7 +11,7 @@ class ItemDetails extends Component {
         return (
             <>
                 <Navbar />
-                <Container maxWidth="md">
+                <div className="container" maxWidth="md">
                     <div className="back-to-dashboard">
                         <Link to="/dashboard">
                             Back to Item...
@@ -20,7 +19,7 @@ class ItemDetails extends Component {
                     </div>
                     <Carousel />
                     <ItemDetailsCard />
-                </Container>
+                </div>
             </>
         )
     }
