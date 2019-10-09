@@ -1,23 +1,32 @@
-import React from "react";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import Button from "../Button/Button.js";
+import "../ItemCard/ItemCard.css";
+
 
 const ItemCard = (props) => {
     return (
-        <div className="col s12 m7">
-        <h2 className="header">Horizontal Card</h2>
-        <div className="card horizontal">
-          <div className="card-image">
-            <img src="https://lorempixel.com/100/190/nature/6" />
-          </div>
-          <div className="card-stacked">
-            <div className="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.</p>
+
+        <div className="itemCard">
+            <div className="itemCardImage">
+                <img src="https://via.placeholder.com/1000" alt="placeholder" />
             </div>
-            <div className="card-action">
-              <a href="#">This is a link</a>
+            <div className="itemCardInfoGroup">
+                <p className="itemName">{props.itemName}</p>
+                <hr></hr>
+                <div className="itemPriceLocationGroup">
+                    <p className="itemPrice">{props.itemPrice}</p>
+                    <p className="itemLocation">{props.itemLocation}</p>
+                </div>
+                <p className="itemDescription">{props.itemDescription}</p>
+                <hr></hr>
+                <div className="buttonGroup">
+                    <Button label="Details" icon="search" />
+                    <Button label="Message" icon="message" />
+                    <Button label="Make Offer" icon="attach_money" />
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     )
 }
 

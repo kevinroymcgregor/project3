@@ -2,7 +2,16 @@
   text-align: center;
 } */
 
+
 /* .App-logo {
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App-logo {
+
   height: 40vmin;
 }
 
@@ -20,3 +29,10 @@
 .App-link {
   color: #09d3ac;
 } */
+
+}
+
+#itemCardContainer {
+  width: 70%;
+  margin: 0 auto;
+

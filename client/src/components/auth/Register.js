@@ -11,6 +11,7 @@ class Register extends Component {
     this.state = {
       firstName: "",
       lastName: "",
+      avatar: "",
       email: "",
       password: "",
       password2: "",
@@ -18,6 +19,7 @@ class Register extends Component {
       city: "",
       state: "",
       zipCode: "",
+      rating: "",
       errors: {}
     };
   }
@@ -47,6 +49,7 @@ class Register extends Component {
     const newUser = {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
+      avatar: "",
       email: this.state.email,
       password: this.state.password,
       password2: this.state.password2,
@@ -54,6 +57,7 @@ class Register extends Component {
       state: this.state.state,
       zipCode: this.state.zipCode,
       phone: this.state.phone,
+      rating: "",
       errors: {}
     };
 

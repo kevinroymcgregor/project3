@@ -1,0 +1,12 @@
+.jumbotron {
+    background-color: #bbb;
+    margin: 0;
+    height: 200px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    margin: 0 !important;
+}
