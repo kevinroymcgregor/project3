@@ -1,83 +1,35 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import ProfileImage from '../ProfileImage/ProfileImage';
+import React, { Component } from 'react';
+import ProfileDetailsCard from '../ProfileDetailsCard/ProfileDetailsCard';
+import "materialize-css/dist/css/materialize.min.css";
+import M from "materialize-css";
 
+class ProfileTab extends Component {
 
-
-function TabPanel(props) {
-    const {children, value, index, ...other} = props;
-
-    return(
-        <Typography 
-            component="div"
-            role="tabpanel"
-            hidden={value !== index}
-            id={`simple-tabpanel-${index}`}
-            aria-labelledby={`simple-tab-${index}`}
-            {...other}
-            >
-                <Box p={3}>{children}</Box>
-            </Typography>
-    );
-}
-
-TabPanel.prototypes = {
-    children: PropTypes.node,
-    index: PropTypes.any.isReaquired,
-    value: PropTypes.any.isRequired,
-};
-
-function a11yProps(index) {
-    return{
-        id: `simple-tab-${index}`,
-        'aria-controls': `simple-tabpanel-${index}`,
-    };
-}
-
-const useStyles = makeStyles(theme => ({
-    root: {
-      flexGrow: 1,
-      backgroundColor: theme.palette.background.paper,
-    },
-    bar: {
-        backgroundColor: "#363636"
-    },
-  }));
-  
-const ProfileTab = () => {
-    const classes = useStyles();
-    const [value, setValue] = React.useState(0);
-  
-    const handleChange = (event, newValue) => {
-      setValue(newValue);
-    };
-  
-    return (
-      <div className={classes.root}>
-        <AppBar position="static" className={classes.bar}>
-          <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" centered>
-            <Tab label="Profile" {...a11yProps(0)} />
-            <Tab label="Items for Sale" {...a11yProps(1)} />
-            <Tab label="Watching" {...a11yProps(2)} />
-          </Tabs>
-        </AppBar>
-        <TabPanel value={value} index={0}>
-         <ProfileImage />
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          Items for Sale
-        </TabPanel>
-        <TabPanel value={value} index={2}>
-          Watching
-        </TabPanel>
-      </div>
-    );
+  componentDidMount() {
+    M.AutoInit();
   }
 
-  export default ProfileTab;
+
+  render() {
+
+  return(
+    <div className="row">
+    <div className="col s12">
+      <ul className="tabs">
+        <li className="tab col s4"><a class="active" href="#test1">Profile</a></li>
+        <li className="tab col s4"><a href="#test2">Selling</a></li>
+        <li className="tab col s4"><a href="#test3">Watching</a></li>
+      </ul>
+    </div>
+    <div id="test1" className="col s12">
+    <ProfileDetailsCard />
+    </div>
+    <div id="test2" className="col s12">Selling</div>
+    <div id="test3" className="col s12">Watching</div>
+    
+  </div>
+  )
+  }
+}
+
+export default ProfileTab;

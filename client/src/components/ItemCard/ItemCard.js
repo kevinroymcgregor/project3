@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import Button from "../Button/Button.js";
 import "../ItemCard/ItemCard.css";
 
-function ItemCard(props) {
+
+const ItemCard = (props) => {
     return (
+
         <div className="itemCard">
             <div className="itemCardImage">
                 <img src="https://via.placeholder.com/1000" alt="placeholder" />

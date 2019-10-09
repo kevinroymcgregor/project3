@@ -17,10 +17,10 @@ class Dashboard extends Component {
 
   render() {
     const { user } = this.props.auth;
+    console.log(user)
 
     return (
       <>
-
         <Navbar />
 
         <div id="itemCardContainer">

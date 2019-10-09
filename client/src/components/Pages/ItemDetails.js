@@ -13,13 +13,13 @@ class ItemDetails extends Component {
             <>
                 <Navbar />
                 <Container maxWidth="md">
-                    <Carousel />
-                    <ItemDetailsCard />
                     <div className="back-to-dashboard">
                         <Link to="/dashboard">
                             Back to Item...
                         </Link>
                     </div>
+                    <Carousel />
+                    <ItemDetailsCard />
                 </Container>
             </>
         )
