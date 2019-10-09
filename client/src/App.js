@@ -19,7 +19,6 @@ import Profile from "./components/Pages/Profile";
 import ItemDetails from "./components/Pages/ItemDetails";
 import 'materialize-css/dist/css/materialize.min.css';
 
-
 import "./App.css";
 
 // Check for token to keep user logged in

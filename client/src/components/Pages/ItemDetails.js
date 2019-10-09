@@ -4,7 +4,6 @@ import Navbar from '../Navbar/Navbar';
 import Carousel from '../Carousel/Carousel';
 import ItemDetailsCard from '../ItemDetailsCard/ItemDetailsCard';
 import { Link } from "react-router-dom";
-import ItemCard from '../ItemCard/ItemCard';
 
 
 class ItemDetails extends Component {
@@ -14,13 +13,13 @@ class ItemDetails extends Component {
             <>
                 <Navbar />
                 <Container maxWidth="md">
-                    <Carousel />
-                    <ItemDetailsCard />
                     <div className="back-to-dashboard">
                         <Link to="/dashboard">
                             Back to Item...
                         </Link>
                     </div>
+                    <Carousel />
+                    <ItemDetailsCard />
                 </Container>
             </>
         )

@@ -16,16 +16,15 @@ class Dashboard extends Component {
 
   render() {
     const { user } = this.props.auth;
+    console.log(user)
 
     return (
       <>
-
       <Navbar />
       <div className="container">
       <Link to="/itemdetails">
         Go to Item Details
       </Link>
-      <ItemCard />
       </div>
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">

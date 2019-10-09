@@ -3,19 +3,19 @@ import { Link } from "react-router-dom";
 import Button from "../Button/Button.js";
 import ProfileImage from "../ProfileImage/ProfileImage.js";
 
-function ProfileDetailsCard(props) {
+const ProfileDetailsCard = (props) => {
     return (
-        <div class="col s12 m7">
+        <div className="col s12">
            <ProfileImage />
-        <h2 class="header">Account Details</h2>
-        <div class="card horizontal">
-          <div class="card-image">
+        <h4 className="header">Account Details</h4>
+        <div className="card horizontal">
+          <div className="card-image">
           </div>
-          <div class="card-stacked">
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.</p>
+          <div className="card-stacked">
+            <div className="card-content">
+              <p>User account details here</p>
             </div>
-            <div class="card-action">
+            <div className="card-action">
               <a href="#">This is a link</a>
             </div>
           </div>

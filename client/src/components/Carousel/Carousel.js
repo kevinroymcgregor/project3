@@ -1,26 +1,33 @@
 import React, { Component } from 'react';
 // Import Materialize
 import M from "materialize-css";
+import "materialize-css/dist/css/materialize.min.css";
+import './Carousel.css'
 
 
 class Carousel extends Component {
 
     componentDidMount() {
         document.addEventListener('DOMContentLoaded', function () {
-            var elems = document.querySelectorAll('.carousel');
-            var instances = M.Carousel.init(elems);
+            let elems = document.querySelectorAll('.carousel');
+            let options = {
+                indicators: true,
+                fullWidth: true,
+                dist: 0,
+                padding: 10
+            }
+            let instances = M.Carousel.init(elems, options);
         });
     }
 
     render() {
         return (
-            <div>
-                <div class="carousel">
-                    <a className="carousel-item" href="#one!"><img src="https://lorempixel.com/250/250/nature/1" alt="1" /></a>
-                    <a className="carousel-item" href="#two!"><img src="https://lorempixel.com/250/250/nature/2" alt="1" /></a>
-                    <a className="carousel-item" href="#three!"><img src="https://lorempixel.com/250/250/nature/3" alt="1" /></a>
-                    <a className="carousel-item" href="#four!"><img src="https://lorempixel.com/250/250/nature/4" alt="1" /></a>
-                    <a className="carousel-item" href="#five!"><img src="https://lorempixel.com/250/250/nature/5" alt="1" /></a>
+            <div className="retro-carousel">
+                <div className="carousel carousel-slider">
+                    <a className="carousel-item" href="#one!"><img src="https://lorempixel.com/800/400/food/1" /></a>
+                    <a className="carousel-item" href="#two!"><img src="https://lorempixel.com/800/400/food/2" /></a>
+                    <a className="carousel-item" href="#three!"><img src="https://lorempixel.com/800/400/food/3" /></a>
+                    <a className="carousel-item" href="#four!"><img src="https://lorempixel.com/800/400/food/4" /></a>
                 </div>
             </div>
         )
