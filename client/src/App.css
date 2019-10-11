@@ -12,3 +12,7 @@ body {
   /* background-color: #f8f8ff; */
   background-color: #b2b4b2;
 }
+
+.loginBtn {
+  color: black !important;
+}
