@@ -1,4 +1,5 @@
 .itemCard {
+    background-color: #fefefa;
     margin: 15px 0;
     display: grid;
     grid-template-columns: 1fr 2fr;
