@@ -10,9 +10,6 @@ class Landing extends Component {
         <div style={{ height: "75vh" }} className="container valign-wrapper">
           <div className="row">
             <div className="col s12 center-align">
-              <h4>
-                Authentication Page -- Login / Register
-            </h4>
               <br />
               <div className="col s6">
                 <Link
@@ -22,7 +19,7 @@ class Landing extends Component {
                     borderRadius: "3px",
                     letterSpacing: "1.5px"
                   }}
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                  className="btn btn-large waves-effect waves-light hoverable orange darken-1"
                 >
                   Register
               </Link>
@@ -35,7 +32,7 @@ class Landing extends Component {
                     borderRadius: "3px",
                     letterSpacing: "1.5px"
                   }}
-                  className="btn btn-large btn-flat waves-effect white black-text"
+                  className="btn btn-large waves-effect waves-light hoverable grey lighten-5 loginBtn"
                 >
                   Log In
               </Link>
