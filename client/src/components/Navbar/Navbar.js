@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import './Navbar.css';
+import '../Navbar/Navbar.css';
 import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css";
 
@@ -16,6 +16,7 @@ class Navbar extends Component {
       <>
       <div className="navbar-fixed">
 
+        {/* Right side menu dropdown */}
         <ul id="dropdown1" className="dropdown-content">
           <li> <Link to="/profile">Account</Link></li>
           <li><a href="#!">Messages</a></li>
@@ -23,12 +24,13 @@ class Navbar extends Component {
           <li><a href="#!">Logout</a></li>
         </ul>
 
-        <nav className="grey darken-3">
+        {/* Main nav */}
+        <nav className="">
           <div className="nav-wrapper">
             <ul className="left">
-              <li>
+            <li>
                 <Link
-                  to="/dashboard"
+                  to="/"
                   style={{
                     fontFamily: "monospace"
                   }}
@@ -50,20 +52,19 @@ class Navbar extends Component {
                 </form>
               </div>
 
-            <ul className="right hide-on-med-and-down">
-              
+            <ul className="right hide-on-med-and-down">    
               <li>
-                <Link to="/addedititem"><i className="large material-icons">photo_camera</i></Link>
+                <Link to="/addedititem"><i className="large material-icons nav-icons">photo_camera</i></Link>
               </li>
-              <li><a href="#"><i className="large material-icons">chat_bubble</i></a></li>
-              <li><a className="dropdown-trigger" href="#!" data-target="dropdown1"><i className="large material-icons">person</i></a></li>
+              <li><a href="#"><i className="large material-icons nav-icons">chat_bubble</i></a></li>
+              <li><a className="dropdown-trigger" href="#!" data-target="dropdown1"><i className="large material-icons nav-icons">person</i></a></li>
             </ul>
 
           </div>
         </nav>
-
-
       </div>
+
+      {/* Sidenav */}
       <ul id="slide-out" className="sidenav">
         <li><Link to="/addedititem"><i className="material-icons">photo_camera</i>Sell Item</Link></li>
         <li><a href="#!"><i className="material-icons">chat_bubble</i>Messages</a></li>

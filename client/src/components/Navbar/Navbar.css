@@ -1,5 +1,10 @@
 .brand-logo {
     margin-left: 5px;
+    color: #fb8122 !important;
+}
+
+.nav-icons:hover {
+    color: #fb8122;
 }
 
 .sidenav-overlay {
@@ -7,21 +12,18 @@
 }
 
 .input-field.main {
-    background-color: #4e4e4e;
+    background-color: #1d2228;
 }
 
-/* nav{
-    padding: 0 10px 0 10px;
-    background-color: #656566;
-} */
+nav {
+    background-color: #1d2228 !important;
+  }
 
 nav .right{
     position: absolute;
     top: 0px;
     right: 0px;
 }
-
-
 
 .nav-wrapper form{
     margin: auto;

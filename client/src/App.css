@@ -8,6 +8,24 @@
   padding: 0;
 }
 
+input:focus {
+  border-bottom: 1px solid #fb8122 !important;
+  box-shadow: 0 1px 0 0 #fb8122 !important;
+}
+
+label.active {
+  color: #fb8122 !important;
+}
+
+textarea:focus {
+  border-bottom: 1px solid #fb8122 !important;
+  box-shadow: 0 1px 0 0 #fb8122 !important;
+}
+
+ul.dropdown-content.select-dropdown li span {
+    color: #000; 
+}
+
 body {
   /* background-color: #f8f8ff; */
   background-color: #b2b4b2;

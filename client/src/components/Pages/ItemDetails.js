@@ -12,13 +12,12 @@ class ItemDetails extends Component {
         return (
             <>
                 <Navbar />
-                <div className="container" maxWidth="md">
+                <div className="container">
                     <div className="back-to-dashboard">
                         <Link to="/dashboard">
                             Back to Item...
                         </Link>
                     </div>
-                    {/* <div className="container"> */}
                     <Carousel />
                     <ItemDetailsCard
                         itemName="Item Name"
@@ -27,7 +26,6 @@ class ItemDetails extends Component {
                         itemLocation="Phoenix, Arizona"
                         itemDate="October, 8, 2019"
                     />
-                    {/* </div> */}
                 </div>
                 <Footer />
             </>
