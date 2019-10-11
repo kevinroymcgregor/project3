@@ -3,7 +3,8 @@ import Navbar from '../Navbar/Navbar';
 import Carousel from '../Carousel/Carousel';
 import ItemDetailsCard from '../ItemDetailsCard/ItemDetailsCard';
 import { Link } from "react-router-dom";
-import Footer from '../Footer/Footer'
+import Footer from '../Footer/Footer';
+import Button from '../Button/Button';
 
 
 class ItemDetails extends Component {
@@ -13,10 +14,10 @@ class ItemDetails extends Component {
             <>
                 <Navbar />
                 <div className="container">
-                    <div className="back-to-dashboard">
-                        <Link to="/dashboard">
-                            Back to Item...
-                        </Link>
+                    <div className="back-to-dashboard center-align">
+                    <Link to="/dashboard">
+                    <Button label="Back To Home" icon="home" />
+                </Link>
                     </div>
                     <Carousel />
                     <ItemDetailsCard
