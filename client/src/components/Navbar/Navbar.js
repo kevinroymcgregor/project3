@@ -80,13 +80,11 @@ class Navbar extends Component {
         </form>
 
         <li><a className="subheader">Categories</a></li>
-        <li><a className="waves-effect" href="#!">Category item</a></li>
-        <li><a className="waves-effect" href="#!">Category item</a></li>
-        <li><a className="waves-effect" href="#!">Category item</a></li>
-        <li><a className="waves-effect" href="#!">Category item</a></li>
-        <li><a className="waves-effect" href="#!">Category item</a></li>
-        <li><a className="waves-effect" href="#!">Category item</a></li>
-        <li><a className="waves-effect" href="#!">Category item</a></li>
+        <li><a className="waves-effect" href="#!">Video Games</a></li>
+        <li><a className="waves-effect" href="#!">Game Consoles</a></li>
+        <li><a className="waves-effect" href="#!">Game Accessories</a></li>
+        <li><a className="waves-effect" href="#!">Board Games</a></li>
+        <li><a className="waves-effect" href="#!">Arcade</a></li>
       </ul>
   {/* <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons white">menu</i></a> */}
         </>
