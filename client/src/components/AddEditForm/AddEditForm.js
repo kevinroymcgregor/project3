@@ -20,7 +20,7 @@ class AddEditForm extends Component {
     render() {
 
         return (
-            <div className="container center-align">
+            <div className="container center-align edit-form-bg">
                 <Link to="/dashboard">
                     <Button label="Back To Home" icon="home" />
                 </Link>
