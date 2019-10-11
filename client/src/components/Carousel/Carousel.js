@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-// Import Materialize
 import M from "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
-import './Carousel.css'
+import '../Carousel/Carousel.css';
 
 
 class Carousel extends Component {

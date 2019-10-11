@@ -6,11 +6,11 @@ const ItemDetailsCard = (props) => {
 
     return (
         
-                <div className="card">
+                <div className="card details-card">
                     <div className="card-content">
-                        <span class="card-title"><h5 className="left">{props.itemName}</h5><h5 className="right">{props.itemPrice}</h5></span>
+                        <span className="card-title"><h5 className="left">{props.itemName}</h5><h5 className="right">{props.itemPrice}</h5></span>
                     </div>
-                    <div class="card-content">   
+                    <div className="card-content">   
                         <p>{props.itemDescription}</p>
                     </div>
                     <div className="card-content">

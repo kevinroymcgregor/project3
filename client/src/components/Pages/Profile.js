@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ProfileTab from '../ProfileTab/ProfileTab';
 import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 import { Link } from "react-router-dom";
 
 
@@ -26,10 +27,11 @@ class Profile extends Component {
                     <ProfileTab />
                     <div className="back-to-dashboard">
                         <Link to="/dashboard">
-                            Back to Item...
+                            Back to Dashboard...
             </Link>
                     </div>
                 </div>
+                <Footer />
             </>
         )
     }

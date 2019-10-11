@@ -7,16 +7,23 @@ const ProfileDetailsCard = (props) => {
     return (
         <div className="col s12">
            <ProfileImage />
-        <h4 className="header">Account Details</h4>
+        <h5 className="header center">Account Details</h5>
         <div className="card horizontal">
           <div className="card-image">
           </div>
           <div className="card-stacked">
             <div className="card-content">
-              <p>User account details here</p>
+              <ul>
+                <li><b>Name: </b>{props.first} {props.last}</li>
+                <li><b>Email: </b>{props.email}</li>
+                <li><b>City: </b>{props.city}</li>
+                <li><b>State: </b>{props.state}</li>
+                <li><b>Zipcode: </b>{props.zip}</li>
+                <li><b>Phone: </b>{props.phone}</li>
+              </ul>
             </div>
             <div className="card-action">
-              <a href="#">This is a link</a>
+              <Button label="Edit" icon="edit"  />
             </div>
           </div>
         </div>
