@@ -1,22 +1,26 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import Button from '../Button/Button';
+import '../ItemDetailsCard/ItemDetailsCard.css';
 
 const ItemDetailsCard = (props) => {
 
     return (
         
                 <div className="card details-card">
-                    <div className="card-content">
-                        <span className="card-title"><h5 className="left">{props.itemName}</h5><h5 className="right">{props.itemPrice}</h5></span>
+                    <div className="card-content item-details-header">
+                        <div className="card-title">
+                            <h5 className="">{props.itemName}
+                            <span className="right">{props.itemPrice}</span></h5>
+                        </div>
                     </div>
                     <div className="card-content">   
                         <p>{props.itemDescription}</p>
                     </div>
                     <div className="card-content">
-                    <p className="center"><strong>Listed Date: </strong>{props.itemDate} - <strong>Located: </strong>{props.itemLocation}</p>
+                    <p className="center"><strong>Listed Date: </strong>{props.itemDate} - <strong>Location: </strong>{props.itemLocation}</p>
                     </div>
-                    <div className="card-action">
+                    <div className="card-action center-align">
                         <Link to="#">
                         <Button label="Buy" icon="attach_money" />
                         </Link>

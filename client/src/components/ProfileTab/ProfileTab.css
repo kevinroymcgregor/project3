@@ -1,3 +1,27 @@
 .tabs {
-    background-color: #434f52 !important;
+    background-color: #1d2228 !important;
+}
+
+.tabs .tab a{
+    color:#fff;
+} /*Black color to the text*/
+
+.tabs .tab a:hover {
+    background-color:#fb8122;
+    color:#000;
+} /*Text color on hover*/
+
+.tabs .tab a:focus.active {
+    color:#fff;
+    /*Custom Text Color While Active*/
+    background-color: rgba(251, 129, 34, 0.1);
+    /*Custom Background Color While Active*/
+  }
+
+.tabs .indicator {
+    background-color:#fb8122;
+} /*Color of underline*/
+
+.tabs .tab a.active {
+    color: #fb8122;
 }

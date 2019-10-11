@@ -1,0 +1,9 @@
+.item-details-header {
+    background-color: #1d2228;
+    padding: 5px 10px !important;
+    color: #fff;
+}
+
+.item-details-price {
+    float: right;
+}
