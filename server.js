@@ -7,6 +7,8 @@ const users = require("./routes/api/users");
 const items = require("./routes/api/items");
 const app = express();
 const path = require("path");
+const upload = require("./routes/api/fileupload");
+
 
 // BODY-PARSER (MIDDLEWARE) =============================================================
 
@@ -17,7 +19,6 @@ app
     .use(bodyParser.json({ type: 'application/vnd.api+json' }))
 
 // PASSPORT CONFIG =============================================================
-
 // Passport middleware
 app.use(passport.initialize());
 // Passport config
@@ -25,6 +26,8 @@ require("./config/passport")(passport);
 // Routes
 app.use("/api/users", users);
 app.use("/api/items", items);
+app.use("/api/profile", upload);
+
 
 // DATABASE CONFIG =============================================================
 
