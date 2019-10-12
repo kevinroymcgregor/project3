@@ -15,7 +15,7 @@ const ItemCard = (props) => {
                 <p className="itemName">{props.itemName}</p>
                 <hr></hr>
                 <div className="itemPriceLocationGroup">
-                    <p className="itemPrice">{props.itemPrice}</p>
+                    <p className="itemPrice">${props.itemPrice}</p>
                     <p className="itemLocation">{props.itemLocation}</p>
                 </div>
                 <p className="itemDescription">{props.itemDescription}</p>
