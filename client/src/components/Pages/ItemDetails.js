@@ -14,7 +14,7 @@ class ItemDetails extends Component {
             <>
                 <Navbar />
                 <div className="container">
-                    <div className="back-to-dashboard center-align">
+                    <div className="back-to-dashboard">
                     <Link to="/dashboard">
                     <Button label="Back To Home" icon="home" />
                 </Link>

@@ -21,8 +21,9 @@ class Dashboard extends Component {
 
     return (
       <>
-        <Navbar />
-
+        <Navbar
+        user= {user.email}
+        />
         <div id="itemCardContainer">
           <ItemCard
             itemName="Retro Item"
