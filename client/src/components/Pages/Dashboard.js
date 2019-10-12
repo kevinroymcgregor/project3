@@ -43,6 +43,7 @@ class Dashboard extends Component {
         <div id="itemCardContainer">
           {this.state.items.map(item => (
             <ItemCard key={item._id}
+              // itemImage={item.imgs[0]}
               itemName={item.name}
               itemPrice={item.price}
               itemLocation= {`${item.sellerID[0].city}, ${item.sellerID[0].state}`}
