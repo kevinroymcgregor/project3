@@ -23,13 +23,15 @@
     "concurrently": "^4.1.2",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
+    "if-env": "^1.0.4",
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.3",
+    "multer": "^1.4.2",
+    "multer-s3": "^2.9.0",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
-    "validator": "^11.1.0",
-    "if-env": "^1.0.4"
+    "validator": "^11.1.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.3"
