@@ -1,16 +1,17 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-// Create User Schema
+// const User = require("./User/User.js")
+
 const ItemSchema = new Schema({
     name: {
         type: String,
         required: true
     },
-    sellerID: {
+    sellerID: [{
         type: Schema.Types.ObjectId,
         required: true,
-        ref: "User"
-    },
+        ref: "users"
+    }],
     //The imgs is setup to accept an array of img file locations
     imgs: [
         {
@@ -54,11 +55,11 @@ const ItemSchema = new Schema({
     bidReserve: {
         type: Number,
         default: 0
-    },
-    currentHiBidUID: {
-        type: Schema.Types.ObjectId,
-        required: false,
-        ref: "User"
     }
+    // currentHiBidUID: {
+    //     type: Schema.Types.ObjectId,
+    //     required: false,
+    //     ref: "User"
+    // }
 });
 module.exports = Item = mongoose.model("items", ItemSchema);
