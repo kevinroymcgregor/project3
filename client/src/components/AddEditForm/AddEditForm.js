@@ -27,11 +27,7 @@ class AddEditForm extends Component {
 
     handleChange = (event) => {
         event.preventDefault();
-        //     [event.target.name]: event.target.value,
-        //     [event.target.price]: event.target.value,
-        //     [event.target.category]: event.target.value,
-        //     [event.target.description]: event.target.value
-        // })
+        
         const { name, value } = event.target;
         this.setState({
             [name]: value
@@ -59,20 +55,24 @@ class AddEditForm extends Component {
 
     render() {
 
-        const { name } = this.state
-        const { price } = this.state
-        const { category } = this.state
-        const { description } = this.state
+        // <----- Testing ----->
+        // const { name } = this.state
+        // const { price } = this.state
+        // const { category } = this.state
+        // const { description } = this.state
 
         return (
             <div className="container center-align edit-form-bg">
                 <Link to="/dashboard">
                     <Button label="Back To Home" icon="home" />
                 </Link>
-                <p>Item name: {name}</p>
+
+                {/* This section was for testing puposes */}
+                {/* <p>Item name: {name}</p>
                 <p>Item price: {price}</p>
                 <p>Item category: {category}</p>
-                <p>Item description: {description}</p>
+                <p>Item description: {description}</p> */}
+
                 <div className="post-header">
                     <h4>Post an Item</h4>
                 </div>
