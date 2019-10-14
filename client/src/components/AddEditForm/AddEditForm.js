@@ -1,71 +1,144 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import Items from '../uploads/Items';
 import Button from '../Button/Button';
 import { Link } from "react-router-dom";
 import '../AddEditForm/AddEditForm.css';
+// import ItemsAPI from "../../utils/axios";
 
 class AddEditForm extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: '',
+            price: '',
+            category: '',
+            description: '',
+        };
+
+        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-      }
-    
-      handleSubmit(event) {
+    }
+
+    //   componentDidMount() {
+
+    //   }
+
+    handleChange = (event) => {
         event.preventDefault();
-        const data = new FormData(event.target);
         
-      }
-    
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        });
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        const itemData = {
+
+            name: this.state.name,
+            price: this.state.price,
+            category: this.state.category,
+            description: this.state.description
+
+        }
+        console.log(itemData)
+
+        // ItemsAPI.addItem()
+        axios.post('/api/items/addItem', itemData)
+            .then(res => console.log(res.data));
+
+        window.location = '/addedititem'
+    }
+
     render() {
+
+        // <----- Testing ----->
+        // const { name } = this.state
+        // const { price } = this.state
+        // const { category } = this.state
+        // const { description } = this.state
 
         return (
             <div className="container center-align edit-form-bg">
                 <Link to="/dashboard">
                     <Button label="Back To Home" icon="home" />
                 </Link>
+
+                {/* This section was for testing puposes */}
+                {/* <p>Item name: {name}</p>
+                <p>Item price: {price}</p>
+                <p>Item category: {category}</p>
+                <p>Item description: {description}</p> */}
+
                 <div className="post-header">
-                <h4>Post an Item</h4>
+                    <h4>Post an Item</h4>
                 </div>
-                    <form onSubmit={this.handleSubmit}>
-                        <div className="row">
-                            <div className="input-field col l6 offset-l3 m6 offset-m3 s12">
-                                <input id="item_name" type="text" className="validate" />
-                                <label htmlFor="name">Item Name</label>
-                            </div>
+                <form onSubmit={this.handleSubmit}>
+                    <div className="row">
+                        <div className="input-field col l6 offset-l3 m6 offset-m3 s12">
+                            <input
+                                id="item_name"
+                                type="text"
+                                className="validate"
+                                name="name" onChange={this.handleChange}
+                                value={this.state.name}
+                            />
+                            <label htmlFor="name">Item Name</label>
                         </div>
+                    </div>
 
-                        <div className="row">
-                            <div className="input-field col s12 m3 offset-m3 l3 offset-l3">
+                    <div className="row">
+                        <div className="input-field col s12 m3 offset-m3 l3 offset-l3">
                             <i className="small material-icons prefix">attach_money</i>
-                                <input id="item_price" type="number" className="validate" />
-                                <label htmlFor="price">Enter Price</label>
-                            </div>
-                            <div className="input-field col s12 m3 l3">                      
-                                <select>
+                            <input
+                                id="item_price"
+                                type="number"
+                                className="validate"
+                                name="price"
+                                onChange={this.handleChange}
+                                value={this.state.price}
+                            />
+                            <label htmlFor="price">Enter Price</label>
+                        </div>
+                        <div className="input-field col s12 m3 l3" name="category">
+                            <select
+                                name="category"
+                                onChange={this.handleChange}
+                                value={this.state.category}
+                            >
                                 <option value="" disabled selected>Choose a Category</option>
-                                <option value="1">Video Games</option>
-                                <option value="2">Game Consoles</option>
-                                <option value="3">Game Accessories</option>
-                                <option value="4">Board Games</option>
-                                <option value="5">Arcade</option>
-                                </select>
-                                <label>Category</label>                    
-                            </div>
+                                <option value="Video Games">Video Games</option>
+                                <option value="Game Consoles">Game Consoles</option>
+                                <option value="Game Accessories">Game Accessories</option>
+                                <option value="Board Games">Board Games</option>
+                                <option value="Arcade">Arcade</option>
+                            </select>
+                            <label>Category</label>
                         </div>
+                    </div>
 
-                        <div className="row">          
-                            <div className="input-field col l6 offset-l3  m6 offset-m3 s12">
-                                <textarea id="item_description" className="materialize-textarea validate"></textarea>
-                                <label htmlFor="desc">Item description</label>
-                            </div>
+                    <div className="row">
+                        <div className="input-field col l6 offset-l3  m6 offset-m3 s12">
+                            <textarea
+                                id="item_description"
+                                className="materialize-textarea validate"
+                                name="description"
+                                onChange={this.handleChange}
+                                value={this.state.description}
+                            />
+                            <label htmlFor="desc">Item description</label>
                         </div>
+                    </div>
 
-                        <div className="row">
-                            <Items />
-                        </div>
-                        <Button label="Submit" icon="check" type="submit" />                      
-                    </form>
+                    <div className="row">
+                        <Items />
+                    </div>
+                    <input type="submit" value="Submit" />
+                    {/* <Button label="Submit" icon="check" type="submit" />*/}
+                </form>
             </div>
         )
     }

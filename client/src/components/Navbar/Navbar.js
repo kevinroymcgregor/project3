@@ -30,10 +30,7 @@ class Navbar extends Component {
             <ul className="left">
             <li>
                 <Link
-                  to="/"
-                  style={{
-                    fontFamily: "monospace"
-                  }}
+                  to="/dashboard"
                   className="brand-logo">
                   RETRO-TRADE
               </Link></li>
@@ -52,7 +49,7 @@ class Navbar extends Component {
                 </form>
               </div>
 
-            <ul className="right hide-on-med-and-down">    
+            <ul className="right hide-on-med-and-down"> 
               <li>
                 <Link to="/addedititem"><i className="large material-icons nav-icons">photo_camera</i></Link>
               </li>
@@ -66,6 +63,9 @@ class Navbar extends Component {
 
       {/* Sidenav */}
       <ul id="slide-out" className="sidenav">
+        <li className='center-align'><strong>{this.props.user}</strong></li>
+        <li className="divider"></li> 
+        <li><Link to="/dashboard"><i className="material-icons">home</i>Home</Link></li>
         <li><Link to="/addedititem"><i className="material-icons">photo_camera</i>Sell Item</Link></li>
         <li><a href="#!"><i className="material-icons">chat_bubble</i>Messages</a></li>
         <li><Link to="/profile"><i className="material-icons">settings</i>Account</Link></li>

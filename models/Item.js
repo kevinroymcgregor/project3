@@ -5,14 +5,14 @@ const Schema = mongoose.Schema;
 const ItemSchema = new Schema({
     name: {
         type: String,
-        required: true
+        // required: true
     },
     sellerID: [{
         type: Schema.Types.ObjectId,
         required: true,
         ref: "users"
     }],
-    //The imgs is setup to accept an array of img file locations
+    // The imgs is setup to accept an array of img file locations
     imgs: [
         {
             type: String,
@@ -21,11 +21,11 @@ const ItemSchema = new Schema({
     ],
     price: {
         type: Number,
-        required: true
+        // required: true
     },
-    desc: {
+    description: {
         type: String,
-        required: true
+        // required: true
     },
     createdDate: {
         type: Date,
@@ -35,10 +35,10 @@ const ItemSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    enabled: {
-        type: Boolean,
-        default: true
-    },
+    // enabled: {
+    //     type: Boolean,
+    //     default: true
+    // },
     // S = Sell, T = Trade, B = Bid.  
     STB: {
         type: String,
@@ -55,6 +55,10 @@ const ItemSchema = new Schema({
     bidReserve: {
         type: Number,
         default: 0
+    },
+    category: {
+        type: String,
+        // required: true
     }
     // currentHiBidUID: {
     //     type: Schema.Types.ObjectId,

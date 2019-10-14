@@ -5,10 +5,10 @@ import '../ProfileDetailsCard/ProfileDetailsCard.css';
 
 const ProfileDetailsCard = (props) => {
     return (
-        <div className="col s12">
+        <div className="col l12">
         <h5 className="header center">Account Details</h5>
         <div className="card horizontal">
-          <div className="card-image">
+          <div className="card-image col l4 m4">
            <ProfileImage />
           </div>
           <div className="card-stacked">

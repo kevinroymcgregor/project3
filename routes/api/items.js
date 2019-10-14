@@ -16,9 +16,10 @@ router.post("/addItem", async (req, res) => {
         sellerID: req.body.sellerID,
         imgs: req.body.imgs,
         price: req.body.price,
-        desc: req.body.desc,
-        STB: req.body.STB,
-        bidReserve: req.body.bidReserve
+        description: req.body.description,
+        category: req.body.category
+        // STB: req.body.STB,
+        // bidReserve: req.body.bidReserve
     });
 
     newItem
@@ -33,7 +34,8 @@ router.post("/addItem", async (req, res) => {
 
 router.get("/getItems", (req,res) => {
     Item.find()
-    .populate("sellerID")
+    // .populate("sellerID")
+    .then(items => res.json(items))
     .then(itemList => res.json(itemList));
 })
 

@@ -7,19 +7,17 @@ import { Link } from "react-router-dom";
 
 
 class Profile extends Component {
-    //set the components initial state
     state = {
         user: "",
-        avatar: "",
         id: "",
-        location: "",
+        avatar: "",
         email: "",
-        phone: "",
-        selling: []
+        city: "",
+        state: "",
+        zip: "",
+        phone: ""
     }
 
-
-    // render to page
     render() {
         return (
             <>
