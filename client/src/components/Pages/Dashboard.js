@@ -52,7 +52,7 @@ class Dashboard extends Component {
           ))}
           {/* <ItemCard
             itemName="Retro Item"
-            itemPrice="$100"
+            itemPrice="100"
             itemLocation="Phoenix, AZ"
             itemDescription="This is a bunch of placeholder text that can be removed. It was only added to make the demo ItemCard component display properly. I am writing extra text in here so that it will properly test the overflow css." /> */}
         </div>

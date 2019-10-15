@@ -34,3 +34,23 @@ body {
 .loginBtn {
   color: black !important;
 }
+
+#registerButtonDiv {
+  position: absolute;
+  left: 15vw;
+  bottom: 15vw;
+}
+
+#logInButtonDiv {
+  position: absolute;
+  right: 15vw;
+  bottom: 15vw;
+}
+
+#registerButton {
+  width: 250px !important;
+}
+
+#logInButton {
+  width: 250px !important;
+}
