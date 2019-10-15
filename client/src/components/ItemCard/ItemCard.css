@@ -32,6 +32,7 @@
     justify-content: space-evenly;
     max-height: 100%;
     min-height: 100%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 p.itemName {
@@ -39,12 +40,16 @@ p.itemName {
     font-size: 2rem;
     font-weight: bold;
     text-align: center;
+    background-color: #fb8c00;
+    font-family: johnny-fever;
 }
 
 .itemPriceLocationGroup {
     display: flex;
     justify-content: space-evenly;
     text-align: center;
+    text-decoration: underline;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 p.itemPrice {
@@ -64,6 +69,7 @@ p.itemDescription {
     font-size: 1.1rem;
     max-height: 75px;
     overflow: hidden;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 hr {
