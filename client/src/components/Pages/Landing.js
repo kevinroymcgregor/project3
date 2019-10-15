@@ -7,11 +7,12 @@ class Landing extends Component {
     return (
       <>
         <PageLabel />
-        <div style={{ height: "75vh" }} className="container valign-wrapper">
+        <div className="container valign-wrapper">
           <div className="row">
             <div className="col s12 center-align">
               <br />
-              <div className="col s6">
+              {/* <div className="col s6" id="registerButtonDiv"> */}
+              <div id="registerButtonDiv">
                 <Link
                   to="/register"
                   style={{
@@ -20,11 +21,13 @@ class Landing extends Component {
                     letterSpacing: "1.5px"
                   }}
                   className="btn btn-large waves-effect waves-light hoverable orange darken-1"
+                  id="registerButton"
                 >
                   Register
               </Link>
               </div>
-              <div className="col s6">
+              {/* <div className="col s6" id="logInButtonDiv"> */}
+              <div id="logInButtonDiv">
                 <Link
                   to="/login"
                   style={{
@@ -33,6 +36,7 @@ class Landing extends Component {
                     letterSpacing: "1.5px"
                   }}
                   className="btn btn-large waves-effect waves-light hoverable grey lighten-5 loginBtn"
+                  id="logInButton"
                 >
                   Log In
               </Link>
