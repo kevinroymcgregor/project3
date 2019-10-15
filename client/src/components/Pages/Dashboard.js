@@ -37,18 +37,17 @@ class Dashboard extends Component {
 
     return (
       <>
-        <Navbar
-        user= {user.email}
-        />
+        <Navbar />
         <div id="itemCardContainer">
           {this.state.items.map(item => (
             <ItemCard key={item._id}
               itemImage={item.imgs[0]}
               itemName={item.name}
               itemPrice={item.price}
-              // itemLocation= {`${item.sellerID[0].city}, ${item.sellerID[0].state}`}
+              itemLocation= {`${item.sellerID[0].city}, ${item.sellerID[0].state}`}
               itemCategory={item.category} 
-              itemDescription={item.description} />
+              itemDescription={item.description}
+              />
           ))}
           {/* <ItemCard
             itemName="Retro Item"
