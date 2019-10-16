@@ -91,7 +91,7 @@ class Items extends Component {
 					</div>
 					<div className="card-body">
 						<p className="card-text">Please upload the Images for your gallery (max size: 5MB)</p>
-						<input type="file" multiple onChange={this.multipleFileChangedHandler}/>
+						<input type="file" multiple onChange={this.multipleFileChangedHandler} />
 						<div className="mt-5">
 							<button className="btn btn-info" onClick={this.multipleFileUploadHandler}>Upload!</button>
 						</div>

@@ -3,15 +3,26 @@ import { Link } from "react-router-dom";
 import '../Navbar/Navbar.css';
 import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 
 class Navbar extends Component {
+
+  static propTypes = {
+    auth: PropTypes.object.isRequired
+  }
 
   componentDidMount() {
     M.AutoInit();
   }
 
   render() {
+    const { isAuthenticated, user } = this.props.auth;
+    
+    const authLinks =(
+      <p>{ user ? `Welcome ${user.email }` : ''}</p>
+    )
     return (
       <>
       <div className="navbar-fixed">
@@ -49,7 +60,8 @@ class Navbar extends Component {
                 </form>
               </div>
 
-            <ul className="right hide-on-med-and-down"> 
+            <ul className="right hide-on-med-and-down">
+              {/* <li>{isAuthenticated ? authLinks : ''}</li>  */}
               <li>
                 <Link to="/addedititem"><i className="large material-icons nav-icons">photo_camera</i></Link>
               </li>
@@ -92,6 +104,10 @@ class Navbar extends Component {
     );
   }
 }
-export default Navbar;
+const mapStateToProps = state => ({
+  auth: state.auth
+})
+
+export default connect(mapStateToProps, null)(Navbar);
 
 

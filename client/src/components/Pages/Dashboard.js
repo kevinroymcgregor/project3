@@ -37,9 +37,7 @@ class Dashboard extends Component {
 
     return (
       <>
-        <Navbar
-        user= {user.email}
-        />
+        <Navbar />
         <div id="itemCardContainer">
           {this.state.items.map(item => (
             <ItemCard key={item._id}
@@ -48,7 +46,8 @@ class Dashboard extends Component {
               itemPrice={item.price}
               itemLocation= {`${item.sellerID[0].city}, ${item.sellerID[0].state}`}
               itemCategory={item.category} 
-              itemDescription={item.description} />
+              itemDescription={item.description}
+              />
           ))}
           {/* <ItemCard
             itemName="Retro Item"
@@ -74,7 +73,7 @@ class Dashboard extends Component {
                   marginTop: "1rem"
                 }}
                 onClick={this.onLogoutClick}
-                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                className="btn btn-large waves-effect waves-light hoverable orange darken-1"
               >
                 Logout
 

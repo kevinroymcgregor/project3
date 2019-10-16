@@ -34,7 +34,8 @@ router.post("/addItem", async (req, res) => {
 
 router.get("/getItems", (req,res) => {
     Item.find()
-    // .populate("sellerID")
+    .populate("sellerID")
+    .sort({ createdDate: -1 })
     .then(items => res.json(items))
     .then(itemList => res.json(itemList))
     .catch(err => console.log(err));

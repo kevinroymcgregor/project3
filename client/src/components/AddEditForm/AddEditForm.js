@@ -5,6 +5,8 @@ import Button from '../Button/Button';
 import { Link } from "react-router-dom";
 import '../AddEditForm/AddEditForm.css';
 // import ItemsAPI from "../../utils/axios";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 class AddEditForm extends Component {
 
@@ -14,16 +16,16 @@ class AddEditForm extends Component {
             name: '',
             price: '',
             category: '',
-            description: '',
+            description: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    //   componentDidMount() {
-
-    //   }
+    static propTypes = {
+        auth: PropTypes.object.isRequired
+      }
 
     handleChange = (event) => {
         event.preventDefault();
@@ -41,7 +43,8 @@ class AddEditForm extends Component {
             name: this.state.name,
             price: this.state.price,
             category: this.state.category,
-            description: this.state.description
+            description: this.state.description,
+            sellerID: this.props.auth.user.id
 
         }
         console.log(itemData)
@@ -50,7 +53,7 @@ class AddEditForm extends Component {
         axios.post('/api/items/addItem', itemData)
             .then(res => console.log(res.data));
 
-        window.location = '/addedititem'
+        // window.location = '/addedititem'
     }
 
     componentDidMount(){
@@ -58,6 +61,9 @@ class AddEditForm extends Component {
     }
 
     render() {
+
+        const { isAuthenticated, user } = this.props.auth;
+        
 
         // <----- Testing ----->
         // const { name } = this.state
@@ -70,7 +76,7 @@ class AddEditForm extends Component {
                 <Link to="/dashboard">
                     <Button label="Back To Home" icon="home" />
                 </Link>
-
+     
                 {/* This section was for testing puposes */}
                 {/* <p>Item name: {name}</p>
                 <p>Item price: {price}</p>
@@ -148,4 +154,8 @@ class AddEditForm extends Component {
     }
 }
 
-export default AddEditForm;
+const mapStateToProps = state => ({
+  auth: state.auth
+})
+
+export default connect(mapStateToProps, null)(AddEditForm);
