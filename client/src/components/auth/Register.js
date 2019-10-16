@@ -75,11 +75,11 @@ class Register extends Component {
               <i className="material-icons left">keyboard_backspace</i> Home
             </Link>
             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-              <h4 style={{ fontFamily: "johnny-fever" }}>
-                <b>Register</b>
+              <h4>
+                Register
               </h4>
-              <p className="black-text text-darken-1">
-                Already have an account? <Link to="/login" id="goToOtherPageFormLink"> Click here to Login</Link>
+              <p className="black-text text-darken-1 alreadyHaveAccountText">
+                Already have an account? <Link to="/login" className="goToOtherPageFormLink"> Click here to Login</Link>
               </p>
             </div>
             <form noValidate onSubmit={this.onSubmit}>
@@ -209,13 +209,13 @@ class Register extends Component {
                 <label htmlFor="name">Phone</label>
                 <span className="red-text">{errors.phone}</span>
               </div>
-              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+              <div className="col s12 center-align" style={{ paddingLeft: "11.250px" }}>
                 <button
                   style={{
                     width: "150px",
                     borderRadius: "3px",
                     letterSpacing: "1.5px",
-                    marginTop: "1rem"
+                    marginTop: "1rem",
                   }}
                   type="submit"
                   className="btn btn-large waves-effect waves-light hoverable orange darken-3"

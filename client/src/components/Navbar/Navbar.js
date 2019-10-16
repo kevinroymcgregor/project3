@@ -56,9 +56,9 @@ class Navbar extends Component {
             </ul>
             
               <div className="nav-wrapper search-form">
-                <form action="" method="post" className="hide-on-med-and-down">
+                <form action="/dashboard" method="GET" className="hide-on-med-and-down">
                   <div className="input-field main">
-                    <input id="search" type="search" required />
+                    <input id="search" type="search" name="search" required />
                     <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
                     <i className="material-icons">close</i>
                   </div>
@@ -68,7 +68,7 @@ class Navbar extends Component {
             <ul className="right hide-on-med-and-down">
               {/* <li>{isAuthenticated ? authLinks : ''}</li>  */}
               <li>
-                <Link to="/addedititem"><i className="large material-icons nav-icons">photo_camera</i></Link>
+                <Link to="/addedititem"><i className="large material-icons nav-icons">add_circle</i></Link>
               </li>
               <li><a href="#"><i className="large material-icons nav-icons">chat_bubble</i></a></li>
               <li><a className="dropdown-trigger" href="#!" data-target="dropdown1"><i className="large material-icons nav-icons">person</i></a></li>
@@ -89,7 +89,7 @@ class Navbar extends Component {
         <li><a href="#!" onClick={this.onLogoutClick}><i className="material-icons">person</i>Logout</a></li>
         <li><div className="divider"></div></li>
 
-        <form action="" method="post">
+        <form action="/dashboard" method="GET">
           <div className="input-field">
             <input id="search" type="search" required placeholder="Search..." />
             <i className="material-icons">close</i>

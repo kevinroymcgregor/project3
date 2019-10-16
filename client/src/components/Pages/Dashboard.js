@@ -19,7 +19,7 @@ class Dashboard extends Component {
     items: []
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.loadItems();
   }
 
@@ -44,11 +44,12 @@ class Dashboard extends Component {
               itemImage={item.imgs[0]}
               itemName={item.name}
               itemPrice={item.price}
-              itemLocation= {`${item.sellerID[0].city}, ${item.sellerID[0].state}`}
-              itemCategory={item.category} 
+              itemLocation={`${item.sellerID[0].city}, ${item.sellerID[0].state}`}
+              itemCategory={item.category}
               itemDescription={item.description}
               itemImages={item.imgs[0]}
               />
+
           ))}
           {/* <ItemCard
             itemName="Retro Item"
@@ -82,6 +83,9 @@ class Dashboard extends Component {
             </div>
           </div>
         </div> */}
+
+        <a className="btn-floating btn-large waves-effect waves-light orange darken-3 z-depth-3" id="scrollToTopButton"><i className="material-icons">arrow_upward</i></a>
+
         <Footer />
       </>
     );
