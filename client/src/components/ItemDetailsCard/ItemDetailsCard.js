@@ -4,7 +4,7 @@ import Button from '../Button/Button';
 import '../ItemDetailsCard/ItemDetailsCard.css';
 
 const ItemDetailsCard = (props) => {
-
+    // console.log(props)
     return (
         
                 <div className="card details-card">
