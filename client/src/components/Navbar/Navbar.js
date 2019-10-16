@@ -69,7 +69,7 @@ class Navbar extends Component {
             <ul className="right hide-on-med-and-down">
               {/* <li>{isAuthenticated ? authLinks : ''}</li>  */}
               <li>
-                <Link to="/addedititem"><i className="large material-icons nav-icons">photo_camera</i></Link>
+                <Link to="/addedititem"><i className="large material-icons nav-icons">add_circle</i></Link>
               </li>
               <li><a href="#"><i className="large material-icons nav-icons">chat_bubble</i></a></li>
               <li><a className="dropdown-trigger" href="#!" data-target="dropdown1"><i className="large material-icons nav-icons">person</i></a></li>
