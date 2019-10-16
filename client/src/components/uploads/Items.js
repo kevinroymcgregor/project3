@@ -90,10 +90,10 @@ class Items extends Component {
 						<h5 style={{ color: '#555', marginLeft: '12px' }}>Select item images for upload</h5>
 					</div>
 					<div className="card-body">
-						<p className="card-text">Please upload the Images for your gallery (max size: 5MB)</p>
+						<p className="card-text">Please upload the Images for your gallery (max size: 5MB) - Max. Files: 4</p>
 						<input type="file" multiple onChange={this.multipleFileChangedHandler} />
 						<div className="mt-5">
-							<button className="btn btn-info" onClick={this.multipleFileUploadHandler}>Upload!</button>
+							<button className="btn btn-info" onClick={this.multipleFileUploadHandler}>Submit</button>
 						</div>
 					</div>
 				</div>

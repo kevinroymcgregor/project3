@@ -42,15 +42,14 @@ class Navbar extends Component {
         </ul>
 
         {/* Main nav */}
-        <nav className="">
+        <nav>
           <div className="nav-wrapper">
             <ul className="left">
-            <li>
-                <Link
-                  to="/dashboard"
-                  className="brand-logo">
+              <li>
+                <Link to="/dashboard" className="brand-logo">
                   RETRO-TRADE
-              </Link></li>
+                </Link>
+              </li>
               <li>
                 <a href="#" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
               </li>

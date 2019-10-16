@@ -18,7 +18,7 @@ router.post("/addItem", async (req, res) => {
         price: req.body.price,
         description: req.body.description,
         category: req.body.category
-        // STB: req.body.STB,
+        // STB: req.body.STB
         // bidReserve: req.body.bidReserve
     });
 

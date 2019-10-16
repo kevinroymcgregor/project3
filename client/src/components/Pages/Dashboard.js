@@ -47,7 +47,9 @@ class Dashboard extends Component {
               itemLocation={`${item.sellerID[0].city}, ${item.sellerID[0].state}`}
               itemCategory={item.category}
               itemDescription={item.description}
-            />
+              itemImages={item.imgs[0]}
+              />
+
           ))}
           {/* <ItemCard
             itemName="Retro Item"
