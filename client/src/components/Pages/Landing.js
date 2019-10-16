@@ -7,13 +7,9 @@ class Landing extends Component {
     return (
       <>
         <PageLabel />
-        <div className="container valign-wrapper">
           <div className="row">
-            <div className="col s12 center-align">
-              <br />
-              {/* <div className="col s6" id="registerButtonDiv"> */}
-              <div id="registerButtonDiv">
-                <Link
+            <div className="col m6 s12 center-align">
+            <Link
                   to="/register"
                   style={{
                     width: "140px",
@@ -25,10 +21,9 @@ class Landing extends Component {
                 >
                   Register
               </Link>
-              </div>
-              {/* <div className="col s6" id="logInButtonDiv"> */}
-              <div id="logInButtonDiv">
-                <Link
+            </div>
+            <div className="col m6 s12 center-align">
+            <Link
                   to="/login"
                   style={{
                     width: "140px",
@@ -40,10 +35,9 @@ class Landing extends Component {
                 >
                   Log In
               </Link>
-              </div>
             </div>
+            
           </div>
-        </div>
       </>
     );
   }
