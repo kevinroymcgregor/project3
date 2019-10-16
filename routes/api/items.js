@@ -33,7 +33,7 @@ router.post("/addItem", async (req, res) => {
 });
 
 router.get("/getItems", (req,res) => {
-    Item.find()
+    Item.find({enabled: true})
     .populate("sellerID")
     .sort({ createdDate: -1 })
     .then(items => res.json(items))
@@ -50,15 +50,16 @@ router.get("/getItemByID/:ID", (req,res) => {
 })
 
 router.put("/deleteItem/:ID", (req, res) => {
-    Item.update( {_id: req.params.ID}, {enabled: false})
+    Item.updateOne( {_id: req.params.ID}, {enabled: false})
     .then(console.log("Deleted Successfully"))
     .catch(err => console.log(err));
 })
 
 router.put("/updateItem/:ID", (req, res) => {
-    Item.update( {_id: req.params.ID}, {
+    Item.updateOne( {_id: req.params.ID}, {
         name: req.body.name,
         price: req.body.price,
+        imgs: req.body.imgs,
         description: req.body.description,
         category: req.body.category
     })

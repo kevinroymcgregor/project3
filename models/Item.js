@@ -35,10 +35,10 @@ const ItemSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    // enabled: {
-    //     type: Boolean,
-    //     default: true
-    // },
+    enabled: {
+        type: Boolean,
+        default: true
+    },
     // S = Sell, T = Trade, B = Bid.  
     STB: {
         type: String,
