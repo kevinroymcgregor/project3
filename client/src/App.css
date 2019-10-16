@@ -8,6 +8,10 @@
   padding: 0;
 }
 
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 input:focus {
   border-bottom: 1px solid #fb8122 !important;
   box-shadow: 0 1px 0 0 #fb8122 !important;
@@ -31,18 +35,6 @@ body {
   background-color: #b2b4b2;
 }
 
-#registerButtonDiv {
-  position: absolute;
-  left: 15vw;
-  bottom: 15vw;
-}
-
-#logInButtonDiv {
-  position: absolute;
-  right: 15vw;
-  bottom: 15vw;
-}
-
 #registerButton {
   width: 250px !important;
   margin: 50px;
@@ -60,14 +52,6 @@ body {
 
 #goToOtherPageFormLink:hover {
   color: #fafafa;
-}
-
-#loginForm {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-#registerForm {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /* MATERIALIZE FORM CSS */
