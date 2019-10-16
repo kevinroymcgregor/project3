@@ -79,7 +79,7 @@ class Register extends Component {
                 <b>Register</b>
               </h4>
               <p className="black-text text-darken-1">
-                Already have an account? <Link to="/login" id="goToOtherPageFormLink"> Click here to Login</Link>
+                Already have an account? <Link to="/login" className="goToOtherPageFormLink"> Click here to Login</Link>
               </p>
             </div>
             <form noValidate onSubmit={this.onSubmit}>

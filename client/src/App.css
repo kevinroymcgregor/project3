@@ -46,11 +46,11 @@ body {
   margin: 50px;
 }
 
-#goToOtherPageFormLink {
+.goToOtherPageFormLink {
   color: #fb8122;
 }
 
-#goToOtherPageFormLink:hover {
+.goToOtherPageFormLink:hover {
   color: #fafafa;
 }
 
