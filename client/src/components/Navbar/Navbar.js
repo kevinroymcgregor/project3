@@ -5,9 +5,15 @@ import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { logoutUser } from "../../actions/authActions";
 
 
 class Navbar extends Component {
+
+  onLogoutClick = e => {
+    e.preventDefault();
+    this.props.logoutUser();
+  };
 
   static propTypes = {
     auth: PropTypes.object.isRequired
@@ -18,7 +24,7 @@ class Navbar extends Component {
   }
 
   render() {
-    const { isAuthenticated, user } = this.props.auth;
+    const {  user } = this.props.auth;
     
     const authLinks =(
       <p>{ user ? `Welcome ${user.email }` : ''}</p>
@@ -32,7 +38,7 @@ class Navbar extends Component {
           <li> <Link to="/profile">Account</Link></li>
           <li><a href="#!">Messages</a></li>
           <li className="divider"></li>
-          <li><a href="#!">Logout</a></li>
+          <li><a href="#!" onClick={this.onLogoutClick}>Logout</a></li>
         </ul>
 
         {/* Main nav */}
@@ -81,13 +87,12 @@ class Navbar extends Component {
         <li><Link to="/addedititem"><i className="material-icons">photo_camera</i>Sell Item</Link></li>
         <li><a href="#!"><i className="material-icons">chat_bubble</i>Messages</a></li>
         <li><Link to="/profile"><i className="material-icons">settings</i>Account</Link></li>
-        <li><a href="#!"><i className="material-icons">person</i>Logout</a></li>
+        <li><a href="#!" onClick={this.onLogoutClick}><i className="material-icons">person</i>Logout</a></li>
         <li><div className="divider"></div></li>
 
         <form action="" method="post">
           <div className="input-field">
-            <input id="search" type="search" required />
-            <label className="label-icon right" htmlFor="text"><i className="material-icons">search</i></label>
+            <input id="search" type="search" required placeholder="Search..." />
             <i className="material-icons">close</i>
           </div>
         </form>
@@ -104,10 +109,19 @@ class Navbar extends Component {
     );
   }
 }
+
+Navbar.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+
 const mapStateToProps = state => ({
   auth: state.auth
 })
 
-export default connect(mapStateToProps, null)(Navbar);
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+   )(Navbar);
 
 
