@@ -9,7 +9,7 @@ const ItemCard = (props) => {
 
         <div className="itemCard">
             <div className="itemCardImage">
-                <img src="https://via.placeholder.com/1000" alt="placeholder" />
+                <img src={props.itemImages} alt="placeholder" />
             </div>
             <div className="itemCardInfoGroup">
                 <p className="itemName">{props.itemName}</p>
