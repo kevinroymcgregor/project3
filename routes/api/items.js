@@ -36,13 +36,33 @@ router.get("/getItems", (req,res) => {
     Item.find()
     // .populate("sellerID")
     .then(items => res.json(items))
-    .then(itemList => res.json(itemList));
+    .then(itemList => res.json(itemList))
+    .catch(err => console.log(err));
+
 })
 
 router.get("/getItemByID/:ID", (req,res) => {
     Item.findById(req.params.ID)
     .populate("sellerID")
-    .then(itemList => res.json(itemList));
+    .then(itemList => res.json(itemList))
+    .catch(err => console.log(err));
+})
+
+router.put("/deleteItem/:ID", (req, res) => {
+    Item.update( {_id: req.params.ID}, {enabled: false})
+    .then(console.log("Deleted Successfully"))
+    .catch(err => console.log(err));
+})
+
+router.put("/updateItem/:ID", (req, res) => {
+    Item.update( {_id: req.params.ID}, {
+        name: req.body.name,
+        price: req.body.price,
+        description: req.body.description,
+        category: req.body.category
+    })
+    .then(console.log("Updated Successfully"))
+    .catch(err => console.log(err));
 })
 
 module.exports = router;

@@ -53,6 +53,10 @@ class AddEditForm extends Component {
         window.location = '/addedititem'
     }
 
+    componentDidMount(){
+        console.log(this.props);
+    }
+
     render() {
 
         // <----- Testing ----->

@@ -46,7 +46,7 @@ class Dashboard extends Component {
               itemImage={item.imgs[0]}
               itemName={item.name}
               itemPrice={item.price}
-              // itemLocation= {`${item.sellerID[0].city}, ${item.sellerID[0].state}`}
+              itemLocation= {`${item.sellerID[0].city}, ${item.sellerID[0].state}`}
               itemCategory={item.category} 
               itemDescription={item.description} />
           ))}
