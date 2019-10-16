@@ -45,11 +45,13 @@ body {
 
 #registerButton {
   width: 250px !important;
+  margin: 50px;
 }
 
 #logInButton {
   width: 250px !important;
   color: black !important;
+  margin: 50px;
 }
 
 #goToOtherPageFormLink {

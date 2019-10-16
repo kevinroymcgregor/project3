@@ -23,7 +23,11 @@ const ItemCard = (props) => {
                 <hr></hr>
                 <div className="buttonGroup">
                     <Link to="/itemdetails">
-                    <Button label="Details" icon="search" />
+                    <Button 
+                        label="Details" 
+                        icon="search" 
+                        itemId={props.itemId}
+                        />
                     </Link>
                     <Button label="Message" icon="message" />
                     <Button label="Make Offer" icon="attach_money" />
