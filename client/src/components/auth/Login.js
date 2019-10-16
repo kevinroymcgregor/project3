@@ -61,10 +61,10 @@ class Login extends Component {
               home
             </Link>
             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-              <h4 style={{ fontFamily: "johnny-fever" }}>
-                <b>Login</b>
+              <h4>
+                Login
               </h4>
-              <p className="black-text text-darken-1">
+              <p className="black-text text-darken-1 alreadyHaveAccountText">
                 Don't have an account? <Link to="/register" className="goToOtherPageFormLink">Click here to Register</Link>
               </p>
             </div>
@@ -103,7 +103,7 @@ class Login extends Component {
                   {errors.passwordincorrect}
                 </span>
               </div>
-              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+              <div className="col s12 center-align" style={{ paddingLeft: "11.250px" }}>
                 <button
                   style={{
                     width: "150px",

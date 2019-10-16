@@ -31,7 +31,6 @@ ul.dropdown-content.select-dropdown li span {
 }
 
 body {
-  /* background-color: #f8f8ff; */
   background-color: #b2b4b2;
 }
 
@@ -54,32 +53,50 @@ body {
   color: #fafafa;
 }
 
+.alreadyHaveAccountText {
+  font-weight: bold;
+  text-align: center;
+}
+
+h4 {
+  font-family: johnny-fever;
+  text-align: center;
+  font-size: 54px;
+  font-weight: bold;
+}
+
 /* MATERIALIZE FORM CSS */
 
 /* label color */
 .input-field label {
   color: #000;
+  font-weight: bold;
 }
 /* label focus color */
 .input-field input[type=text]:focus + label {
   color: #000;
+  font-weight: bold;
 }
 /* label underline focus color */
 .input-field input[type=text]:focus {
   border-bottom: 1px solid #000;
   box-shadow: 0 1px 0 0 #000;
+  font-weight: bold;
 }
 /* valid color */
 .input-field input[type=text].valid {
   border-bottom: 1px solid #000;
   box-shadow: 0 1px 0 0 #000;
+  font-weight: bold;
 }
 /* invalid color */
 .input-field input[type=text].invalid {
   border-bottom: 1px solid #000;
   box-shadow: 0 1px 0 0 #000;
+  font-weight: bold;
 }
 /* icon prefix focus color */
 .input-field .prefix.active {
   color: #000;
+  font-weight: bold;
 }
