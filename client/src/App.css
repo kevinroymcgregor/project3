@@ -65,6 +65,12 @@ h4 {
   font-weight: bold;
 }
 
+#scrollToTopButton {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+}
+
 /* MATERIALIZE FORM CSS */
 
 /* label color */
