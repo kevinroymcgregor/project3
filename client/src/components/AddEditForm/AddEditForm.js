@@ -230,10 +230,18 @@ class AddEditForm extends Component {
                 <div className="card-body">
                     <p className="card-text">Please upload the Images for your gallery (max size: 5MB | max files: 4)</p>
                     <br></br>
-                    <input type="file" multiple onChange={this.multipleFileChangedHandler} />
+                    <div className="file-field input-field fileUploadDiv">
+                        <div className="btn" style={{ backgroundColor: "#fb8122" }}>
+                            <span>Choose Files</span>
+                            <input type="file" multiple onChange={this.multipleFileChangedHandler} />
+                        </div>
+                        <div className="file-path-wrapper">
+                            <input className="file-path validate" type="text" placeholder="Upload one or more files" />
+                        </div>
+                    </div>
                     <div className="mt-5">
                         <br></br>
-                        <button className="btn btn-info" style={{backgroundColor: "#fb8122"}} onClick={this.multipleFileUploadHandler}>Submit</button>
+                        <button className="btn btn-info addEditSubmitBtn" style={{ width: "250px", height: "50px", backgroundColor: "#fb8122", fontSize: "24px" }} onClick={this.multipleFileUploadHandler}>Submit</button>
                     </div>
                     <br></br>
                     <Link to="/dashboard">
