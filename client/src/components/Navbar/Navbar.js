@@ -83,7 +83,7 @@ class Navbar extends Component {
         <li className='center-align'><strong>{this.props.user}</strong></li>
         <li className="divider"></li> 
         <li><Link to="/dashboard"><i className="material-icons">home</i>Home</Link></li>
-        <li><Link to="/addedititem"><i className="material-icons">photo_camera</i>Sell Item</Link></li>
+        <li><Link to="/addedititem"><i className="material-icons">add_circle</i>Sell Item</Link></li>
         <li><a href="#!"><i className="material-icons">chat_bubble</i>Messages</a></li>
         <li><Link to="/profile"><i className="material-icons">settings</i>Account</Link></li>
         <li><a href="#!" onClick={this.onLogoutClick}><i className="material-icons">person</i>Logout</a></li>
