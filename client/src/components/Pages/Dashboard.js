@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+//import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { logoutUser } from "../../actions/authActions";
 import Navbar from '../Navbar/Navbar'
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer.js";
 import ItemCard from "../ItemCard/ItemCard";
 import ItemsAPI from "../../utils/axios";
@@ -35,7 +35,7 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { user } = this.props.auth;
+    //const { user } = this.props.auth;
     console.log(this.state.items);
     console.log(this.state.searchText);
 
@@ -57,8 +57,9 @@ class Dashboard extends Component {
           )).filter(i => {
             let searchHaystack = i.props.itemName.toLowerCase();
             let searchHaystack2 = i.props.itemDescription.toLowerCase();
+            let searchHaystack3 = i.props.itemCategory.toLowerCase();
             let searchNeedle = this.state.searchText.toLowerCase();
-            return searchNeedle === '' ? true : (searchHaystack.indexOf(searchNeedle) > -1) || (searchHaystack2.indexOf(searchNeedle) > -1);
+            return searchNeedle === '' ? true : (searchHaystack.indexOf(searchNeedle) > -1) || (searchHaystack2.indexOf(searchNeedle) > -1) || (searchHaystack3.indexOf(searchNeedle) > -1);
           })}
           {/* <ItemCard
             itemName="Retro Item"
