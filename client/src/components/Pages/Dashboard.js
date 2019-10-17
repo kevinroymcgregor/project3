@@ -36,9 +36,7 @@ class Dashboard extends Component {
 
   render() {
     const { user } = this.props.auth;
-    console.log(user)
     console.log(this.state.items);
-    console.log('rerender')
     console.log(this.state.searchText);
 
     return (
@@ -58,8 +56,9 @@ class Dashboard extends Component {
 
           )).filter(i => {
             let searchHaystack = i.props.itemName.toLowerCase();
+            let searchHaystack2 = i.props.itemDescription.toLowerCase();
             let searchNeedle = this.state.searchText.toLowerCase();
-            return searchNeedle == '' ? true : (searchHaystack.indexOf(searchNeedle) > -1);
+            return searchNeedle === '' ? true : (searchHaystack.indexOf(searchNeedle) > -1) || (searchHaystack2.indexOf(searchNeedle) > -1);
           })}
           {/* <ItemCard
             itemName="Retro Item"
