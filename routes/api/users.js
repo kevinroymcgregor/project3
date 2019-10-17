@@ -108,4 +108,17 @@ router.post("/login", (req, res) => {
   });
 });
 
+router.get("/getUserById/:ID", (req, res) => {
+  User.findById(req.params.id)
+  .then(user => res.json(user))
+  // .then(function(err, user){
+  //   console.log(user)
+  //   if(err){
+  //     res.send(err)
+  //   } else {
+  //     res.json(user)
+  //   }
+  // })
+});
+
 module.exports = router;

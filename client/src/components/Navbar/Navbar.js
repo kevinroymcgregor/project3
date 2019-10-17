@@ -25,7 +25,7 @@ class Navbar extends Component {
 
   render() {
     const {  user } = this.props.auth;
-    
+    console.log(user)
     const authLinks =(
       <p>{ user ? `Welcome ${user.email }` : ''}</p>
     )
@@ -35,7 +35,8 @@ class Navbar extends Component {
 
         {/* Right side menu dropdown */}
         <ul id="dropdown1" className="dropdown-content">
-          <li> <Link to="/profile">Account</Link></li>
+          <li>
+            <Link to="/profile">Account</Link></li>
           <li><a href="#!">Messages</a></li>
           <li className="divider"></li>
           <li><a href="#!" onClick={this.onLogoutClick}>Logout</a></li>
