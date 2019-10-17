@@ -16,7 +16,8 @@ class Dashboard extends Component {
   };
 
   state = {
-    items: []
+    items: [],
+    searchText: ''
   }
 
   componentDidMount() {
@@ -29,15 +30,20 @@ class Dashboard extends Component {
       .catch(err => console.log(err));
   }
 
+  handleSearch = (queryText) => {
+    this.setState({ searchText: queryText });
+  }
+
   render() {
     const { user } = this.props.auth;
     console.log(user)
     console.log(this.state.items);
-
+    console.log('rerender')
+    console.log(this.state.searchText);
 
     return (
       <>
-        <Navbar />
+        <Navbar callbackFromParent={this.handleSearch} />
         <div id="itemCardContainer">
           {this.state.items.map(item => (
             <ItemCard key={item._id}
@@ -50,7 +56,11 @@ class Dashboard extends Component {
               itemImages={item.imgs[0]}
               />
 
-          ))}
+          )).filter(i => {
+            let searchHaystack = i.props.itemName.toLowerCase();
+            let searchNeedle = this.state.searchText.toLowerCase();
+            return searchNeedle == '' ? true : (searchHaystack.indexOf(searchNeedle) > -1);
+          })}
           {/* <ItemCard
             itemName="Retro Item"
             itemPrice="100"

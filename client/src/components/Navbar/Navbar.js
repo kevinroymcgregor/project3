@@ -4,7 +4,7 @@ import '../Navbar/Navbar.css';
 import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
+import { PropTypes } from "prop-types";
 import { logoutUser } from "../../actions/authActions";
 
 
@@ -21,6 +21,10 @@ class Navbar extends Component {
 
   componentDidMount() {
     M.AutoInit();
+  }
+
+  handleSearch = (event) => {
+    this.props.callbackFromParent(event.target.value);
   }
 
   render() {
@@ -58,7 +62,7 @@ class Navbar extends Component {
               <div className="nav-wrapper search-form">
                 <form action="/dashboard" method="GET" className="hide-on-med-and-down">
                   <div className="input-field main">
-                    <input id="search" type="search" name="search" required />
+                    <input id="search" type="search" name="search" onKeyUp={this.handleSearch.bind(this)} required />
                     <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
                     <i className="material-icons">close</i>
                   </div>
