@@ -68,6 +68,7 @@ router.put("/updateItem/:ID", (req, res) => {
     .catch(err => console.log(err));
 })
 
+
 //For Searching to prevent attacks
 function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");

@@ -24,7 +24,7 @@ class ProfileTab extends Component {
         </div>
         <div id="test1" className="col s12">
         <ProfileDetailsCard 
-          first='John'
+          first={this.props.firstName}
           last='Doe'
           email='test@email.com'
           city='Phoenix'
@@ -33,7 +33,7 @@ class ProfileTab extends Component {
           phone='123-123-1234'
         />
         </div>
-        <div id="test2" className="col s12">No listings yet</div>
+        <div id="test2" className="col s12"></div>
         <div id="test3" className="col s12">Not watching any items</div>
         
       </div>

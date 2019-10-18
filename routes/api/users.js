@@ -108,4 +108,17 @@ router.post("/login", (req, res) => {
   });
 });
 
+router.get('/getUserById/:id', (req, res) => {
+  User.findById(req.params.id)
+  // .then(console.log(res))
+  .then(data => res.json(data))
+});
+
+router.put('/updateUserAvatar/:id', (req, res) => {
+  User.findOneAndUpdate({_id: req.params.id}, {
+    avatar: req.body.avatar
+  })
+  .then(console.log(res))
+})
+
 module.exports = router;

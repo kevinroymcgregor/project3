@@ -29,7 +29,7 @@ class Navbar extends Component {
 
   render() {
     const {  user } = this.props.auth;
-    
+    console.log(user)
     const authLinks =(
       <p>{ user ? `Welcome ${user.email }` : ''}</p>
     )
@@ -39,7 +39,8 @@ class Navbar extends Component {
 
         {/* Right side menu dropdown */}
         <ul id="dropdown1" className="dropdown-content">
-          <li> <Link to="/profile">Account</Link></li>
+          <li>
+            <Link to="/profile" userId={user.id}>Account</Link></li>
           <li><a href="#!">Messages</a></li>
           <li className="divider"></li>
           <li><a href="#!" onClick={this.onLogoutClick}>Logout</a></li>
@@ -49,11 +50,11 @@ class Navbar extends Component {
         <nav>
           <div className="nav-wrapper">
             <ul className="left">
-              <li>
                 <Link to="/dashboard" className="brand-logo">
-                  RETRO-TRADE
-                </Link>
+              <li>
+                  <p>RETRO-TRADE</p>
               </li>
+                </Link>
               <li>
                 <a href="#" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
               </li>
