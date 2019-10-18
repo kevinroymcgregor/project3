@@ -47,7 +47,7 @@ class ItemDetails extends Component {
             <>
 
                 {/* {console.log(this.props.match.params.ID)} */}
-                {/* {console.log(this.state)} */}
+                {console.log(this.state)}
                 {/* {console.log(new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit'}).format(this.state.item.createdDate))}; */}
                 {/* {console.log(formatDate(this.state.item.createdDate))}; */}
                 <Navbar />
@@ -57,7 +57,7 @@ class ItemDetails extends Component {
                             <Button label="Back To Home" icon="home" />
                         </Link>
                     </div>
-                    <Carousel itemImages="https://cdn.gamer-network.net/2015/usgamer/Assassins-Creed-All-Header-03.jpg/EG11/thumbnail/1920x1080/format/jpg/quality/75/ubisoft-shouldnt-forget-traditional-assassins-creed-fans.jpg" />
+                    <Carousel itemImages={this.state.item.imgs} />
                     <ItemDetailsCard
                         itemName={this.state.item.name}
                         itemDescription={this.state.item.description}
