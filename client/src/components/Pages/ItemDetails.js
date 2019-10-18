@@ -5,31 +5,51 @@ import ItemDetailsCard from '../ItemDetailsCard/ItemDetailsCard';
 import { Link } from "react-router-dom";
 import Footer from '../Footer/Footer';
 import Button from '../Button/Button';
-import ItemAPI from '../../utils/axios'
+import ItemAPI from '../../utils/axios';
+import Moment from 'moment';
 
 
 class ItemDetails extends Component {
 
-    state = {
-        item: {}
-      }
+    constructor(props) {
+        super(props);
+        this.state = {
+            item: { 
+                sellerID: [{ city: '', state: '' }]
+            }
+        };
 
-      componentDidMount(){
+        // const loadItem = (ID) => {
+        //     ItemAPI.getItemByID(ID)
+        //         .then(res => this.state = { item: res.data })
+        //         .catch(err => console.log(err));
+        // };
+
+        // loadItem(this.props.match.params.ID);
+    }
+
+    // state = {
+    //     item: {}
+    //   }
+
+    componentDidMount() {
         this.loadItem(this.props.match.params.ID);
-      }
+    }
 
-      loadItem = (ID) => {
+    loadItem = (ID) => {
         ItemAPI.getItemByID(ID)
-          .then(res => this.setState({ item: res.data }))
-          .catch(err => console.log(err));
-      }
-
+            .then(res => this.setState({ item: res.data }))
+            .catch(err => console.log(err));
+    }
+ 
     render() {
         return (
             <>
-               
-                {console.log(this.props.match.params.ID)}
-                {console.log(this.state.item)}
+
+                {/* {console.log(this.props.match.params.ID)} */}
+                {/* {console.log(this.state)} */}
+                {/* {console.log(new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit'}).format(this.state.item.createdDate))}; */}
+                {/* {console.log(formatDate(this.state.item.createdDate))}; */}
                 <Navbar />
                 <div className="container">
                     <div className="back-to-dashboard">
@@ -39,11 +59,12 @@ class ItemDetails extends Component {
                     </div>
                     <Carousel itemImages="https://cdn.gamer-network.net/2015/usgamer/Assassins-Creed-All-Header-03.jpg/EG11/thumbnail/1920x1080/format/jpg/quality/75/ubisoft-shouldnt-forget-traditional-assassins-creed-fans.jpg" />
                     <ItemDetailsCard
-                        itemName="Item Name"
-                        itemDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                        itemPrice="$59.99"
-                        itemLocation="Phoenix, Arizona"
-                        itemDate="October, 8, 2019"
+                        itemName={this.state.item.name}
+                        itemDescription={this.state.item.description}
+                        itemPrice={`$${this.state.item.price}`}
+                        itemLocation={`${this.state.item.sellerID[0].city}, ${this.state.item.sellerID[0].state}`}
+                        // itemDate={(new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(this.state.item.createdDate))}
+                        itemDate={this.state.item.createdDate}
                     />
                 </div>
                 <Footer />
