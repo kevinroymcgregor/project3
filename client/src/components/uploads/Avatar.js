@@ -20,6 +20,8 @@ class Avatar extends Component {
 		console.log(avatar)
         axios.put('/api/users/updateUserAvatar/'+ id, avatar)
 		.then(res => console.log(res));
+
+		window.location = '/profile'
 	}
 
 	singleFileChangedHandler = ( event ) => {
