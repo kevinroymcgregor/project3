@@ -56,7 +56,7 @@ class AddEditForm extends Component {
         axios.post('/api/items/addItem', itemData)
             .then(res => console.log(res.data));
 
-        // window.location = '/dashboard'
+        window.location = '/dashboard'
     }
 
     multipleFileChangedHandler = (event) => {
