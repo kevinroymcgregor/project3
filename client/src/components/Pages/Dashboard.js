@@ -8,6 +8,8 @@ import Navbar from '../Navbar/Navbar'
 import Footer from "../Footer/Footer.js";
 import ItemCard from "../ItemCard/ItemCard";
 import ItemsAPI from "../../utils/axios";
+import * as Scroll from 'react-scroll';
+import {animateScroll as scroll} from 'react-scroll';
 
 class Dashboard extends Component {
   onLogoutClick = e => {
@@ -94,7 +96,7 @@ class Dashboard extends Component {
           </div>
         </div> */}
 
-        <a className="btn-floating btn-large waves-effect waves-light orange darken-3 z-depth-3" id="scrollToTopButton"><i className="material-icons">arrow_upward</i></a>
+        <a className="btn-floating btn-large waves-effect waves-light orange darken-3 z-depth-3" id="scrollToTopButton" onClick={() => scroll.scrollToTop({smooth:true})}><i className="material-icons">arrow_upward</i></a>
 
         <Footer />
       </>
