@@ -7,7 +7,7 @@ function Footer(props) {
 
         <footer className="page-footer">
             <div className="container">
-                <div className="row">
+                {/* <div className="row">
                     <div className="col l6 s12">
                         <h5 className="white-text footer-logo">RETRO-TRADE</h5>
                         <p className="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
@@ -22,12 +22,13 @@ function Footer(props) {
                             <li><a className="grey-text text-lighten-3" href="#!">Link 4</a></li>
                         </ul>
                     </div>
-                </div>
+                </div> */}
             </div>
             <div className="footer-copyright">
-                <div className="container">
-                    © 2019 RETRO-TRADE
-            <a className="grey-text text-lighten-4 right" href="#!">More Links</a>
+                <div className="container footer-logo center-align">
+                    RETRO-TRADE
+                    <span style={{ color: "#fafafa", fontFamily: "Verdana, Geneva, Tahoma, sans-serif" }}> © 2019</span>
+                    {/* <a className="grey-text text-lighten-4 right" href="#!">More Links</a> */}
                 </div>
             </div>
         </footer>

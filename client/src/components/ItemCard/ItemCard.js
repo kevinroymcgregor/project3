@@ -9,6 +9,7 @@ const ItemCard = (props) => {
 
         <div className="itemCard">
             <div className="itemCardImage">
+
                 <img src={props.itemImages} alt="placeholder" />
             </div>
             <div className="itemCardInfoGroup">
@@ -22,7 +23,7 @@ const ItemCard = (props) => {
                 <p className="itemDescription">{props.itemDescription}</p>
                 <hr></hr>
                 <div className="buttonGroup">
-                    <Link to="/itemdetails">
+                    <Link to={`/itemdetails/${props.itemID}`}>
                     <Button 
                         label="Details" 
                         icon="search" 
@@ -37,4 +38,4 @@ const ItemCard = (props) => {
     )
 }
 
-export default ItemCard;
+export default ItemCard; 

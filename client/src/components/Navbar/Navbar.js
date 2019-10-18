@@ -4,7 +4,7 @@ import '../Navbar/Navbar.css';
 import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
+import { PropTypes } from "prop-types";
 import { logoutUser } from "../../actions/authActions";
 
 
@@ -21,6 +21,10 @@ class Navbar extends Component {
 
   componentDidMount() {
     M.AutoInit();
+  }
+
+  handleSearch = (event) => {
+    this.props.callbackFromParent(event.target.value);
   }
 
   render() {
@@ -59,7 +63,7 @@ class Navbar extends Component {
               <div className="nav-wrapper search-form">
                 <form action="/dashboard" method="GET" className="hide-on-med-and-down">
                   <div className="input-field main">
-                    <input id="search" type="search" name="search" required />
+                    <input id="search" type="search" name="search" onKeyUp={this.handleSearch.bind(this)} required />
                     <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
                     <i className="material-icons">close</i>
                   </div>
@@ -84,7 +88,7 @@ class Navbar extends Component {
         <li className='center-align'><strong>{this.props.user}</strong></li>
         <li className="divider"></li> 
         <li><Link to="/dashboard"><i className="material-icons">home</i>Home</Link></li>
-        <li><Link to="/addedititem"><i className="material-icons">photo_camera</i>Sell Item</Link></li>
+        <li><Link to="/addedititem"><i className="material-icons">add_circle</i>Sell Item</Link></li>
         <li><a href="#!"><i className="material-icons">chat_bubble</i>Messages</a></li>
         <li><Link to="/profile"><i className="material-icons">settings</i>Account</Link></li>
         <li><a href="#!" onClick={this.onLogoutClick}><i className="material-icons">person</i>Logout</a></li>
@@ -92,17 +96,18 @@ class Navbar extends Component {
 
         <form action="/dashboard" method="GET">
           <div className="input-field">
-            <input id="search" type="search" required placeholder="Search..." />
+            <input id="search" type="search" name="search" onKeyUp={this.handleSearch.bind(this)} required placeholder="Search..." />
             <i className="material-icons">close</i>
           </div>
         </form>
-
+        
         <li><a className="subheader">Categories</a></li>
-        <li><a className="waves-effect" href="#!">Video Games</a></li>
-        <li><a className="waves-effect" href="#!">Game Consoles</a></li>
-        <li><a className="waves-effect" href="#!">Game Accessories</a></li>
-        <li><a className="waves-effect" href="#!">Board Games</a></li>
-        <li><a className="waves-effect" href="#!">Arcade</a></li>
+        <li><a className="waves-effect" onClick={e => this.props.callbackFromParent(e.target.text)}>Video Games</a></li>
+        <li><a className="waves-effect" onClick={e => this.props.callbackFromParent(e.target.text)}>Game Consoles</a></li>
+        <li><a className="waves-effect" onClick={e => this.props.callbackFromParent(e.target.text)}>Game Accessories</a></li>
+        <li><a className="waves-effect" onClick={e => this.props.callbackFromParent(e.target.text)}>Board Games</a></li>
+        <li><a className="waves-effect" onClick={e => this.props.callbackFromParent(e.target.text)}>Arcade</a></li>
+
       </ul>
   {/* <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons white">menu</i></a> */}
         </>

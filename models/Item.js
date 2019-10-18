@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const ItemSchema = new Schema({
     name: {
         type: String,
-        // required: true
+        required: true
     },
     sellerID: [{
         type: Schema.Types.ObjectId,
@@ -16,16 +16,16 @@ const ItemSchema = new Schema({
     imgs: [
         {
             type: String,
-            required: true
+            // required: true
         }
     ],
     price: {
         type: Number,
-        // required: true
+        required: true
     },
     description: {
         type: String,
-        // required: true
+        required: true
     },
     createdDate: {
         type: Date,
@@ -35,10 +35,10 @@ const ItemSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    // enabled: {
-    //     type: Boolean,
-    //     default: true
-    // },
+    enabled: {
+        type: Boolean,
+        default: true
+    },
     // S = Sell, T = Trade, B = Bid.  
     STB: {
         type: String,
@@ -58,7 +58,7 @@ const ItemSchema = new Schema({
     },
     category: {
         type: String,
-        // required: true
+        required: true
     }
     // currentHiBidUID: {
     //     type: Schema.Types.ObjectId,

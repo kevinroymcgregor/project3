@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+//import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { logoutUser } from "../../actions/authActions";
 import Navbar from '../Navbar/Navbar'
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer.js";
 import ItemCard from "../ItemCard/ItemCard";
 import ItemsAPI from "../../utils/axios";
+import * as Scroll from 'react-scroll';
+import {animateScroll as scroll} from 'react-scroll';
 
 class Dashboard extends Component {
   onLogoutClick = e => {
@@ -16,7 +18,8 @@ class Dashboard extends Component {
   };
 
   state = {
-    items: []
+    items: [],
+    searchText: ''
   }
 
   componentDidMount() {
@@ -29,18 +32,21 @@ class Dashboard extends Component {
       .catch(err => console.log(err));
   }
 
-  render() {
-    const { user } = this.props.auth;
-    console.log(user)
-    console.log(this.state.items);
+  handleSearch = (queryText) => {
+    this.setState({ searchText: queryText });
+  }
 
+  render() {
+    //const { user } = this.props.auth;
+    console.log(this.state.items);
+    console.log(this.state.searchText);
 
     return (
       <>
-        <Navbar />
+        <Navbar callbackFromParent={this.handleSearch} />
         <div id="itemCardContainer">
           {this.state.items.map(item => (
-            <ItemCard key={item._id}
+            <ItemCard itemID={item._id}
               itemImage={item.imgs[0]}
               itemName={item.name}
               itemPrice={item.price}
@@ -50,7 +56,13 @@ class Dashboard extends Component {
               itemImages={item.imgs[0]}
               />
 
-          ))}
+          )).filter(i => {
+            let searchHaystack = i.props.itemName.toLowerCase();
+            let searchHaystack2 = i.props.itemDescription.toLowerCase();
+            let searchHaystack3 = i.props.itemCategory.toLowerCase();
+            let searchNeedle = this.state.searchText.toLowerCase();
+            return searchNeedle === '' ? true : (searchHaystack.indexOf(searchNeedle) > -1) || (searchHaystack2.indexOf(searchNeedle) > -1) || (searchHaystack3.indexOf(searchNeedle) > -1);
+          })}
           {/* <ItemCard
             itemName="Retro Item"
             itemPrice="100"
@@ -84,7 +96,7 @@ class Dashboard extends Component {
           </div>
         </div> */}
 
-        <a className="btn-floating btn-large waves-effect waves-light orange darken-3 z-depth-3" id="scrollToTopButton"><i className="material-icons">arrow_upward</i></a>
+        <a className="btn-floating btn-large waves-effect waves-light orange darken-3 z-depth-3" id="scrollToTopButton" onClick={() => scroll.scrollToTop({smooth:true})}><i className="material-icons">arrow_upward</i></a>
 
         <Footer />
       </>

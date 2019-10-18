@@ -27,11 +27,11 @@ class AddEditForm extends Component {
 
     static propTypes = {
         auth: PropTypes.object.isRequired
-      }
+    }
 
     handleChange = (event) => {
         event.preventDefault();
-        
+
         const { name, value } = event.target;
         this.setState({
             [name]: value
@@ -60,16 +60,17 @@ class AddEditForm extends Component {
     }
 
     multipleFileChangedHandler = (event) => {
-		this.setState({
-			selectedFiles: event.target.files
-		});
-		console.log( event.target.files );
-	};
+        this.setState({
+            selectedFiles: event.target.files
+        });
+        console.log(event.target.files);
+    };
 
-	multipleFileUploadHandler = () => {
-		const data = new FormData();
-		let selectedFiles = this.state.selectedFiles;
+    multipleFileUploadHandler = () => {
+        const data = new FormData();
+        let selectedFiles = this.state.selectedFiles;
         // If file selected
+
 		if ( selectedFiles ) {
 			for ( let i = 0; i < selectedFiles.length; i++ ) {
 				data.append( 'galleryImage', selectedFiles[ i ], selectedFiles[ i ].name );
@@ -106,39 +107,39 @@ class AddEditForm extends Component {
                                 });
                             }
                             this.handleSubmit();
-						}
-					}
-				}).catch( ( error ) => {
-				// If another error
-				this.ocShowAlert( error, 'red' );
-			});
-		} else {
-			// if file not selected throw error
-			this.ocShowAlert( 'Please upload at least 1 image file', 'red' );
-		}
-	};
+                        }
+                    }
+                }).catch((error) => {
+                    // If another error
+                    this.ocShowAlert(error, 'red');
+                });
+        } else {
+            // if file not selected throw error
+            this.ocShowAlert('Please upload at least 1 image file', 'red');
+        }
+    };
 
-	// ShowAlert Function
-	ocShowAlert = ( message, background = '#3089cf' ) => {
-		let alertContainer = document.querySelector( '#oc-alert-container' ),
-			alertEl = document.createElement( 'div' ),
-			textNode = document.createTextNode( message );
-		alertEl.setAttribute( 'class', 'oc-alert-pop-up' );
-		$( alertEl ).css( 'background', background );
-		alertEl.appendChild( textNode );
-		alertContainer.appendChild( alertEl );
-		setTimeout( function () {
-			$( alertEl ).fadeOut( 'slow' );
-			$( alertEl ).remove();
-		}, 3000 );
-	};
-
+    // ShowAlert Function
+    ocShowAlert = (message, background = '#3089cf') => {
+        let alertContainer = document.querySelector('#oc-alert-container'),
+            alertEl = document.createElement('div'),
+            textNode = document.createTextNode(message);
+        alertEl.setAttribute('class', 'oc-alert-pop-up');
+        $(alertEl).css('background', background);
+        alertEl.appendChild(textNode);
+        alertContainer.appendChild(alertEl);
+        setTimeout(function () {
+            $(alertEl).fadeOut('slow');
+            $(alertEl).remove();
+        }, 3000);
+    };
 
     render() {
 
         // console.log( this.state );
+
         const { isAuthenticated, user } = this.props.auth;
-        
+
 
         // <----- Testing ----->
         // const { name } = this.state
@@ -148,10 +149,10 @@ class AddEditForm extends Component {
 
         return (
             <div className="container center-align edit-form-bg">
-                <Link to="/dashboard">
+                {/* <Link to="/dashboard">
                     <Button label="Back To Home" icon="home" />
-                </Link>
-     
+                </Link> */}
+
                 {/* This section was for testing puposes */}
                 {/* <p>Item name: {name}</p>
                 <p>Item price: {price}</p>
@@ -225,19 +226,33 @@ class AddEditForm extends Component {
 
 
                 <div id="oc-alert-container"></div>
-				{/* Multiple File Upload */}
-				{/* <div className="card border-light mb-3" style={{ boxShadow: '0 5px 10px 2px rgba(195,192,192,.5)' }}> */}
-					<div className="card-header">
-						<h5 style={{ color: '#555', marginLeft: '12px' }}>Select item images for upload</h5>
-					</div>
-					<div className="card-body">
-						<p className="card-text">Please upload the Images for your gallery (max size: 5MB | max files: 4)</p>
-						<input type="file" multiple onChange={this.multipleFileChangedHandler} />
-						<div className="mt-5">
-							<button className="btn btn-info" onClick={this.multipleFileUploadHandler}>Submit</button>
-						</div>
-					</div>
-				{/* </div> */}
+                {/* Multiple File Upload */}
+                {/* <div className="card border-light mb-3" style={{ boxShadow: '0 5px 10px 2px rgba(195,192,192,.5)' }}> */}
+                <div className="card-header">
+                    <h5 style={{ color: "#555", marginLeft: "12px", fontWeight: "bold" }}>Select item images for upload</h5>
+                </div>
+                <div className="card-body">
+                    <p className="card-text">Please upload the Images for your gallery (max size: 5MB | max files: 4)</p>
+                    <br></br>
+                    <div className="file-field input-field fileUploadDiv">
+                        <div className="btn" style={{ backgroundColor: "#fb8122" }}>
+                            <span>Choose Files</span>
+                            <input type="file" multiple onChange={this.multipleFileChangedHandler} />
+                        </div>
+                        <div className="file-path-wrapper">
+                            <input className="file-path validate" type="text" placeholder="Upload one or more files" />
+                        </div>
+                    </div>
+                    <div className="mt-5">
+                        <br></br>
+                        <button className="btn btn-info addEditSubmitBtn" style={{ width: "250px", height: "50px", backgroundColor: "#fb8122", fontSize: "24px" }} onClick={this.multipleFileUploadHandler}>Submit</button>
+                    </div>
+                    <br></br>
+                    <Link to="/dashboard">
+                        <Button label="Back To Home" icon="home" />
+                    </Link>
+                </div>
+                {/* </div> */}
 
 
             </div>
@@ -246,7 +261,7 @@ class AddEditForm extends Component {
 }
 
 const mapStateToProps = state => ({
-  auth: state.auth
+    auth: state.auth
 })
 
 export default connect(mapStateToProps, null)(AddEditForm);
