@@ -6,19 +6,20 @@ import '../ProfileDetailsCard/ProfileDetailsCard.css';
 const ProfileDetailsCard = (props) => {
     return (
         <div className="col l12">
-        <h5 className="header center">Account Details</h5>
-        <div className="card horizontal">
+        <h5 className="header center account-header">Account Details</h5>
+        <div className="card horizontal profile-card">
           <div className="card-image col l4 m4">
           <div>
-            <div className="container center-align">
+            <div className="container center-align avatar-wrapper">
               <img alt="User Name" src={props.avatar} className="avatar" id="user-avatar" />
+              <b className="profile-name">{props.first} {props.last}</b>
             </div>
         </div>
           </div>
           <div className="card-stacked">
             <div className="card-content user-details">
               <ul>
-                <li><b>Name: </b>{props.first} {props.last}</li>
+                {/* <li><b>Name: </b>{props.first} {props.last}</li> */}
                 <li><b>Email: </b>{props.email}</li>
                 <li><b>City: </b>{props.city}</li>
                 <li><b>State: </b>{props.state}</li>

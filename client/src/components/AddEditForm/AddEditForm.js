@@ -247,10 +247,10 @@ class AddEditForm extends Component {
                         <br></br>
                         <button className="btn btn-info addEditSubmitBtn" style={{ width: "250px", height: "50px", backgroundColor: "#fb8122", fontSize: "24px" }} onClick={this.multipleFileUploadHandler}>Submit</button>
                     </div>
-                    <br></br>
+                    {/* <br></br>
                     <Link to="/dashboard">
                         <Button label="Back To Home" icon="home" />
-                    </Link>
+                    </Link> */}
                 </div>
                 {/* </div> */}
 

@@ -92,20 +92,28 @@ class Avatar extends Component {
 	render() {
 		console.log( this.state );
 		return(
-			<div className="container">
-				<p>{this.props.usersId}</p>
+			<div className="container center">
 				{/* For Alert box*/}
 				<div id="oc-alert-container"></div>
 				{/* Single File Upload*/}
 				<div className="card border-light mb-3 mt-5" style={{ boxShadow: '0 5px 10px 2px rgba(195,192,192,.5)' }}>
 					<div className="card-header">
-						<h5 style={{ color: '#555', marginLeft: '12px' }}>Avatar Image Upload</h5>
+						<h5 style={{ color: "#555", marginLeft: "12px", fontWeight: "bold" }}>Avatar Image Upload</h5>
 					</div>
 					<div className="card-body">
-						<p className="card-text">Please upload an image for your profile (max size: 2MB)</p>
-						<input type="file" onChange={this.singleFileChangedHandler}/>
+                    <p className="card-text">Please upload the Images for your gallery (max size: 5MB | max files: 4)</p>
+                    <br></br>
+                    <div className="file-field input-field fileUploadDiv">
+                        <div className="btn" style={{ backgroundColor: "#fb8122" }}>
+                            <span>Choose Files</span>
+                            <input type="file" onChange={this.singleFileChangedHandler}/> 
+                        </div>
+                        <div className="file-path-wrapper">
+                            <input className="file-path validate" type="text" placeholder="Upload one or more files" />
+                        </div>
+                    </div>
 						<div className="mt-5">
-							<button className="btn btn-info" onClick={this.singleFileUploadHandler}>Upload!</button>
+							<button className="btn btn-info addEditSubmitBtn" style={{ width: "250px", height: "50px", backgroundColor: "#fb8122", fontSize: "24px" }} onClick={this.singleFileUploadHandler}>Upload!</button>
 						</div>
 					</div>
 				</div>
@@ -115,3 +123,4 @@ class Avatar extends Component {
 }
 
 export default Avatar;
+
