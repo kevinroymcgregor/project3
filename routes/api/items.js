@@ -33,19 +33,39 @@ router.post("/addItem", async (req, res) => {
 });
 
 router.get("/getItems", (req,res) => {
-    //Show me everything on the page if search not initiated
-    Item.find()
+
+    Item.find({enabled: true})
     .populate("sellerID")
     .sort({ createdDate: -1 })
     .then(items => res.json(items))
-    .then(itemList => res.json(itemList));
-    }
-)
+    .then(itemList => res.json(itemList))
+    .catch(err => console.log(err));
+
+})
 
 router.get("/getItemByID/:ID", (req,res) => {
     Item.findById(req.params.ID)
     .populate("sellerID")
-    .then(itemList => res.json(itemList));
+    .then(itemList => res.json(itemList))
+    .catch(err => console.log(err));
+})
+
+router.put("/deleteItem/:ID", (req, res) => {
+    Item.updateOne( {_id: req.params.ID}, {enabled: false})
+    .then(console.log("Deleted Successfully"))
+    .catch(err => console.log(err));
+})
+
+router.put("/updateItem/:ID", (req, res) => {
+    Item.updateOne( {_id: req.params.ID}, {
+        name: req.body.name,
+        price: req.body.price,
+        imgs: req.body.imgs,
+        description: req.body.description,
+        category: req.body.category
+    })
+    .then(console.log("Updated Successfully"))
+    .catch(err => console.log(err));
 })
 
 //For Searching to prevent attacks

@@ -130,7 +130,6 @@ class AddEditForm extends Component {
         }, 3000);
     };
 
-
     render() {
 
         console.log(this.state);
