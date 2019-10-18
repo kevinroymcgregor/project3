@@ -95,7 +95,7 @@ class Navbar extends Component {
 
         <form action="/dashboard" method="GET">
           <div className="input-field">
-            <input id="search" type="search" required placeholder="Search..." />
+            <input id="search" type="search" name="search" onKeyUp={this.handleSearch.bind(this)} required placeholder="Search..." />
             <i className="material-icons">close</i>
           </div>
         </form>

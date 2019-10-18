@@ -33,20 +33,6 @@ router.post("/addItem", async (req, res) => {
 });
 
 router.get("/getItems", (req,res) => {
-    //Searching
-    if(req.query.search) {
-        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-        Item.find({ $text: { $search: regex } })
-        .populate("sellerID")
-        .limit(25)
-        .exec(function(err, items){
-            if(err){
-                res.json(err);
-            }else {
-                res.json(items);
-            }
-        })
-    } else {
     //Show me everything on the page if search not initiated
     Item.find()
     .populate("sellerID")
@@ -54,7 +40,7 @@ router.get("/getItems", (req,res) => {
     .then(items => res.json(items))
     .then(itemList => res.json(itemList));
     }
-})
+)
 
 router.get("/getItemByID/:ID", (req,res) => {
     Item.findById(req.params.ID)
