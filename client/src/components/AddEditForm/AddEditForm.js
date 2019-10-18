@@ -18,7 +18,7 @@ class AddEditForm extends Component {
             price: '',
             category: '',
             description: '',
-            selectedFiles: null
+            selectedFiles: []
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -56,7 +56,7 @@ class AddEditForm extends Component {
         axios.post('/api/items/addItem', itemData)
             .then(res => console.log(res.data));
 
-        window.location = '/dashboard'
+        // window.location = '/dashboard'
     }
 
     multipleFileChangedHandler = (event) => {
@@ -95,13 +95,16 @@ class AddEditForm extends Component {
 								this.ocShowAlert( response.data.error, 'red' );
 							}
 						} else {
-							// Success
-							let fileName = response.data.locationArray[0];
-							console.log( 'fileName', fileName );
-                            this.ocShowAlert( 'File Successfully Uploaded', '#3089cf' );
-                            this.setState({
-                                selectedFiles: fileName
-                            });
+                            // Success
+                            let fileName = [];
+                                for(let i= 0; i < response.data.locationArray.length; i++){
+                                    fileName.push(response.data.locationArray[i])
+                                console.log( 'fileName', fileName );
+                                this.ocShowAlert( 'File Successfully Uploaded', '#3089cf' );
+                                this.setState({
+                                    selectedFiles: fileName
+                                });
+                            }
                             this.handleSubmit();
 						}
 					}
@@ -133,7 +136,7 @@ class AddEditForm extends Component {
 
     render() {
 
-        console.log( this.state );
+        // console.log( this.state );
         const { isAuthenticated, user } = this.props.auth;
         
 

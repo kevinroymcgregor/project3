@@ -62,6 +62,7 @@ router.get("/getItemByID/:ID", (req,res) => {
     .then(itemList => res.json(itemList));
 })
 
+
 //For Searching to prevent attacks
 function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");

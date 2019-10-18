@@ -108,17 +108,17 @@ router.post("/login", (req, res) => {
   });
 });
 
-router.get("/getUserById/:ID", (req, res) => {
+router.get('/getUserById/:id', (req, res) => {
   User.findById(req.params.id)
-  .then(user => res.json(user))
-  // .then(function(err, user){
-  //   console.log(user)
-  //   if(err){
-  //     res.send(err)
-  //   } else {
-  //     res.json(user)
-  //   }
-  // })
+  // .then(console.log(res))
+  .then(data => res.json(data))
 });
+
+router.put('/updateUserAvatar/:id', (req, res) => {
+  User.findOneAndUpdate({_id: req.params.id}, {
+    avatar: req.body.avatar
+  })
+  .then(console.log(res))
+})
 
 module.exports = router;

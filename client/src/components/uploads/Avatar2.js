@@ -11,17 +11,6 @@ class Avatar extends Component {
 		}
 	}
 
-	updateUserAvatar = () => {
-		const id = this.props.usersId
-		console.log(id)
-		const avatar = {
-			avatar: this.state.selectedFile
-		}
-		console.log(avatar)
-        axios.put('/api/users/updateUserAvatar/'+ id, avatar)
-		.then(res => console.log(res));
-	}
-
 	singleFileChangedHandler = ( event ) => {
 		this.setState({
 			selectedFile: event.target.files[0]
@@ -53,13 +42,9 @@ class Avatar extends Component {
 							}
 						} else {
 							// Success
-							let fileName = response.data.location;
+							let fileName = response.data;
 							console.log( 'filedata', fileName );
 							this.ocShowAlert( 'File Successfully Uploaded', '#3089cf' );
-							this.setState({
-								selectedFile: fileName
-							})
-							this.updateUserAvatar();
 						}
 					}
 				}).catch( ( error ) => {
@@ -91,7 +76,6 @@ class Avatar extends Component {
 		console.log( this.state );
 		return(
 			<div className="container">
-				<p>{this.props.usersId}</p>
 				{/* For Alert box*/}
 				<div id="oc-alert-container"></div>
 				{/* Single File Upload*/}

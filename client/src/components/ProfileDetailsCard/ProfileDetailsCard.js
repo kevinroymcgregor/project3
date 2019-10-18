@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Button from "../Button/Button.js";
-import ProfileImage from "../ProfileImage/ProfileImage.js";
+// import ProfileImage from "../ProfileImage/ProfileImage.js";
 import '../ProfileDetailsCard/ProfileDetailsCard.css';
 
 const ProfileDetailsCard = (props) => {
@@ -9,7 +9,11 @@ const ProfileDetailsCard = (props) => {
         <h5 className="header center">Account Details</h5>
         <div className="card horizontal">
           <div className="card-image col l4 m4">
-           <ProfileImage />
+          <div>
+            <div className="container center-align">
+              <img alt="User Name" src={props.avatar} className="avatar" id="user-avatar" />
+            </div>
+        </div>
           </div>
           <div className="card-stacked">
             <div className="card-content user-details">
@@ -22,9 +26,9 @@ const ProfileDetailsCard = (props) => {
                 <li><b>Phone: </b>{props.phone}</li>
               </ul>
             </div>
-            <div className="card-action right-align">
+            {/* <div className="card-action right-align">
               <Button label="Edit" icon="edit"  />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
