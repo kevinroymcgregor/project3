@@ -18,7 +18,7 @@ router.post("/addItem", async (req, res) => {
         price: req.body.price,
         description: req.body.description,
         category: req.body.category
-        // STB: req.body.STB,
+        // STB: req.body.STB
         // bidReserve: req.body.bidReserve
     });
 
@@ -33,6 +33,7 @@ router.post("/addItem", async (req, res) => {
 });
 
 router.get("/getItems", (req,res) => {
+
     Item.find({enabled: true})
     .populate("sellerID")
     .sort({ createdDate: -1 })
@@ -66,5 +67,10 @@ router.put("/updateItem/:ID", (req, res) => {
     .then(console.log("Updated Successfully"))
     .catch(err => console.log(err));
 })
+
+//For Searching to prevent attacks
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
 
 module.exports = router;

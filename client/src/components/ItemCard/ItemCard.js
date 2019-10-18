@@ -9,7 +9,8 @@ const ItemCard = (props) => {
 
         <div className="itemCard">
             <div className="itemCardImage">
-                <img src={props.itemImage} alt="placeholder" />
+
+                <img src={props.itemImages} alt="placeholder" />
             </div>
             <div className="itemCardInfoGroup">
                 <p className="itemName">{props.itemName}</p>
@@ -37,4 +38,4 @@ const ItemCard = (props) => {
     )
 }
 
-export default ItemCard;
+export default ItemCard; 
