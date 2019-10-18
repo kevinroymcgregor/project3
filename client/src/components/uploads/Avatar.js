@@ -101,7 +101,7 @@ class Avatar extends Component {
 						<h5 style={{ color: "#555", marginLeft: "12px", fontWeight: "bold" }}>Avatar Image Upload</h5>
 					</div>
 					<div className="card-body">
-                    <p className="card-text">Please upload the Images for your gallery (max size: 5MB | max files: 4)</p>
+                    <p className="card-text">Please upload an image for your profile (max size: 2MB)</p>
                     <br></br>
                     <div className="file-field input-field fileUploadDiv">
                         <div className="btn" style={{ backgroundColor: "#fb8122" }}>
