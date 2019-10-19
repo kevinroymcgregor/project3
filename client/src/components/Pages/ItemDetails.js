@@ -45,6 +45,7 @@ class ItemDetails extends Component {
                     <ItemDetailsCard
                         itemName={this.state.item.name}
                         itemDescription={this.state.item.description}
+                        itemCategory={this.state.item.category}
                         itemPrice={`$${this.state.item.price}`}
                         itemLocation={`${this.state.item.sellerID[0].city}, ${this.state.item.sellerID[0].state}`}
                         itemDate={moment(this.state.item.createdDate).format("MMM Do YYYY")}

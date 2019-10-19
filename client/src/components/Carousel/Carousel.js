@@ -21,7 +21,7 @@ class Carousel extends Component {
 
     render() {
         return (
-            <div className="retro-carousel">
+            <div className="retro-carousel itemDetailsCarousel">
                 <div className="carousel carousel-slider">
                 <a className="carousel-item"><img src={this.props.itemImages} /></a>
                     {/* <a className="carousel-item" href="#one!"><img src="https://lorempixel.com/800/400/food/1" /></a>
