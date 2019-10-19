@@ -106,6 +106,7 @@ h4 {
 .input-field label {
   color: #000;
   font-weight: bold;
+  pointer-events: none;
 }
 /* label focus color */
 .input-field input[type=text]:focus + label {
