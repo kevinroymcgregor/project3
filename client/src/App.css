@@ -136,3 +136,7 @@ h4 {
   color: #000;
   font-weight: bold;
 }
+
+hr {
+  margin: 0 12.5%;
+}
