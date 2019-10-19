@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import Footer from '../Footer/Footer';
 import Button from '../Button/Button';
 import ItemAPI from '../../utils/axios';
-import Moment from 'moment';
+let moment = require('moment');
 
 
 class ItemDetails extends Component {
@@ -14,26 +14,15 @@ class ItemDetails extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            item: { 
+            item: {
                 sellerID: [{ city: '', state: '' }]
             }
         };
-
-        // const loadItem = (ID) => {
-        //     ItemAPI.getItemByID(ID)
-        //         .then(res => this.state = { item: res.data })
-        //         .catch(err => console.log(err));
-        // };
-
-        // loadItem(this.props.match.params.ID);
     }
-
-    // state = {
-    //     item: {}
-    //   }
 
     componentDidMount() {
         this.loadItem(this.props.match.params.ID);
+        
     }
 
     loadItem = (ID) => {
@@ -41,15 +30,10 @@ class ItemDetails extends Component {
             .then(res => this.setState({ item: res.data }))
             .catch(err => console.log(err));
     }
- 
+
     render() {
         return (
             <>
-
-                {/* {console.log(this.props.match.params.ID)} */}
-                {console.log(this.state)}
-                {/* {console.log(new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit'}).format(this.state.item.createdDate))}; */}
-                {/* {console.log(formatDate(this.state.item.createdDate))}; */}
                 <Navbar />
                 <div className="container">
                     <div className="back-to-dashboard">
@@ -63,8 +47,7 @@ class ItemDetails extends Component {
                         itemDescription={this.state.item.description}
                         itemPrice={`$${this.state.item.price}`}
                         itemLocation={`${this.state.item.sellerID[0].city}, ${this.state.item.sellerID[0].state}`}
-                        // itemDate={(new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(this.state.item.createdDate))}
-                        itemDate={this.state.item.createdDate}
+                        itemDate={moment(this.state.item.createdDate).format("MMM Do YYYY")}
                     />
                 </div>
                 <Footer />
