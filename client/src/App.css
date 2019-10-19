@@ -34,6 +34,32 @@ body {
   background-color: #b2b4b2;
 }
 
+.containerWrapper {
+  width: 100%;
+  background-color: #1D2228;
+}
+
+.loginRow {
+  min-height: 100vh;
+  margin-bottom: 0;
+  background-color: #b2b4b2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.registerRow {
+  min-height: 100vh;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#registerForm {
+  background-color: #b2b4b2;
+}
+
 #registerButton {
   width: 250px !important;
   margin: 50px;
@@ -68,15 +94,19 @@ h4 {
 #scrollToTopButton {
   position: fixed;
   right: 50px;
-  bottom: 50px;
+  bottom: 25px;
 }
 
 /* MATERIALIZE FORM CSS */
 
 /* label color */
+.input-field {
+  background: rgba(255, 255, 255, 0.3);
+}
 .input-field label {
   color: #000;
   font-weight: bold;
+  pointer-events: none;
 }
 /* label focus color */
 .input-field input[type=text]:focus + label {
@@ -105,4 +135,8 @@ h4 {
 .input-field .prefix.active {
   color: #000;
   font-weight: bold;
+}
+
+hr {
+  margin: 0 12.5%;
 }

@@ -12,7 +12,7 @@ function PageLabel(props) {
                             RETRO-TRADE
                         </h1>
                         <h3>
-                            THE TAG LINE WILL GO HERE!!!
+                            We're bringing RETRO back!!!
                         </h3>
                     </div>
                 </div>
