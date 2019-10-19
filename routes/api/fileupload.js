@@ -57,8 +57,6 @@ function checkFileType( file, cb ){
  */
 router.post( '/profile-img-upload', ( req, res ) => {
 	profileImgUpload( req, res, ( error ) => {
-		console.log( 'requestOkokok', req.file );
-		console.log( 'error', error );
 		if( error ){
 			console.log( 'errors', error );
 			res.json( { error: error } );
@@ -105,7 +103,6 @@ const uploadsItemGallery = multer({
  */
 router.post('/multiple-file-upload', ( req, res ) => {
 	uploadsItemGallery( req, res, ( error ) => {
-		console.log( 'files', req.files );
 		if( error ){
 			console.log( 'errors', error );
 			res.json( { error: error } );

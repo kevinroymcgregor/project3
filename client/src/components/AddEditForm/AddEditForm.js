@@ -50,7 +50,6 @@ class AddEditForm extends Component {
             imgs: this.state.selectedFiles
 
         }
-        console.log(itemData)
 
         // ItemsAPI.addItem()
         axios.post('/api/items/addItem', itemData)
@@ -63,7 +62,6 @@ class AddEditForm extends Component {
         this.setState({
             selectedFiles: event.target.files
         });
-        console.log(event.target.files);
     };
 
     multipleFileUploadHandler = () => {
@@ -83,7 +81,6 @@ class AddEditForm extends Component {
 				}
 			})
 				.then( ( response ) => {
-					console.log( 'res', response );
 					if ( 200 === response.status ) {
 						// If file size is larger than expected.
 						if( response.data.error ) {
@@ -100,7 +97,6 @@ class AddEditForm extends Component {
                             let fileName = [];
                                 for(let i= 0; i < response.data.locationArray.length; i++){
                                     fileName.push(response.data.locationArray[i])
-                                console.log( 'fileName', fileName );
                                 this.ocShowAlert( 'File Successfully Uploaded', '#3089cf' );
                                 this.setState({
                                     selectedFiles: fileName
@@ -136,33 +132,15 @@ class AddEditForm extends Component {
 
     render() {
 
-        // console.log( this.state );
 
         const { isAuthenticated, user } = this.props.auth;
 
-
-        // <----- Testing ----->
-        // const { name } = this.state
-        // const { price } = this.state
-        // const { category } = this.state
-        // const { description } = this.state
-
         return (
             <div className="container center-align edit-form-bg">
-                {/* <Link to="/dashboard">
-                    <Button label="Back To Home" icon="home" />
-                </Link> */}
-
-                {/* This section was for testing puposes */}
-                {/* <p>Item name: {name}</p>
-                <p>Item price: {price}</p>
-                <p>Item category: {category}</p>
-                <p>Item description: {description}</p> */}
 
                 <div className="post-header">
                     <h4>Post an Item</h4>
                 </div>
-                {/* <form onSubmit={this.handleSubmit}> */}
                 <form>
                     <div className="row">
                         <div className="input-field col l6 offset-l3 m6 offset-m3 s12">
@@ -220,14 +198,11 @@ class AddEditForm extends Component {
                         </div>
                     </div>
 
-                    {/* <input type="submit" value="Submit" /> */}
-                    {/* <Button label="Submit" icon="check" type="submit" />*/}
                 </form>
 
 
                 <div id="oc-alert-container"></div>
                 {/* Multiple File Upload */}
-                {/* <div className="card border-light mb-3" style={{ boxShadow: '0 5px 10px 2px rgba(195,192,192,.5)' }}> */}
                 <div className="card-header">
                     <h5 style={{ color: "#555", marginLeft: "12px", fontWeight: "bold" }}>Select item images for upload</h5>
                 </div>
@@ -247,14 +222,7 @@ class AddEditForm extends Component {
                         <br></br>
                         <button className="btn btn-info addEditSubmitBtn" style={{ width: "250px", height: "50px", backgroundColor: "#fb8122", fontSize: "24px" }} onClick={this.multipleFileUploadHandler}>Submit</button>
                     </div>
-                    {/* <br></br>
-                    <Link to="/dashboard">
-                        <Button label="Back To Home" icon="home" />
-                    </Link> */}
                 </div>
-                {/* </div> */}
-
-
             </div>
         )
     }

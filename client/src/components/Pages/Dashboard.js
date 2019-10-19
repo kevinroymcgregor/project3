@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-//import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { logoutUser } from "../../actions/authActions";
 import Navbar from '../Navbar/Navbar'
-//import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer.js";
 import ItemCard from "../ItemCard/ItemCard";
 import ItemsAPI from "../../utils/axios";
-import * as Scroll from 'react-scroll';
-import {animateScroll as scroll} from 'react-scroll';
+// import * as Scroll from 'react-scroll';
+import { animateScroll as scroll } from 'react-scroll';
 
 class Dashboard extends Component {
   onLogoutClick = e => {
@@ -37,16 +35,13 @@ class Dashboard extends Component {
   }
 
   render() {
-    //const { user } = this.props.auth;
-    console.log(this.state.items);
-    console.log(this.state.searchText);
-
     return (
       <>
         <Navbar callbackFromParent={this.handleSearch} />
         <div id="itemCardContainer">
           {this.state.items.map(item => (
-            <ItemCard itemID={item._id}
+            <ItemCard key={item._id}
+              itemID={item._id}
               itemImage={item.imgs[0]}
               itemName={item.name}
               itemPrice={item.price}
@@ -54,7 +49,7 @@ class Dashboard extends Component {
               itemCategory={item.category}
               itemDescription={item.description}
               itemImages={item.imgs[0]}
-              />
+            />
 
           )).filter(i => {
             let searchHaystack = i.props.itemName.toLowerCase();
@@ -63,40 +58,8 @@ class Dashboard extends Component {
             let searchNeedle = this.state.searchText.toLowerCase();
             return searchNeedle === '' ? true : (searchHaystack.indexOf(searchNeedle) > -1) || (searchHaystack2.indexOf(searchNeedle) > -1) || (searchHaystack3.indexOf(searchNeedle) > -1);
           })}
-          {/* <ItemCard
-            itemName="Retro Item"
-            itemPrice="100"
-            itemLocation="Phoenix, AZ"
-            itemDescription="This is a bunch of placeholder text that can be removed. It was only added to make the demo ItemCard component display properly. I am writing extra text in here so that it will properly test the overflow css." /> */}
         </div>
-
-        {/* <div style={{ height: "75vh" }} className="container valign-wrapper">
-          <div className="row">
-            <div className="landing-copy col s12 center-align">
-              <h4>
-                <p className="flow-text grey-text text-darken-1">
-                  You are logged into a full-stack{" "}
-                  <span style={{ fontFamily: "monospace" }}>Main User Page</span>
-                </p>
-              </h4>
-              <button
-                style={{
-                  width: "150px",
-                  borderRadius: "3px",
-                  letterSpacing: "1.5px",
-                  marginTop: "1rem"
-                }}
-                onClick={this.onLogoutClick}
-                className="btn btn-large waves-effect waves-light hoverable orange darken-1"
-              >
-                Logout
-
-            </button>
-            </div>
-          </div>
-        </div> */}
-
-        <a className="btn-floating btn-large waves-effect waves-light orange darken-3 z-depth-3" id="scrollToTopButton" onClick={() => scroll.scrollToTop({smooth:true})}><i className="material-icons">arrow_upward</i></a>
+        <a className="btn-floating btn-large waves-effect waves-light orange darken-3 z-depth-3" id="scrollToTopButton" onClick={() => scroll.scrollToTop({ smooth: true })}><i className="material-icons">arrow_upward</i></a>
 
         <Footer />
       </>

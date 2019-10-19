@@ -29,7 +29,6 @@ class Navbar extends Component {
 
   render() {
     const {  user } = this.props.auth;
-    console.log(user)
     const authLinks =(
       <p>{ user ? `Welcome ${user.email }` : ''}</p>
     )

@@ -31,8 +31,6 @@ class Profile extends Component {
 
   loadUser = () => {
     const id = this.props.auth.user.id
-    console.log(id)
-    // ItemsAPI.getUserById()
     axios.get('/api/users/getUserById/' + id)
       .then(res => this.setState({ user: res.data }))
       .catch(err => console.log(err));
@@ -45,10 +43,7 @@ class Profile extends Component {
   }
 
   render() {
-    console.log('user:', this.state.user);
     const { user } = this.props.auth
-    console.log(user.id)
-    console.log(this.state.items)
     return (
       <>
         <Navbar />
