@@ -68,6 +68,13 @@ router.put("/updateItem/:ID", (req, res) => {
     .catch(err => console.log(err));
 })
 
+router.get("/getItemsBySellerId", (req, res) => {
+    const sellerID = req.params.sellerID
+    console.log(sellerID)
+    Item.find({ sellerID: sellerID })
+    .then(console.log(res))
+})
+
 
 //For Searching to prevent attacks
 function escapeRegex(text) {

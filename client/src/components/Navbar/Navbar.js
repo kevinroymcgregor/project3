@@ -70,13 +70,13 @@ class Navbar extends Component {
                 </form>
               </div>
 
-            <ul className="right hide-on-med-and-down">
+            <ul className="right">
               {/* <li>{isAuthenticated ? authLinks : ''}</li>  */}
               <li>
                 <Link to="/addedititem"><i className="large material-icons nav-icons">add_circle</i></Link>
               </li>
-              <li><a href="#"><i className="large material-icons nav-icons">chat_bubble</i></a></li>
-              <li><a className="dropdown-trigger" href="#!" data-target="dropdown1"><i className="large material-icons nav-icons">person</i></a></li>
+              <li className="hide-on-med-and-down"><a href="#"><i className="large material-icons nav-icons">chat_bubble</i></a></li>
+              <li className="hide-on-med-and-down"><a className="dropdown-trigger" href="#!" data-target="dropdown1"><i className="large material-icons nav-icons">person</i></a></li>
             </ul>
 
           </div>

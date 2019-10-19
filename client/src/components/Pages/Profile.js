@@ -26,7 +26,7 @@ class Profile extends Component {
   componentDidMount() {
     M.AutoInit();
     this.loadUser();
-    this.loadItems();
+    // this.loadItems();
   }
 
   loadUser = () => {
@@ -36,19 +36,32 @@ class Profile extends Component {
     axios.get('/api/users/getUserById/' + id)
       .then(res => this.setState({ user: res.data }))
       .catch(err => console.log(err));
+      this.loadItems()
   }
 
   loadItems = () => {
-    ItemsAPI.getItems()
+    const sellerID = this.props.auth.user.id
+    console.log('id:',sellerID)
+    axios.get('/api/items/getItems')
+    // ItemsAPI.getItemsBySellerID()
       .then(res => this.setState({ items: res.data }))
       .catch(err => console.log(err));
   }
 
+  
+
   render() {
-    console.log('user:', this.state.user);
+    const currentUser = this.state.user.items
+    console.log('current user:', currentUser);
     const { user } = this.props.auth
-    console.log(user.id)
-    console.log(this.state.items)
+    // console.log(user.id)
+    console.log('items:', this.state.items)
+
+    
+    const userItems = this.state.items.filter((item) => {
+      return item.sellerID === this.props.auth.user.id
+    })
+
     return (
       <>
         <Navbar />
@@ -81,8 +94,22 @@ class Profile extends Component {
               </div>
             </div>
             <div id="test2" className="col s12">
-              {/* <p>{this.state.items[0].name}</p> */}
-            </div>
+              {/* <p>{this.state.user._id}</p> */}
+
+              <div id="itemCardContainer">
+                {this.state.items.map(item => (
+                  <ItemCard itemID={item._id}
+                    itemImage={item.imgs[0]}
+                    itemName={item.name}
+                    itemPrice={item.price}
+                    itemLocation={`${item.sellerID[0].city}, ${item.sellerID[0].state}`}
+                    itemCategory={item.category}
+                    itemDescription={item.description}
+                    itemImages={item.imgs[0]}
+                    />
+                ))}
+              </div>
+              </div>
             <div id="test3" className="col s12">Not watching any items</div>
 
           </div>
