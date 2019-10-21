@@ -6,10 +6,54 @@ import Navbar from '../Navbar/Navbar'
 import Footer from "../Footer/Footer.js";
 import ItemCard from "../ItemCard/ItemCard";
 import ItemsAPI from "../../utils/axios";
-import * as Scroll from 'react-scroll';
-import {animateScroll as scroll} from 'react-scroll';
+import { animateScroll as scroll } from 'react-scroll';
+import ChatMessage from '../Chat/ChatMessage';
+import Signup from '../Chat/Signup';
+import ChatApp from '../Chat/ChatApp';
+import { default as Chatkit } from '@pusher/chatkit-server';
+    
+    const chatkit = new Chatkit({
+      instanceLocator: "v1:us1:d8747459-b650-47c8-a4e6-f6226fdfbe19",
+      key: "8e867358-a73e-4811-9268-f6fda29db331:HTeREMP2e+HhaQLTjHC9V+Lp+LIFpBuFQ2SXhRJk+sA="
+    })
 
 class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+    this.changeView = this.changeView.bind(this);
+    this.createUser = this.createUser.bind(this);
+  }
+
+  createUser(username) {
+            chatkit.createUser({
+                id: username,
+                name: username,
+            })
+            .then((currentUser) => {
+                this.setState({
+                    currentUsername: username,
+                    currentId: username,
+                    currentView: 'ChatApp'
+                })
+            }).catch((err) => {
+                     if(err.status === 400) {
+                    this.setState({
+                        currentUsername: username,
+                        currentId: username,
+                        currentView: 'ChatMessage'
+                    })
+                } else {
+                    console.log(err.status);
+                }
+            });
+        }
+
+  changeView(view) {
+    this.setState({
+      currentView: view
+    })
+  }
+
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
@@ -17,7 +61,10 @@ class Dashboard extends Component {
 
   state = {
     items: [],
-    searchText: ''
+    searchText: '',
+    currentView: 'ChatMessage',
+    currentUsername: '',
+    currentId: ''
   }
 
   componentDidMount() {
@@ -35,12 +82,18 @@ class Dashboard extends Component {
   }
 
   render() {
-    //const { user } = this.props.auth;
     console.log(this.state.items);
     console.log(this.state.searchText);
-
+    let view ='';
+            if (this.state.currentView === "ChatMessage") {
+                view = <ChatMessage  changeView={this.changeView}/>
+            } else if (this.state.currentView === "Signup") {
+                view = <Signup onSubmit={this.createUser}/>
+            } else if (this.state.currentView === "ChatApp") {
+                view = <ChatApp currentId={this.state.currentId} />
+            }
     return (
-      <>
+        <>
         <Navbar callbackFromParent={this.handleSearch} />
         <div id="itemCardContainer">
           {this.state.items.map(item => (
@@ -52,8 +105,7 @@ class Dashboard extends Component {
               itemCategory={item.category}
               itemDescription={item.description}
               itemImages={item.imgs[0]}
-              />
-
+            />
           )).filter(i => {
             let searchHaystack = i.props.itemName.toLowerCase();
             let searchHaystack2 = i.props.itemDescription.toLowerCase();
@@ -61,41 +113,10 @@ class Dashboard extends Component {
             let searchNeedle = this.state.searchText.toLowerCase();
             return searchNeedle === '' ? true : (searchHaystack.indexOf(searchNeedle) > -1) || (searchHaystack2.indexOf(searchNeedle) > -1) || (searchHaystack3.indexOf(searchNeedle) > -1);
           })}
-          {/* <ItemCard
-            itemName="Retro Item"
-            itemPrice="100"
-            itemLocation="Phoenix, AZ"
-            itemDescription="This is a bunch of placeholder text that can be removed. It was only added to make the demo ItemCard component display properly. I am writing extra text in here so that it will properly test the overflow css." /> */}
         </div>
-
-        {/* <div style={{ height: "75vh" }} className="container valign-wrapper">
-          <div className="row">
-            <div className="landing-copy col s12 center-align">
-              <h4>
-                <p className="flow-text grey-text text-darken-1">
-                  You are logged into a full-stack{" "}
-                  <span style={{ fontFamily: "monospace" }}>Main User Page</span>
-                </p>
-              </h4>
-              <button
-                style={{
-                  width: "150px",
-                  borderRadius: "3px",
-                  letterSpacing: "1.5px",
-                  marginTop: "1rem"
-                }}
-                onClick={this.onLogoutClick}
-                className="btn btn-large waves-effect waves-light hoverable orange darken-1"
-              >
-                Logout
-
-            </button>
-            </div>
-          </div>
-        </div> */}
-
-        <a className="btn-floating btn-large waves-effect waves-light orange darken-3 z-depth-3" id="scrollToTopButton" onClick={() => scroll.scrollToTop({smooth:true})}><i className="material-icons">arrow_upward</i></a>
-
+        <a className="btn-floating btn-large waves-effect waves-light orange darken-3 z-depth-3" id="scrollToTopButton" onClick={() => scroll.scrollToTop({ smooth: true })}><i className="material-icons">arrow_upward</i></a>
+        <div className="Chat">{view}</div>
+        
         <Footer />
       </>
     );
