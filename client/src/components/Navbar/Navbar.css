@@ -11,6 +11,8 @@
 
 .sidenav-overlay {
     z-index: 1;
+    /* height: 0px;
+    width: 0px; */
 }
 
 .sidenav-trigger {
@@ -19,7 +21,11 @@
 }
 
 .input-field.main {
-    background-color: #1d2228;
+    background-color: #252b33;
+}
+
+.background {
+    background-color: #1d2228 !important;
 }
 
 nav {
@@ -74,7 +80,11 @@ nav .right .imgProfil a{
 
 @media only screen and (max-width: 480px) { 
     .brand-logo {
-      font-size: 24px !important;
+      font-size: 22px !important;
+    }
+    .rightIcons {
+        padding-left: 5px;
+        padding-right: 5px;
     }
   }
 

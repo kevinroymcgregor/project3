@@ -26,7 +26,4 @@ export default {
     },
 }
 
-// router.get("/getItemsBySellerId/:id", (req, res) => {
-//     Item.findById(req.params.id)
-//     .populate()
-// })
+

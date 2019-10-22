@@ -154,12 +154,13 @@ class AddEditForm extends Component {
                 {/* <p>Item name: {name}</p>
                 <p>Item price: {price}</p>
                 <p>Item category: {category}</p>
-            <p>Item description: {description}</p> */}
-
-                <Link to="/" className="left btn-flat waves-effect">
+                <p>Item description: {description}</p> */}
+                {/* <div className="row"> */}
+                <Link to="/dashboard" className="left btn-flat waves-effect">
                     <i className="material-icons left">keyboard_backspace</i>
                     back
                 </Link>
+                {/* </div> */}
                 <div className="post-header">
                     <h4>Post an Item</h4>
                 </div>

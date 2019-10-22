@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 // import ProfileTab from '../ProfileTab/ProfileTab';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
-import Button from '../Button/Button';
-import { Link } from "react-router-dom";
 import axios from 'axios';
 import { connect } from "react-redux";
 // import ItemsAPI from "../../utils/axios";
@@ -18,6 +16,15 @@ import ItemsAPI from "../../utils/axios";
 
 
 class Profile extends Component {
+
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //       user: [],
+  //       items: []
+  //   };
+  // };
+
   state = {
     user: [],
     items: []
@@ -26,7 +33,7 @@ class Profile extends Component {
   componentDidMount() {
     M.AutoInit();
     this.loadUser();
-    // this.loadItems();
+    this.loadItems();
   }
 
   loadUser = () => {
@@ -36,35 +43,56 @@ class Profile extends Component {
     axios.get('/api/users/getUserById/' + id)
       .then(res => this.setState({ user: res.data }))
       .catch(err => console.log(err));
-      this.loadItems()
   }
 
   loadItems = () => {
     const sellerID = this.props.auth.user.id
     console.log('id:',sellerID)
-    axios.get('/api/items/getItems')
-    // ItemsAPI.getItemsBySellerID()
-      .then(res => this.setState({ items: res.data }))
+    axios.get('/api/items/getUserItems')
+    .then(res => this.setState({items: res.data.filter(item => ( item.sellerID[0] === sellerID))}))
+      // .then(res => this.setState({ items: res.data }))
       .catch(err => console.log(err));
+      // this.getUserItems()
   }
 
+  // getUserItems= () => {
+  //   const { user } = this.props.auth
+  //   console.log(user.id)
   
+  //   const theseItems = this.state.items
+  //   console.log(theseItems)
+  //   const userItems = theseItems.filter(item => ( item.sellerID[0] === user.id))
+  //   console.log(userItems)   
+  //       // this.setState({ items: userItems })
+  //       // return true
+  //       }
 
   render() {
     const currentUser = this.state.user.items
-    console.log('current user:', currentUser);
+    // console.log('current user:', currentUser);
+    
     const { user } = this.props.auth
     // console.log(user.id)
-    console.log('items:', this.state.items)
-
     
-    const userItems = this.state.items.filter((item) => {
-      return item.sellerID === this.props.auth.user.id
-    })
+    // this.getUserItems()
+
+    const theseItems = this.state.items
+    console.log(theseItems)
+    // let userItems = ({currentUserItems: theseItems.filter(item => ( item.sellerID[0] === user.id))})
+    // console.log(userItems)
+   
+    const {avatar} = this.state.user;
+    // console.log(avatar)
+    const avatarLink = (
+      <>{ avatar ? `{avatar : ''}` : ''}</>
+    )
+
+    const useritemsArray = this.state.currentUserItems
+    console.log(useritemsArray)
 
     return (
       <>
-        <Navbar />
+        <Navbar />      
         <div className="container">
           <div className="row">
             <div className="col s12">
@@ -84,7 +112,8 @@ class Profile extends Component {
                   state={this.state.user.state}
                   zip={this.state.user.zipCode}
                   phone={this.state.user.phone}
-                  avatar={this.state.user.avatar}
+                  avatar={avatar ? avatar : 'https://cdn3.iconfinder.com/data/icons/vector-icons-6/96/256-512.png'}
+                  // avatar={this.state.user.avatar}
                 />
               </div>
               <div className="row">
@@ -94,11 +123,11 @@ class Profile extends Component {
               </div>
             </div>
             <div id="test2" className="col s12">
-              {/* <p>{this.state.user._id}</p> */}
-
-              <div id="itemCardContainer">
+              {/* <p>{this.state.currentUserItems[0].id}</p> */}
                 {this.state.items.map(item => (
-                  <ItemCard itemID={item._id}
+                  <ItemCard 
+                    key={item._id}
+                    itemID={item._id}
                     itemImage={item.imgs[0]}
                     itemName={item.name}
                     itemPrice={item.price}
@@ -109,15 +138,10 @@ class Profile extends Component {
                     />
                 ))}
               </div>
-              </div>
-            <div id="test3" className="col s12">Not watching any items</div>
-
+            <div id="test3" className="col s12 center-align">
+              Not watching any items
+            </div>
           </div>
-          {/* <div className="back-to-dashboard">
-                    <Link to="/dashboard">
-                    <Button label="Back To Home" icon="home" />
-                    </Link>
-                    </div> */}
         </div>
         <Footer />
       </>
