@@ -104,7 +104,6 @@ class Profile extends Component {
                   zip={this.state.user.zipCode}
                   phone={this.state.user.phone}
                   avatar={avatar ? avatar : 'https://cdn3.iconfinder.com/data/icons/vector-icons-6/96/256-512.png'}
-                // avatar={this.state.user.avatar}
                 />
               </div>
               <div className="row">
@@ -135,7 +134,9 @@ class Profile extends Component {
               <Link to="/dashboard" className="btn-flat waves-effect">
                 <i className="material-icons left">keyboard_backspace</i> back
               </Link>
-              Not watching any items
+              <div className="watchCard">
+                UNDER CONSTRUCTION
+              </div>
             </div>
           </div>
         </div>
@@ -144,8 +145,6 @@ class Profile extends Component {
     )
   }
 }
-
-// export default Profile;
 
 const mapStateToProps = state => ({
   auth: state.auth

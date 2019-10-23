@@ -35,3 +35,38 @@
 .account-details {
     margin-top: 1em;
 }
+
+.watchCard {
+    display: flex;
+    background-color: #fefefa;
+    border: solid #222 1px;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 
+                0 15px 12px rgba(0,0,0,0.22);
+    height: 40vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 85px;
+    font-family: johnny-fever;
+    color: white;
+    /* background: repeating-linear-gradient(
+      45deg,
+      #fb8122,
+      #fb8122 10px,
+      #222 10px,
+      #222 20px
+    ); */
+      background: 
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 20px,
+        #b1550e 20px,
+        #fd8e38 40px
+      ),
+      linear-gradient(
+        to bottom,
+        #2a313a,
+        #1d2228
+      );
+}
