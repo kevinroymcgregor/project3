@@ -42,6 +42,7 @@ class Dashboard extends Component {
                         currentId: username,
                         currentView: 'ChatMessage'
                     })
+                    alert("Oops! Please use another user email.  The one you have selected is currently in use.");
                 } else {
                     console.log(err.status);
                 }

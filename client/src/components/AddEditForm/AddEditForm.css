@@ -1,9 +1,3 @@
-/* .post-header {
-    width: 500px;
-    margin: 0 auto;
-    background-color: #fb8122;
-} */
-
 .edit-form-bg {
     padding: 3em 0;
     background-color: #fff;
@@ -12,4 +6,19 @@
 .fileUploadDiv {
     width: 500px;
     margin: 0 auto;
+}
+
+@media only screen and (max-width: 480px) { 
+    .fileUploadDiv {
+        width: auto;
+    }
+}
+
+.addEditBackButton {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.addEditBackButton a:hover {
+    color: #fb8122;
 }

@@ -137,11 +137,11 @@ class AddEditForm extends Component {
 
         return (
             <div className="container center-align edit-form-bg">
-
-                <Link to="/" className="left btn-flat waves-effect">
-                    <i className="material-icons left">keyboard_backspace</i>
-                    back
+                <div className="addEditBackButton">
+                <Link to="/dashboard" className="left btn-flat waves-effect">
+                    <i className="material-icons left">keyboard_backspace</i> back
                 </Link>
+                </div>
                 <div className="post-header">
                     <h4>Post an Item</h4>
                 </div>
@@ -207,12 +207,9 @@ class AddEditForm extends Component {
                             <label htmlFor="desc">Item description</label>
                         </div>
                     </div>
-
                 </form>
 
-
                 <div id="oc-alert-container"></div>
-                {/* Multiple File Upload */}
                 <div className="card-header">
                     <h5 style={{ color: "#555", marginLeft: "12px", 
                         fontWeight: "bold" }}>

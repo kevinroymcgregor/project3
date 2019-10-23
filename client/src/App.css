@@ -157,7 +157,7 @@ hr {
   background-color: #222;
   height: 150px;
   padding: 20px;
-  color: white;
+  color: #fb8122;
 }
 
 .Chat-title {
@@ -172,4 +172,22 @@ hr {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.chatHeader {
+  text-align: center;
+  width: auto;
+  background-color: #1D2228;
+  color: #fb8122;
+}
+
+.chatIcon {
+  cursor: pointer;
+  color: white;
+}
+
+.chatIcon:hover {
+  color: #fb8122;
+}
+
+
 

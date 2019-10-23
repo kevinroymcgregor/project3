@@ -70,11 +70,21 @@ router.put("/updateItem/:ID", (req, res) => {
     .catch(err => console.log(err));
 })
 
-router.get("/getItemsBySellerId", (req, res) => {
-    const sellerID = req.params.sellerID
-    console.log(sellerID)
-    Item.find({ sellerID: sellerID })
-    .then(console.log(res))
+// router.get("/getItemsBySellerId", (req, res) => {
+//     const sellerID = req.body.sellerID
+//     console.log(sellerID)
+//     Item.find({ sellerID: sellerID })
+//     .then(console.log(res))
+// })
+
+router.get("/getUserItems", (req,res) => {
+
+    Item.find({enabled: true})
+    .sort({ createdDate: -1 })
+    .then(items => res.json(items))
+    .then(itemList => res.json(itemList))
+    .catch(err => console.log(err));
+
 })
 
 

@@ -19,10 +19,15 @@ class Signup extends Component {
     render() {
         return (
             <div className="form-container">
-                <h5>Welcome to RetroConnect</h5>
+                
+                <span className="chatHeaderContainer">
+                <h5 className="chatHeader center-align">Retro-Chat
+                <i className="material-icons chatIcon right">get_app</i></h5>
+                </span>
+                
                 <form onSubmit={this.handleSubmit} className="form">
-                    <label htmlFor="email">What is your email?</label>
-                    <input type="email" name="username" onChange={this.handleChange} className="input" />
+                    <label htmlFor="email" style={{ color: "black"}}>What is your email?</label>
+                    <input type="email" name="username" onChange={this.handleChange} className="input" style={{ borderBottom: "black 1px solid"}} />
                     <button className="submit">Submit</button>
                 </form>
             </div>

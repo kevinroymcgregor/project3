@@ -22,7 +22,7 @@ class ItemDetails extends Component {
 
     componentDidMount() {
         this.loadItem(this.props.match.params.ID);
-        
+
     }
 
     loadItem = (ID) => {
@@ -37,8 +37,8 @@ class ItemDetails extends Component {
                 <Navbar />
                 <div className="container">
                     <div className="back-to-dashboard">
-                        <Link to="/dashboard">
-                            <Button label="Back To Home" icon="home" />
+                        <Link to="/dashboard" className="btn-flat waves-effect">
+                            <i className="material-icons left">keyboard_backspace</i> back
                         </Link>
                     </div>
                     {<Carousel itemImages={this.state.item.imgs} />}
