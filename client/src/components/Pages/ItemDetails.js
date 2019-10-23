@@ -41,7 +41,7 @@ class ItemDetails extends Component {
                             <Button label="Back To Home" icon="home" />
                         </Link>
                     </div>
-                    <Carousel itemImages={this.state.item.imgs} />
+                    {<Carousel itemImages={this.state.item.imgs} />}
                     <ItemDetailsCard
                         itemName={this.state.item.name}
                         itemDescription={this.state.item.description}
