@@ -49,8 +49,9 @@ a:hover {
 }
 
 .form-container {
-  height: 400px;
+  height: 450px;
   border: 1px solid #5E0565;
+  max-height: 25%;
 }
 .form-container h5 {
   padding: 10px;
@@ -119,11 +120,11 @@ a:hover {
   border: 1px solid #a1a1a4;
 }
 
-.header  {
+.header {
   padding: 20px;
   color: white;
   margin-top: 0;
-  text-align: left;
+  text-align: center;
   border-bottom: 1px solid #5E0565;
   background-color: #5E0565;
 }
@@ -132,7 +133,7 @@ a:hover {
   list-style-type: none;
   padding: 0px 20px;
   overflow: scroll;
-  max-height: calc(100vh - 150px);
+  max-height: 300px;
   margin-bottom: 35px;
   background-color: #a1a1a4;
 }
