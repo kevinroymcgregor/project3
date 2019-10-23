@@ -89,12 +89,8 @@ class Avatar extends Component {
 	};
 
 	render() {
-<<<<<<< HEAD
-		return(
-=======
 		console.log(this.state);
 		return (
->>>>>>> 9decc5099d5ca12489a2d9d977459d81d13a6c62
 			<div className="container center">
 				{/* For Alert box*/}
 				<div id="oc-alert-container"></div>
