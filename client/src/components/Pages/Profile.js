@@ -11,7 +11,7 @@ import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css";
 import '../ProfileTab/ProfileTab.css';
 import Avatar from "../uploads/Avatar";
-import ItemCard from "../ItemCard/ItemCard";
+import SellerItemCard from "../SellerItemCard/SellerItemCard";
 import ItemsAPI from "../../utils/axios";
 
 
@@ -55,26 +55,12 @@ class Profile extends Component {
       // this.getUserItems()
   }
 
-  // getUserItems= () => {
-  //   const { user } = this.props.auth
-  //   console.log(user.id)
-  
-  //   const theseItems = this.state.items
-  //   console.log(theseItems)
-  //   const userItems = theseItems.filter(item => ( item.sellerID[0] === user.id))
-  //   console.log(userItems)   
-  //       // this.setState({ items: userItems })
-  //       // return true
-  //       }
-
   render() {
     const currentUser = this.state.user.items
     // console.log('current user:', currentUser);
     
     const { user } = this.props.auth
     // console.log(user.id)
-    
-    // this.getUserItems()
 
     const theseItems = this.state.items
     console.log(theseItems)
@@ -123,9 +109,8 @@ class Profile extends Component {
               </div>
             </div>
             <div id="test2" className="col s12">
-              {/* <p>{this.state.currentUserItems[0].id}</p> */}
                 {this.state.items.map(item => (
-                  <ItemCard 
+                  <SellerItemCard 
                     key={item._id}
                     itemID={item._id}
                     itemImage={item.imgs[0]}

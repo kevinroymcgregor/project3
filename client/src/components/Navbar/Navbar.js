@@ -64,7 +64,7 @@ class Navbar extends Component {
         <ul id="dropdown1" className="dropdown-content">
           <li>
             <Link to="/profile" userId={user.id}>Account</Link></li>
-          <li><a href="#!">Messages</a></li>
+          {/* <li><a href="#!">Messages</a></li> */}
           <li className="divider"></li>
           <li><a href="#!" onClick={this.onLogoutClick}>Logout</a></li>
         </ul>
