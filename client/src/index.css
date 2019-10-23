@@ -55,9 +55,9 @@ a:hover {
 }
 .form-container h5 {
   padding: 10px;
-  background-color: #5E0565;
+  background-color: #1D2228;
   font-size: 20px;
-  color: white;
+  color: #fb8122;
   margin: 0;
   margin-bottom: 10px;
 }
@@ -77,11 +77,21 @@ a:hover {
 .submit  {
   height: 40px;
   padding: 0 20px;
-  background-color: #5E0565;
-  color: white;
-  border-radius: 5px;
+  background-color: #1D2228;
+  color: #fff;
+  border-radius: 3px;
   font-size: 16px;
   cursor: pointer;
+  border: none;
+}
+
+.submit:hover  {
+  color: #fb8122;
+}
+
+.submit:focus  {
+  background-color: rgb(42, 49, 56);
+  color: #fb8122;
 }
 
 .Chat {
@@ -102,16 +112,6 @@ a:hover {
   margin: 20px auto;
   height: 50px;
   font-size: 20px
-}
-
-.submit  {
-  height: 40px;
-  padding: 0 20px;
-  background-color: #5E0565;
-  color: white;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
 }
 
 .chatapp  {
@@ -160,10 +160,15 @@ a:hover {
 
 .message-submit  {
   width: 30%;
-  background-color: #5E0565;
-  color: white;
+  background-color: #1D2228;
+  color: #fff;
   font-size: 16px;
   cursor: pointer;
+  border: none;
+}
+
+.message-submit:hover {
+  color: #fb8122;
 }
 
 .input-field {
