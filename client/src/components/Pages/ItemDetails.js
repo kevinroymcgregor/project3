@@ -43,7 +43,8 @@ class ItemDetails extends Component {
                         </Link>
                     </div>
 
-                    <img className="selectedImage row" src="https://lorempixel.com/800/400/food/5" />
+                    <img className="selectedImage row" src={this.state.item.imgs[0]} />
+
                     <div className="thumbnails row">
                         <img className="col l3" src={this.state.item.imgs[0] ? this.state.item.imgs[0] : "https://dummyimage.com/194.45x120/222/fff.png&text=No+Image"} />
                         <img className="col l3" src={this.state.item.imgs[1] ? this.state.item.imgs[1] : "https://dummyimage.com/194.45x120/222/fff.png&text=No+Image"} style={{ borderLeft: "solid #b2b4b2 1px" }} />
