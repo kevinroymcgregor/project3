@@ -30,7 +30,7 @@ const ItemCard = (props) => {
                         itemId={props.itemId}
                         />
                     </Link>
-                    <Button label="Message" icon="message" />
+                    {/* <Button label="Message" icon="message" /> */}
                     <Link to={`/shopping-cart`}>
                     <Button 
                         label="Cart" 
