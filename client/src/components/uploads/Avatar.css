@@ -1,0 +1,30 @@
+.avatarUploadCard {
+    padding: 0 0 15px 0;
+    border: solid #222 1px;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 
+                0 15px 12px rgba(0,0,0,0.22);
+}
+
+.avatarCardHeaderText {
+    color: #1d2228;
+    background-color: #fb8122;
+    font-family: johnny-fever;
+    margin: 0;
+    padding: 5px 0;
+    font-weight: bold;
+}
+
+.avatarImageLimitationText {
+    margin-top: 3px;
+}
+
+.avatarFileSelectButton {
+    background-color: #fb8122;
+}
+
+.avatarUploadButton {
+    background-color: #fb8122;
+    width: 250px;
+    height: 50px;
+    font-size: 24px;
+}

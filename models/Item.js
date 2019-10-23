@@ -60,10 +60,6 @@ const ItemSchema = new Schema({
         type: String,
         required: true
     }
-    // currentHiBidUID: {
-    //     type: Schema.Types.ObjectId,
-    //     required: false,
-    //     ref: "User"
-    // }
+
 });
 module.exports = Item = mongoose.model("items", ItemSchema);
