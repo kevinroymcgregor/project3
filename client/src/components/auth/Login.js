@@ -56,7 +56,7 @@ class Login extends Component {
       <div className="containerWrapper">
         <div className="container" id="loginForm">
           <div className="row loginRow">
-            <div className="col s8 offset-s2">
+            <div className="col s12  m8 offset-m2 l8 offset-l2">
               <Link to="/" className="btn-flat waves-effect">
                 <i className="material-icons left">keyboard_backspace</i> back
             </Link>
@@ -64,12 +64,17 @@ class Login extends Component {
                 <h4>
                   Login
               </h4>
+              <span>
                 <p className="black-text text-darken-1 alreadyHaveAccountText">
-                  Don't have an account? <Link to="/register" className="goToOtherPageFormLink">Click here to Register</Link>
+                  Don't have an account? 
                 </p>
+                <p className="center-align">
+                  <Link to="/register" className="goToOtherPageFormLink">Click here to Register</Link>
+                </p>
+                </span>
               </div>
               <form noValidate onSubmit={this.onSubmit}>
-                <div className="input-field col s12">
+                <div className="input-field col s12 reg-input">
                   <input
                     onChange={this.onChange}
                     value={this.state.email}
@@ -86,7 +91,7 @@ class Login extends Component {
                     {errors.emailnotfound}
                   </span>
                 </div>
-                <div className="input-field col s12">
+                <div className="input-field col s12 reg-input">
                   <input
                     onChange={this.onChange}
                     value={this.state.password}

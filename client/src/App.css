@@ -141,6 +141,7 @@ hr {
   margin: 0 12.5%;
 }
 
+
 /* CHAT STYLES */
 .Chat {
   text-align: center;
@@ -187,6 +188,22 @@ hr {
 
 .chatIcon:hover {
   color: #fb8122;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 601px) { 
+  .reg-input {
+    margin: 5px 0;
+  }
+  #logInButton {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+@media only screen and (max-width: 993px) { 
+  .Chat {
+    display: none;
+  }
 }
 
 
