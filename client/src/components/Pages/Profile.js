@@ -13,6 +13,8 @@ import '../ProfileTab/ProfileTab.css';
 import Avatar from "../uploads/Avatar";
 import SellerItemCard from "../SellerItemCard/SellerItemCard";
 import ItemsAPI from "../../utils/axios";
+import { Link } from "react-router-dom";
+import Button from '../Button/Button';
 
 
 class Profile extends Component {
@@ -47,18 +49,18 @@ class Profile extends Component {
 
   loadItems = () => {
     const sellerID = this.props.auth.user.id
-    console.log('id:',sellerID)
+    console.log('id:', sellerID)
     axios.get('/api/items/getUserItems')
-    .then(res => this.setState({items: res.data.filter(item => ( item.sellerID[0] === sellerID))}))
+      .then(res => this.setState({ items: res.data.filter(item => (item.sellerID[0] === sellerID)) }))
       // .then(res => this.setState({ items: res.data }))
       .catch(err => console.log(err));
-      // this.getUserItems()
+    // this.getUserItems()
   }
 
   render() {
     const currentUser = this.state.user.items
     // console.log('current user:', currentUser);
-    
+
     const { user } = this.props.auth
     // console.log(user.id)
 
@@ -66,11 +68,11 @@ class Profile extends Component {
     console.log(theseItems)
     // let userItems = ({currentUserItems: theseItems.filter(item => ( item.sellerID[0] === user.id))})
     // console.log(userItems)
-   
-    const {avatar} = this.state.user;
+
+    const { avatar } = this.state.user;
     // console.log(avatar)
     const avatarLink = (
-      <>{ avatar ? `{avatar : ''}` : ''}</>
+      <>{avatar ? `{avatar : ''}` : ''}</>
     )
 
     const useritemsArray = this.state.currentUserItems
@@ -78,7 +80,7 @@ class Profile extends Component {
 
     return (
       <>
-        <Navbar />      
+        <Navbar />
         <div className="container">
           <div className="row">
             <div className="col s12">
@@ -89,6 +91,9 @@ class Profile extends Component {
               </ul>
             </div>
             <div id="test1" className="col s12">
+                <Link to="/dashboard">
+                  <Button label="Back To Home" icon="home" />
+                </Link>
               <div className="row">
                 <ProfileDetailsCard
                   first={this.state.user.firstName}
@@ -99,7 +104,7 @@ class Profile extends Component {
                   zip={this.state.user.zipCode}
                   phone={this.state.user.phone}
                   avatar={avatar ? avatar : 'https://cdn3.iconfinder.com/data/icons/vector-icons-6/96/256-512.png'}
-                  // avatar={this.state.user.avatar}
+                // avatar={this.state.user.avatar}
                 />
               </div>
               <div className="row">
@@ -109,21 +114,27 @@ class Profile extends Component {
               </div>
             </div>
             <div id="test2" className="col s12">
-                {this.state.items.map(item => (
-                  <SellerItemCard 
-                    key={item._id}
-                    itemID={item._id}
-                    itemImage={item.imgs[0]}
-                    itemName={item.name}
-                    itemPrice={item.price}
-                    itemLocation={`${item.sellerID[0].city}, ${item.sellerID[0].state}`}
-                    itemCategory={item.category}
-                    itemDescription={item.description}
-                    itemImages={item.imgs[0]}
-                    />
-                ))}
-              </div>
-            <div id="test3" className="col s12 center-align">
+              <Link to="/dashboard">
+                <Button label="Back To Home" icon="home" />
+              </Link>
+              {this.state.items.map(item => (
+                <SellerItemCard
+                  key={item._id}
+                  itemID={item._id}
+                  itemImage={item.imgs[0]}
+                  itemName={item.name}
+                  itemPrice={item.price}
+                  itemLocation={`${item.sellerID[0].city}, ${item.sellerID[0].state}`}
+                  itemCategory={item.category}
+                  itemDescription={item.description}
+                  itemImages={item.imgs[0]}
+                />
+              ))}
+            </div>
+            <div id="test3" className="col s12">
+              <Link to="/dashboard">
+                <Button label="Back To Home" icon="home" />
+              </Link>
               Not watching any items
             </div>
           </div>
