@@ -93,7 +93,7 @@ h4 {
 
 #scrollToTopButton {
   position: fixed;
-  right: 50px;
+  left: 50px;
   bottom: 25px;
 }
 
