@@ -98,7 +98,8 @@ class Dashboard extends Component {
         <Navbar callbackFromParent={this.handleSearch} />
         <div id="itemCardContainer">
           {this.state.items.map(item => (
-            <ItemCard itemID={item._id}
+            <ItemCard key={item._id}
+              itemID={item._id}
               itemImage={item.imgs[0]}
               itemName={item.name}
               itemPrice={item.price}

@@ -41,7 +41,7 @@ class ItemDetails extends Component {
                             <i className="material-icons left">keyboard_backspace</i> back
                         </Link>
                     </div>
-                    <Carousel itemImages={this.state.item.imgs} />
+                    {<Carousel itemImages={this.state.item.imgs} />}
                     <ItemDetailsCard
                         itemName={this.state.item.name}
                         itemDescription={this.state.item.description}
