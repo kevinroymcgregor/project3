@@ -18,3 +18,7 @@
     display: flex;
     justify-content: flex-start;
 }
+
+.addEditBackButton a:hover {
+    color: #fb8122;
+}
