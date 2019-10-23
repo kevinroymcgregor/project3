@@ -33,3 +33,18 @@
     font-weight: bold;
     border-top: none !important;
 }
+
+.thumbnails {
+    margin: 0;
+    height: 120px;
+}
+
+.thumbnails img {
+    padding: 0 !important;
+    height: 100%;
+}
+
+.selectedImage {
+    margin: 0 0 -6px 0;
+    width: 100%;
+}

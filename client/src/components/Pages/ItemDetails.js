@@ -15,7 +15,8 @@ class ItemDetails extends Component {
         super(props);
         this.state = {
             item: {
-                sellerID: [{ city: '', state: '' }]
+                sellerID: [{ city: '', state: '' }],
+                imgs: [{ '': '' }]
             }
         };
     }
@@ -41,7 +42,15 @@ class ItemDetails extends Component {
                             <i className="material-icons left">keyboard_backspace</i> back
                         </Link>
                     </div>
-                    <Carousel itemImages={this.state.item.imgs} />
+
+                    <img className="selectedImage row" src="https://lorempixel.com/800/400/food/5" />
+                    <div className="thumbnails row">
+                        <img className="col l3" src={this.state.item.imgs[0] ? this.state.item.imgs[0] : "https://lorempixel.com/800/400/food/1"} />
+                        <img className="col l3" src={this.state.item.imgs[1] ? this.state.item.imgs[1] : "https://lorempixel.com/800/400/food/2"} />
+                        <img className="col l3" src={this.state.item.imgs[2] ? this.state.item.imgs[2] : "https://lorempixel.com/800/400/food/3"} />
+                        <img className="col l3" src={this.state.item.imgs[3] ? this.state.item.imgs[3] : 'https://lorempixel.com/800/400/food/4'} />
+                    </div>
+
                     <ItemDetailsCard
                         itemName={this.state.item.name}
                         itemDescription={this.state.item.description}
