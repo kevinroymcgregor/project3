@@ -149,22 +149,14 @@ class AddEditForm extends Component {
 
         return (
             <div className="container center-align edit-form-bg">
-
-                {/* This section was for testing puposes */}
-                {/* <p>Item name: {name}</p>
-                <p>Item price: {price}</p>
-                <p>Item category: {category}</p>
-                <p>Item description: {description}</p> */}
-                {/* <div className="row"> */}
+                <div className="addEditBackButton">
                 <Link to="/dashboard" className="left btn-flat waves-effect">
-                    <i className="material-icons left">keyboard_backspace</i>
-                    back
+                    <i className="material-icons left">keyboard_backspace</i> back
                 </Link>
-                {/* </div> */}
+                </div>
                 <div className="post-header">
                     <h4>Post an Item</h4>
                 </div>
-                {/* <form onSubmit={this.handleSubmit}> */}
                 <form>
                     <div className="row">
                         <div className="input-field col l6 offset-l3 m6 offset-m3 s12">
@@ -221,15 +213,9 @@ class AddEditForm extends Component {
                             <label htmlFor="desc">Item description</label>
                         </div>
                     </div>
-
-                    {/* <input type="submit" value="Submit" /> */}
-                    {/* <Button label="Submit" icon="check" type="submit" />*/}
                 </form>
 
-
                 <div id="oc-alert-container"></div>
-                {/* Multiple File Upload */}
-                {/* <div className="card border-light mb-3" style={{ boxShadow: '0 5px 10px 2px rgba(195,192,192,.5)' }}> */}
                 <div className="card-header">
                     <h5 style={{ color: "#555", marginLeft: "12px", fontWeight: "bold" }}>Select item images for upload</h5>
                 </div>
@@ -241,7 +227,7 @@ class AddEditForm extends Component {
                             <span>Choose Files</span>
                             <input type="file" multiple onChange={this.multipleFileChangedHandler} />
                         </div>
-                        <div className="file-path-wrapper">
+                        <div className="file-path-wrapper" style={{width: "100%"}}>
                             <input className="file-path validate" type="text" placeholder="Upload one or more files" />
                         </div>
                     </div>
@@ -249,13 +235,7 @@ class AddEditForm extends Component {
                         <br></br>
                         <button className="btn btn-info addEditSubmitBtn" style={{ width: "250px", height: "50px", backgroundColor: "#fb8122", fontSize: "24px" }} onClick={this.multipleFileUploadHandler}>Submit</button>
                     </div>
-                    {/* <br></br>
-                    <Link to="/dashboard">
-                        <Button label="Back To Home" icon="home" />
-                    </Link> */}
                 </div>
-                {/* </div> */}
-
 
             </div>
         )

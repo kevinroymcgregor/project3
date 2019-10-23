@@ -91,9 +91,9 @@ class Profile extends Component {
               </ul>
             </div>
             <div id="test1" className="col s12">
-                <Link to="/dashboard">
-                  <Button label="Back To Home" icon="home" />
-                </Link>
+              <Link to="/dashboard" className="btn-flat waves-effect">
+                <i className="material-icons left">keyboard_backspace</i> back
+              </Link>
               <div className="row">
                 <ProfileDetailsCard
                   first={this.state.user.firstName}
@@ -114,8 +114,8 @@ class Profile extends Component {
               </div>
             </div>
             <div id="test2" className="col s12">
-              <Link to="/dashboard">
-                <Button label="Back To Home" icon="home" />
+              <Link to="/dashboard" className="btn-flat waves-effect">
+                <i className="material-icons left">keyboard_backspace</i> back
               </Link>
               {this.state.items.map(item => (
                 <SellerItemCard
@@ -132,8 +132,8 @@ class Profile extends Component {
               ))}
             </div>
             <div id="test3" className="col s12">
-              <Link to="/dashboard">
-                <Button label="Back To Home" icon="home" />
+              <Link to="/dashboard" className="btn-flat waves-effect">
+                <i className="material-icons left">keyboard_backspace</i> back
               </Link>
               Not watching any items
             </div>
