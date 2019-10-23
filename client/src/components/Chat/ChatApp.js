@@ -63,7 +63,10 @@ class ChatApp extends Component {
     render() {
         return (
             <div>
-                <h6 className="header chat-title">RetroConnect</h6>
+                <span className="chatHeaderContainer">
+                <h6 className="header chat-title chatHeader">RetroConnect  
+                <i class="material-icons chatIcon right">get_app</i></h6>
+                </span>
                 <MessageList messages={this.state.messages} />
                 <Input className="input-field" onSubmit={this.addMessage} />
             </div>
