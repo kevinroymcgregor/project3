@@ -6,10 +6,10 @@ import '../ProfileDetailsCard/ProfileDetailsCard.css';
 const ProfileDetailsCard = (props) => {
 
   return (
-        <div className="col l12 account-details">
-        <h5 className="header center account-header">Account Details</h5>
-        <div className="card horizontal profile-card">
-          <div className="card-image col l4 m4">
+    <div className="col l12 account-details">
+      <h5 className="header center account-header" style={{ color: "#1d2228" }}>Account Details</h5>
+      <div className="card horizontal profile-card">
+        <div className="card-image col l4 m4">
           <div>
             <div className="container center-align avatar-wrapper">
               <img alt="User Name" src={props.avatar} className="avatar" id="user-avatar" />
