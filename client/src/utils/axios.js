@@ -24,6 +24,9 @@ export default {
     getItemsBySellerID: function(id) {
         return axios.get("/api/items/getItemsBySellerId/" + id)
     },
+    addItemToCart: function(id) {
+        return axios.post("/api/items/add-to-cart/" + id)
+    }
 }
 
 // router.get("/getItemsBySellerId/:id", (req, res) => {

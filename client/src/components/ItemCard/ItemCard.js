@@ -2,9 +2,14 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Button from "../Button/Button.js";
 import "../ItemCard/ItemCard.css";
-
+import AxiosAPI from "../../utils/axios"
 
 const ItemCard = (props) => {
+
+    addToCart = (id) => {
+        AxiosAPI.addItemToCart(id);
+    }
+
     return (
 
         <div className="itemCard">
@@ -24,18 +29,19 @@ const ItemCard = (props) => {
                 <hr></hr>
                 <div className="buttonGroup">
                     <Link to={`/itemdetails/${props.itemID}`}>
-                    <Button 
-                        label="Details" 
-                        icon="search" 
-                        itemId={props.itemId}
+                        <Button
+                            label="Details"
+                            icon="search"
+                            itemId={props.itemId}
                         />
                     </Link>
                     <Button label="Message" icon="message" />
                     <Link to={`/shopping-cart`}>
-                    <Button 
-                        label="Cart" 
-                        icon="add_shopping_cart" 
-                        itemId={props.itemId}
+                        <Button
+                            label="Add to Cart"
+                            icon="add_shopping_cart"
+                            itemId={props.itemId}
+                            onClick={this.addToCart}
                         />
                     </Link>
                 </div>

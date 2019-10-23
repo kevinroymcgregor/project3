@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-import cart from "../shop/shopping-cart";
+// import cart from "../shop/shopping-cart";
 
 
 class Checkout extends Component {

@@ -6,7 +6,8 @@ import Navbar from '../Navbar/Navbar'
 import Footer from "../Footer/Footer.js";
 import CartItemCard from "../ItemCard/CartItemCard";
 import ItemsAPI from "../../utils/axios";
-import {animateScroll as scroll} from 'react-scroll';
+import { animateScroll as scroll } from 'react-scroll';
+import Checkout from "./checkout"
 
 class Cart extends Component {
   onLogoutClick = e => {
@@ -36,7 +37,7 @@ class Cart extends Component {
   render() {
     console.log(this.state.items);
     console.log(this.state.searchText);
-
+    console.log(this.props);
     return (
       <>
         <Navbar callbackFromParent={this.handleSearch} />
@@ -44,13 +45,13 @@ class Cart extends Component {
           {this.state.items.map(item => (
             <CartItemCard itemID={item._id}
               itemImage={item.imgs[0]}
-              itemName= "Hey! You are on the Shopping Cart Page" //{item.name}
+              itemName="Hey! You are on the Shopping Cart Page" //{item.name}
               itemPrice={item.price}
               itemLocation={`${item.sellerID[0].city}, ${item.sellerID[0].state}`}
               itemCategory={item.category}
               itemDescription={item.description}
               itemImages={item.imgs[0]}
-              />
+            />
 
           )).filter(i => {
             let searchHaystack = i.props.itemName.toLowerCase();
@@ -60,8 +61,9 @@ class Cart extends Component {
             return searchNeedle === '' ? true : (searchHaystack.indexOf(searchNeedle) > -1) || (searchHaystack2.indexOf(searchNeedle) > -1) || (searchHaystack3.indexOf(searchNeedle) > -1);
           })}
         </div>
-        <a className="btn-floating btn-large waves-effect waves-light orange darken-3 z-depth-3" id="scrollToTopButton" onClick={() => scroll.scrollToTop({smooth:true})}><i className="material-icons">arrow_upward</i></a>
+        <a className="btn-floating btn-large waves-effect waves-light orange darken-3 z-depth-3" id="scrollToTopButton" onClick={() => scroll.scrollToTop({ smooth: true })}><i className="material-icons">arrow_upward</i></a>
 
+        <Checkout />
         <Footer />
       </>
     );

@@ -178,12 +178,18 @@ class AddEditForm extends Component {
                                 onChange={this.handleChange}
                                 value={this.state.category}
                             >
-                                <option value="" disabled selected>Choose a Category</option>
-                                <option value="Video Games">Video Games</option>
-                                <option value="Game Consoles">Game Consoles</option>
-                                <option value="Game Accessories">Game Accessories</option>
-                                <option value="Board Games">Board Games</option>
-                                <option value="Arcade">Arcade</option>
+                                <option value="" disabled selected>
+                                    Choose a Category</option>
+                                <option value="Video Games">
+                                    Video Games</option>
+                                <option value="Game Consoles">
+                                    Game Consoles</option>
+                                <option value="Game Accessories">
+                                    Game Accessories</option>
+                                <option value="Board Games">
+                                    Board Games</option>
+                                <option value="Arcade">
+                                    Arcade</option>
                             </select>
                             <label>Category</label>
                         </div>
@@ -208,23 +214,32 @@ class AddEditForm extends Component {
                 <div id="oc-alert-container"></div>
                 {/* Multiple File Upload */}
                 <div className="card-header">
-                    <h5 style={{ color: "#555", marginLeft: "12px", fontWeight: "bold" }}>Select item images for upload</h5>
+                    <h5 style={{ color: "#555", marginLeft: "12px", 
+                        fontWeight: "bold" }}>
+                        Select item images for upload</h5>
                 </div>
                 <div className="card-body">
-                    <p className="card-text">Please upload the Images for your gallery (max size: 5MB | max files: 4)</p>
+                    <p className="card-text">
+                        Please upload the Images for your gallery 
+                        (max size: 5MB | max files: 4)</p>
                     <br></br>
                     <div className="file-field input-field fileUploadDiv">
                         <div className="btn" style={{ backgroundColor: "#fb8122" }}>
                             <span>Choose Files</span>
-                            <input type="file" multiple onChange={this.multipleFileChangedHandler} />
+                            <input type="file" multiple 
+                                onChange={this.multipleFileChangedHandler} />
                         </div>
                         <div className="file-path-wrapper">
-                            <input className="file-path validate" type="text" placeholder="Upload one or more files" />
+                            <input className="file-path validate" type="text" 
+                                placeholder= "Upload one or more files" />
                         </div>
                     </div>
                     <div className="mt-5">
                         <br></br>
-                        <button className="btn btn-info addEditSubmitBtn" style={{ width: "250px", height: "50px", backgroundColor: "#fb8122", fontSize: "24px" }} onClick={this.multipleFileUploadHandler}>Submit</button>
+                        <button className="btn btn-info addEditSubmitBtn" 
+                            style={{ width: "250px", height: "50px", 
+                                backgroundColor: "#fb8122", fontSize: "24px" }} 
+                            onClick={this.multipleFileUploadHandler}>Submit</button>
                     </div>
                 </div>
             </div>
