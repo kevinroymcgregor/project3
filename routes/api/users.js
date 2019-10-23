@@ -9,7 +9,7 @@ const keys = require("../../config/keys");
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 
-// Load User model
+// Load models
 const User = require("../../models/User");
 
 // @route POST api/users/register
@@ -90,7 +90,7 @@ router.post("/login", (req, res) => {
           payload,
           keys.secretOrKey,
           {
-            expiresIn: 31556926 // 1 year in seconds
+            expiresIn: 86400 // 1 day in seconds
           },
           (err, token) => {
             res.json({

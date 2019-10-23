@@ -13,6 +13,11 @@
     z-index: 1;
 }
 
+.sidenav-trigger {
+    margin-left: 0 !important;
+    padding-left: 10px !important;
+}
+
 .input-field.main {
     background-color: #1d2228;
 }
@@ -72,4 +77,3 @@ nav .right .imgProfil a{
       font-size: 24px !important;
     }
   }
-

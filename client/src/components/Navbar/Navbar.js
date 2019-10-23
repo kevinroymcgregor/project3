@@ -69,13 +69,13 @@ class Navbar extends Component {
                 </form>
               </div>
 
-            <ul className="right hide-on-med-and-down">
+            <ul className="right">
               {/* <li>{isAuthenticated ? authLinks : ''}</li>  */}
               <li>
                 <Link to="/addedititem"><i className="large material-icons nav-icons">add_circle</i></Link>
               </li>
-              <li><a href="#"><i className="large material-icons nav-icons">chat_bubble</i></a></li>
-              <li><a className="dropdown-trigger" href="#!" data-target="dropdown1"><i className="large material-icons nav-icons">person</i></a></li>
+              <li><Link to="/shopping-cart"><i className="material-icons">shopping_cart</i></Link></li>
+              <li className="hide-on-med-and-down"><a className="dropdown-trigger" href="#!" data-target="dropdown1"><i className="large material-icons nav-icons">person</i></a></li>
             </ul>
 
           </div>
@@ -88,7 +88,7 @@ class Navbar extends Component {
         <li className="divider"></li> 
         <li><Link to="/dashboard"><i className="material-icons">home</i>Home</Link></li>
         <li><Link to="/addedititem"><i className="material-icons">add_circle</i>Sell Item</Link></li>
-        <li><a href="#!"><i className="material-icons">chat_bubble</i>Messages</a></li>
+        <li><Link to="/shopping-cart"><i className="material-icons">shopping_cart</i>My Cart</Link></li>
         <li><Link to="/profile"><i className="material-icons">settings</i>Account</Link></li>
         <li><a href="#!" onClick={this.onLogoutClick}><i className="material-icons">person</i>Logout</a></li>
         <li><div className="divider"></div></li>

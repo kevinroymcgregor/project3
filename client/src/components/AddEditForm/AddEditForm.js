@@ -137,7 +137,20 @@ class AddEditForm extends Component {
 
         return (
             <div className="container center-align edit-form-bg">
+<<<<<<< HEAD
+=======
 
+                {/* This section was for testing puposes */}
+                {/* <p>Item name: {name}</p>
+                <p>Item price: {price}</p>
+                <p>Item category: {category}</p>
+            <p>Item description: {description}</p> */}
+>>>>>>> 9decc5099d5ca12489a2d9d977459d81d13a6c62
+
+                <Link to="/" className="left btn-flat waves-effect">
+                    <i className="material-icons left">keyboard_backspace</i>
+                    back
+                </Link>
                 <div className="post-header">
                     <h4>Post an Item</h4>
                 </div>

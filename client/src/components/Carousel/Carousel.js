@@ -30,7 +30,7 @@ class Carousel extends Component {
 
     render() {
         return (
-            <div className="retro-carousel">
+            <div className="retro-carousel itemDetailsCarousel">
                 <div className="carousel carousel-slider">
                     {this.props.itemImages ? this.props.itemImages.map(img => (
                         // console.log(img)

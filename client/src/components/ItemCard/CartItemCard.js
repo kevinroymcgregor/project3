@@ -4,7 +4,7 @@ import Button from "../Button/Button.js";
 import "../ItemCard/ItemCard.css";
 
 
-const ItemCard = (props) => {
+const CartItemCard = (props) => {
     return (
 
         <div className="itemCard">
@@ -23,18 +23,10 @@ const ItemCard = (props) => {
                 <p className="itemDescription">{props.itemDescription}</p>
                 <hr></hr>
                 <div className="buttonGroup">
-                    <Link to={`/itemdetails/${props.itemID}`}>
+                    <Link to={`/checkout`}>
                     <Button 
-                        label="Details" 
-                        icon="search" 
-                        itemId={props.itemId}
-                        />
-                    </Link>
-                    <Button label="Message" icon="message" />
-                    <Link to={`/shopping-cart`}>
-                    <Button 
-                        label="Cart" 
-                        icon="add_shopping_cart" 
+                        label="Checkout" 
+                        icon="attach_money" 
                         itemId={props.itemId}
                         />
                     </Link>
@@ -44,4 +36,4 @@ const ItemCard = (props) => {
     )
 }
 
-export default ItemCard; 
+export default CartItemCard; 

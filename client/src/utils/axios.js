@@ -20,6 +20,13 @@ export default {
     },
     updateItem: function(id, itemData){
         return axios.post("/api/items/addItem/" + id, itemData);
-    }
+    },
+    getItemsBySellerID: function(id) {
+        return axios.get("/api/items/getItemsBySellerId/" + id)
+    },
 }
 
+// router.get("/getItemsBySellerId/:id", (req, res) => {
+//     Item.findById(req.params.id)
+//     .populate()
+// })

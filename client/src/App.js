@@ -2,23 +2,20 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
-
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
-
-
 import Landing from "./components/Pages/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import AddEditItem from "./components/Pages/AddEditItem";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/Pages/Dashboard";
-
+import Cart from "./components/shop/shopping-cart";
+import Checkout from "./components/shop/checkout";
 import Profile from "./components/Pages/Profile";
 import ItemDetails from "./components/Pages/ItemDetails";
 import 'materialize-css/dist/css/materialize.min.css';
-
 import "./App.css";
 
 // Check for token to keep user logged in
@@ -54,6 +51,8 @@ class App extends Component {
             <Route path="/itemdetails/:ID" component={ItemDetails} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute exact path="/shopping-cart" component={Cart} />
+              <PrivateRoute exact path="/checkout" component={Checkout} />
             </Switch>
           </div>
         </Router>
