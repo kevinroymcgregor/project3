@@ -8,6 +8,7 @@
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 
     0 15px 12px rgba(0,0,0,0.22);
     margin-bottom: 25px;
+    min-width: 750px;
 }
 
 .itemCardInfoGroup {
@@ -21,6 +22,7 @@
     align-content: center;
     align-items: center;
     border-right: solid #222 1px;
+    min-width: 250px;
 }
 
 .itemCardImage img {
@@ -46,6 +48,9 @@ p.itemName {
     text-align: center;
     background-color: #fb8122;
     font-family: johnny-fever;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .itemPriceLocationGroup {
@@ -73,4 +78,7 @@ p.itemDescription {
     font-size: 1.1rem;
     max-height: 75px;
     overflow: hidden;
+    /* white-space: nowrap; */
+    /* text-overflow: ellipsis; */
+    min-height: 50px;
 }
