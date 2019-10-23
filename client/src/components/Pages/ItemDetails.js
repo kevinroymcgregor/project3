@@ -45,10 +45,10 @@ class ItemDetails extends Component {
 
                     <img className="selectedImage row" src="https://lorempixel.com/800/400/food/5" />
                     <div className="thumbnails row">
-                        <img className="col l3" src={this.state.item.imgs[0] ? this.state.item.imgs[0] : "https://lorempixel.com/800/400/food/1"} />
-                        <img className="col l3" src={this.state.item.imgs[1] ? this.state.item.imgs[1] : "https://lorempixel.com/800/400/food/2"} />
-                        <img className="col l3" src={this.state.item.imgs[2] ? this.state.item.imgs[2] : "https://lorempixel.com/800/400/food/3"} />
-                        <img className="col l3" src={this.state.item.imgs[3] ? this.state.item.imgs[3] : 'https://lorempixel.com/800/400/food/4'} />
+                        <img className="col l3" src={this.state.item.imgs[0] ? this.state.item.imgs[0] : "https://dummyimage.com/194.45x120/222/fff.png&text=No+Image"} />
+                        <img className="col l3" src={this.state.item.imgs[1] ? this.state.item.imgs[1] : "https://dummyimage.com/194.45x120/222/fff.png&text=No+Image"} style={{ borderLeft: "solid #b2b4b2 1px" }} />
+                        <img className="col l3" src={this.state.item.imgs[2] ? this.state.item.imgs[2] : "https://dummyimage.com/194.45x120/222/fff.png&text=No+Image"} style={{ borderLeft: "solid #b2b4b2 1px", borderRight: "solid #b2b4b2 1px" }} />
+                        <img className="col l3" src={this.state.item.imgs[3] ? this.state.item.imgs[3] : "https://dummyimage.com/194.45x120/222/fff.png&text=No+Image"} />
                     </div>
 
                     <ItemDetailsCard

@@ -42,6 +42,8 @@
 .thumbnails img {
     padding: 0 !important;
     height: 100%;
+    border-top: solid #b2b4b2 1px;
+    border-bottom: solid #b2b4b2 1px;
 }
 
 .selectedImage {
