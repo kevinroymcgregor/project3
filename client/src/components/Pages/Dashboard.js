@@ -117,7 +117,9 @@ class Dashboard extends Component {
           })}
         </div>
         <a className="btn-floating btn-large waves-effect waves-light orange darken-3 z-depth-3" id="scrollToTopButton" onClick={() => scroll.scrollToTop({ smooth: true })}><i className="material-icons">arrow_upward</i></a>
-        <div className="Chat">{view}</div>
+        <div className="AppChat">
+          {view}
+        </div>
         
         <Footer />
       </>
