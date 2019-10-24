@@ -53,11 +53,13 @@ class ItemDetails extends Component {
 
                     <img className="row" id="selectedImage" src={this.state.item.imgs[this.state.selectedImageID]} />
 
-                    <div className="thumbnails row">
-                        <img onClick={(e) => this.changeImage(0, e)} className="col l3" src={this.state.item.imgs[0] ? this.state.item.imgs[0] : "https://dummyimage.com/194.45x120/222/fff.png&text=No+Image"} />
-                        <img onClick={(e) => this.changeImage(1, e)} className="col l3" src={this.state.item.imgs[1] ? this.state.item.imgs[1] : "https://dummyimage.com/194.45x120/222/fff.png&text=No+Image"} />
-                        <img onClick={(e) => this.changeImage(2, e)} className="col l3" src={this.state.item.imgs[2] ? this.state.item.imgs[2] : "https://dummyimage.com/194.45x120/222/fff.png&text=No+Image"} />
-                        <img onClick={(e) => this.changeImage(3, e)} className="col l3" src={this.state.item.imgs[3] ? this.state.item.imgs[3] : "https://dummyimage.com/194.45x120/222/fff.png&text=No+Image"} />
+                    <div className="row" style={{ margin: 0 }}>
+                        <div className="thumbnails">
+                            <img onClick={(e) => this.changeImage(0, e)} src={this.state.item.imgs[0] ? this.state.item.imgs[0] : "https://dummyimage.com/600x400/222/fff.png&text=No+Image"} />
+                            <img onClick={(e) => this.changeImage(1, e)} src={this.state.item.imgs[1] ? this.state.item.imgs[1] : "https://dummyimage.com/600x400/222/fff.png&text=No+Image"} />
+                            <img onClick={(e) => this.changeImage(2, e)} src={this.state.item.imgs[2] ? this.state.item.imgs[2] : "https://dummyimage.com/600x400/222/fff.png&text=No+Image"} />
+                            <img onClick={(e) => this.changeImage(3, e)} src={this.state.item.imgs[3] ? this.state.item.imgs[3] : "https://dummyimage.com/600x400/222/fff.png&text=No+Image"} />
+                        </div>
                     </div>
 
                     <ItemDetailsCard

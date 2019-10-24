@@ -35,27 +35,22 @@
 }
 
 .thumbnails {
-    margin: 0;
-    height: 120px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .thumbnails img {
+    display: inline-block;
     padding: 0 !important;
-    height: 100%;
-    border-top: solid #b2b4b2 1px;
-    border-bottom: solid #b2b4b2 1px;
-}
-
-#thumbnail2 {
-    border-left: solid #b2b4b2 1px;
-}
-
-#thumbnail3 {
-    border-left: solid #b2b4b2 1px;
-    border-right: solid #b2b4b2 1px
+    height: 125px;
+    width: 24.8%;
+    object-fit: cover;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
 #selectedImage {
-    margin: 0 0 -5px 0;
+    margin: 0;
     width: 100%;
+    vertical-align: middle;
 }
