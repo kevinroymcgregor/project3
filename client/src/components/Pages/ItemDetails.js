@@ -16,20 +16,28 @@ class ItemDetails extends Component {
         this.state = {
             item: {
                 sellerID: [{ city: '', state: '' }],
-                imgs: [{ '': '' }]
-            }
+                imgs: []
+            },
+            selectedImageID: 0
         };
     }
 
     componentDidMount() {
         this.loadItem(this.props.match.params.ID);
-
     }
 
     loadItem = (ID) => {
         ItemAPI.getItemByID(ID)
             .then(res => this.setState({ item: res.data }))
             .catch(err => console.log(err));
+    }
+
+    changeImage = (imageID) => {
+        console.log(this);
+        console.log(this.state.item.imgs);
+        if (this.state.item.imgs[imageID] !== undefined) {
+            this.setState({ selectedImageID: imageID });
+        }
     }
 
     render() {
@@ -43,13 +51,13 @@ class ItemDetails extends Component {
                         </Link>
                     </div>
 
-                    <img className="selectedImage row" src={this.state.item.imgs[0]} />
+                    <img className="row" id="selectedImage" src={this.state.item.imgs[this.state.selectedImageID]} />
 
                     <div className="thumbnails row">
-                        <img className="col l3" src={this.state.item.imgs[0] ? this.state.item.imgs[0] : "https://dummyimage.com/194.45x120/222/fff.png&text=No+Image"} />
-                        <img className="col l3" src={this.state.item.imgs[1] ? this.state.item.imgs[1] : "https://dummyimage.com/194.45x120/222/fff.png&text=No+Image"} style={{ borderLeft: "solid #b2b4b2 1px" }} />
-                        <img className="col l3" src={this.state.item.imgs[2] ? this.state.item.imgs[2] : "https://dummyimage.com/194.45x120/222/fff.png&text=No+Image"} style={{ borderLeft: "solid #b2b4b2 1px", borderRight: "solid #b2b4b2 1px" }} />
-                        <img className="col l3" src={this.state.item.imgs[3] ? this.state.item.imgs[3] : "https://dummyimage.com/194.45x120/222/fff.png&text=No+Image"} />
+                        <img onClick={(e) => this.changeImage(0, e)} className="col l3" src={this.state.item.imgs[0] ? this.state.item.imgs[0] : "https://dummyimage.com/194.45x120/222/fff.png&text=No+Image"} />
+                        <img onClick={(e) => this.changeImage(1, e)} className="col l3" src={this.state.item.imgs[1] ? this.state.item.imgs[1] : "https://dummyimage.com/194.45x120/222/fff.png&text=No+Image"} />
+                        <img onClick={(e) => this.changeImage(2, e)} className="col l3" src={this.state.item.imgs[2] ? this.state.item.imgs[2] : "https://dummyimage.com/194.45x120/222/fff.png&text=No+Image"} />
+                        <img onClick={(e) => this.changeImage(3, e)} className="col l3" src={this.state.item.imgs[3] ? this.state.item.imgs[3] : "https://dummyimage.com/194.45x120/222/fff.png&text=No+Image"} />
                     </div>
 
                     <ItemDetailsCard

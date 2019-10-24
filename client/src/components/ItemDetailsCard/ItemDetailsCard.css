@@ -46,7 +46,16 @@
     border-bottom: solid #b2b4b2 1px;
 }
 
-.selectedImage {
+#thumbnail2 {
+    border-left: solid #b2b4b2 1px;
+}
+
+#thumbnail3 {
+    border-left: solid #b2b4b2 1px;
+    border-right: solid #b2b4b2 1px
+}
+
+#selectedImage {
     margin: 0 0 -5px 0;
     width: 100%;
 }
