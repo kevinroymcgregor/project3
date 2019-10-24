@@ -50,7 +50,6 @@ class AddEditForm extends Component {
             imgs: this.state.selectedFiles
 
         }
-        console.log(itemData)
 
         // ItemsAPI.addItem()
         axios.post('/api/items/addItem', itemData)
@@ -63,7 +62,6 @@ class AddEditForm extends Component {
         this.setState({
             selectedFiles: event.target.files
         });
-        console.log(event.target.files);
     };
 
     multipleFileUploadHandler = () => {
@@ -71,37 +69,35 @@ class AddEditForm extends Component {
         let selectedFiles = this.state.selectedFiles;
         // If file selected
 
-        if (selectedFiles) {
-            for (let i = 0; i < selectedFiles.length; i++) {
-                data.append('galleryImage', selectedFiles[i], selectedFiles[i].name);
-            }
-            axios.post('/api/profile/multiple-file-upload', data, {
-                headers: {
-                    'accept': 'application/json',
-                    'Accept-Language': 'en-US,en;q=0.8',
-                    'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
-                }
-            })
-                .then((response) => {
-                    console.log('res', response);
-                    if (200 === response.status) {
-                        // If file size is larger than expected.
-                        if (response.data.error) {
-                            if ('LIMIT_FILE_SIZE' === response.data.error.code) {
-                                this.ocShowAlert('Max size: 5MB', 'red');
-                            } else if ('LIMIT_UNEXPECTED_FILE' === response.data.error.code) {
-                                this.ocShowAlert('A maxium of 4 images allowed', 'red');
-                            } else {
-                                // If not the given ile type
-                                this.ocShowAlert(response.data.error, 'red');
-                            }
-                        } else {
+		if ( selectedFiles ) {
+			for ( let i = 0; i < selectedFiles.length; i++ ) {
+				data.append( 'galleryImage', selectedFiles[ i ], selectedFiles[ i ].name );
+			}
+			axios.post( '/api/profile/multiple-file-upload', data, {
+				headers: {
+					'accept': 'application/json',
+					'Accept-Language': 'en-US,en;q=0.8',
+					'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
+				}
+			})
+				.then( ( response ) => {
+					if ( 200 === response.status ) {
+						// If file size is larger than expected.
+						if( response.data.error ) {
+							if ( 'LIMIT_FILE_SIZE' === response.data.error.code ) {
+								this.ocShowAlert( 'Max size: 5MB', 'red' );
+							} else if ( 'LIMIT_UNEXPECTED_FILE' === response.data.error.code ){
+								this.ocShowAlert( 'A maxium of 4 images allowed', 'red' );
+							} else {
+								// If not the given ile type
+								this.ocShowAlert( response.data.error, 'red' );
+							}
+						} else {
                             // Success
                             let fileName = [];
-                            for (let i = 0; i < response.data.locationArray.length; i++) {
-                                fileName.push(response.data.locationArray[i])
-                                console.log('fileName', fileName);
-                                // this.ocShowAlert('File Successfully Uploaded', '#3089cf');
+                                for(let i= 0; i < response.data.locationArray.length; i++){
+                                    fileName.push(response.data.locationArray[i])
+                                this.ocShowAlert( 'File Successfully Uploaded', '#3089cf' );
                                 this.setState({
                                     selectedFiles: fileName
                                 });
@@ -136,16 +132,8 @@ class AddEditForm extends Component {
 
     render() {
 
-        // console.log( this.state );
 
         const { isAuthenticated, user } = this.props.auth;
-
-
-        // <----- Testing ----->
-        // const { name } = this.state
-        // const { price } = this.state
-        // const { category } = this.state
-        // const { description } = this.state
 
         return (
             <div className="container center-align edit-form-bg">
@@ -190,12 +178,18 @@ class AddEditForm extends Component {
                                 onChange={this.handleChange}
                                 value={this.state.category}
                             >
-                                <option value="" disabled selected>Choose a Category</option>
-                                <option value="Video Games">Video Games</option>
-                                <option value="Game Consoles">Game Consoles</option>
-                                <option value="Game Accessories">Game Accessories</option>
-                                <option value="Board Games">Board Games</option>
-                                <option value="Arcade">Arcade</option>
+                                <option value="" disabled selected>
+                                    Choose a Category</option>
+                                <option value="Video Games">
+                                    Video Games</option>
+                                <option value="Game Consoles">
+                                    Game Consoles</option>
+                                <option value="Game Accessories">
+                                    Game Accessories</option>
+                                <option value="Board Games">
+                                    Board Games</option>
+                                <option value="Arcade">
+                                    Arcade</option>
                             </select>
                             <label>Category</label>
                         </div>
@@ -217,26 +211,34 @@ class AddEditForm extends Component {
 
                 <div id="oc-alert-container"></div>
                 <div className="card-header">
-                    <h5 style={{ color: "#555", marginLeft: "12px", fontWeight: "bold" }}>Select item images for upload</h5>
+                    <h5 style={{ color: "#555", marginLeft: "12px", 
+                        fontWeight: "bold" }}>
+                        Select item images for upload</h5>
                 </div>
                 <div className="card-body">
-                    <p className="card-text">Please upload the Images for your gallery (max size: 5MB | max files: 4)</p>
+                    <p className="card-text">
+                        Please upload the Images for your gallery 
+                        (max size: 5MB | max files: 4)</p>
                     <br></br>
                     <div className="file-field input-field fileUploadDiv">
                         <div className="btn" style={{ backgroundColor: "#fb8122" }}>
                             <span>Choose Files</span>
-                            <input type="file" multiple onChange={this.multipleFileChangedHandler} />
+                            <input type="file" multiple 
+                                onChange={this.multipleFileChangedHandler} />
                         </div>
-                        <div className="file-path-wrapper" style={{width: "100%"}}>
-                            <input className="file-path validate" type="text" placeholder="Upload one or more files" />
+                        <div className="file-path-wrapper">
+                            <input className="file-path validate" type="text" 
+                                placeholder= "Upload one or more files" />
                         </div>
                     </div>
                     <div className="mt-5">
                         <br></br>
-                        <button className="btn btn-info addEditSubmitBtn" style={{ width: "250px", height: "50px", backgroundColor: "#fb8122", fontSize: "24px" }} onClick={this.multipleFileUploadHandler}>Submit</button>
+                        <button className="btn btn-info addEditSubmitBtn" 
+                            style={{ width: "250px", height: "50px", 
+                                backgroundColor: "#fb8122", fontSize: "24px" }} 
+                            onClick={this.multipleFileUploadHandler}>Submit</button>
                     </div>
                 </div>
-
             </div>
         )
     }

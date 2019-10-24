@@ -15,13 +15,11 @@ class Avatar extends Component {
 
 	updateUserAvatar = () => {
 		const id = this.props.usersId
-		console.log(id)
 		const avatar = {
 			avatar: this.state.selectedFile
 		}
-		console.log(avatar)
-		axios.put('/api/users/updateUserAvatar/' + id, avatar)
-			.then(res => console.log(res));
+        axios.put('/api/users/updateUserAvatar/'+ id, avatar)
+		.then(res => console.log(res));
 
 		window.location = '/profile'
 	}
@@ -58,8 +56,7 @@ class Avatar extends Component {
 						} else {
 							// Success
 							let fileName = response.data.location;
-							console.log('filedata', fileName);
-							this.ocShowAlert('File Successfully Uploaded', '#3089cf');
+							this.ocShowAlert( 'File Successfully Uploaded', '#3089cf' );
 							this.setState({
 								selectedFile: fileName
 							})
