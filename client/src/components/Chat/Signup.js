@@ -21,7 +21,7 @@ class Signup extends Component {
             <div className="form-container">
                 
                 <span className="chatHeaderContainer">
-                <h5 className="chatHeader center-align">Retro-Chat
+                <h5 className="chatHeader center-align">Retro-Connect
                 <i className="material-icons chatIcon right">get_app</i></h5>
                 </span>
                 

@@ -164,6 +164,7 @@ class AddEditForm extends Component {
                                 id="item_name"
                                 type="text"
                                 className="validate"
+                                maxLength="25"
                                 name="name" onChange={this.handleChange}
                                 value={this.state.name}
                             />

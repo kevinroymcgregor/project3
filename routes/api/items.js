@@ -68,13 +68,6 @@ router.put("/updateItem/:ID", (req, res) => {
     .catch(err => console.log(err));
 })
 
-// router.get("/getItemsBySellerId", (req, res) => {
-//     const sellerID = req.body.sellerID
-//     console.log(sellerID)
-//     Item.find({ sellerID: sellerID })
-//     .then(console.log(res))
-// })
-
 router.get("/getUserItems", (req,res) => {
 
     Item.find({enabled: true})

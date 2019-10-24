@@ -13,7 +13,7 @@ const ItemCard = (props) => {
                 <img src={props.itemImages} alt="placeholder" />
             </div>
             <div className="itemCardInfoGroup">
-                <p className="itemName">{props.itemName}</p>
+                <p className="itemName">{props.itemName}<span className="right itemCardPrice">${props.itemPrice}</span></p>
                 <hr></hr>
                 <div className="itemPriceLocationGroup">
                     <p className="itemPrice">${props.itemPrice}</p>
@@ -31,7 +31,7 @@ const ItemCard = (props) => {
                         />
                     </Link>
                     {/* <Button label="Message" icon="message" /> */}
-                    <Link to={`/shopping-cart`}>
+                    <Link to={`/shopping-cart`} className="itemCardCartButton">
                     <Button 
                         label="Cart" 
                         icon="add_shopping_cart" 
