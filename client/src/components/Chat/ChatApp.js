@@ -65,7 +65,7 @@ class ChatApp extends Component {
             <div>
                 <span className="chatHeaderContainer">
                 <h6 className="header chat-title chatHeader">RetroConnect  
-                <i class="material-icons chatIcon right">get_app</i></h6>
+                <i class="material-icons chatIcon right" onClick={() => this.props.minimizeChat()}>get_app</i></h6>
                 </span>
                 <MessageList messages={this.state.messages} />
                 <Input className="input-field" onSubmit={this.addMessage} />

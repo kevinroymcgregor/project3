@@ -22,6 +22,7 @@ class Dashboard extends Component {
     super(props);
     this.changeView = this.changeView.bind(this);
     this.createUser = this.createUser.bind(this);
+    this.minimizeChat = this.minimizeChat.bind(this);
   }
 
   createUser(username) {
@@ -52,6 +53,12 @@ class Dashboard extends Component {
   changeView(view) {
     this.setState({
       currentView: view
+    })
+  }
+
+  minimizeChat(view) {
+    this.setState({
+      currentView: 'ChatMessage'
     })
   }
 
@@ -87,11 +94,11 @@ class Dashboard extends Component {
     console.log(this.state.searchText);
     let view ='';
             if (this.state.currentView === "ChatMessage") {
-                view = <ChatMessage  changeView={this.changeView}/>
+                view = <ChatMessage  changeView={this.changeView} />
             } else if (this.state.currentView === "Signup") {
-                view = <Signup onSubmit={this.createUser}/>
+                view = <Signup onSubmit={this.createUser} minimizeChat={this.minimizeChat}/>
             } else if (this.state.currentView === "ChatApp") {
-                view = <ChatApp currentId={this.state.currentId} />
+                view = <ChatApp currentId={this.state.currentId} minimizeChat={this.minimizeChat} />
             }
     return (
         <>
