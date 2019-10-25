@@ -5,13 +5,13 @@ const router = express.Router();
 const Item = require("../../models/Item");
 const User = require("../../models/User");
 // const Order = require("../../models/order");
-// const Cart = require("../../models/cart");
+// import Cart from ("../../models/cart");
 
 // @route POST api/users/register
 router.post("/addItem", async (req, res) => {
 
-    const user = await User.findOne({_id: req.body.sellerID})
-    
+    const user = await User.findOne({ _id: req.body.sellerID })
+
     const newItem = new Item({
         name: req.body.name,
         //Seller ID should be pulled automatically based on the state of the signed in user
@@ -34,56 +34,55 @@ router.post("/addItem", async (req, res) => {
 
 });
 
-router.get("/getItems", (req,res) => {
+router.get("/getItems", (req, res) => {
 
-    Item.find({enabled: true})
-    .populate("sellerID")
-    .sort({ createdDate: -1 })
-    .then(items => res.json(items))
-    .then(itemList => res.json(itemList))
-    .catch(err => console.log(err));
+    Item.find({ enabled: true })
+        .populate("sellerID")
+        .sort({ createdDate: -1 })
+        .then(items => res.json(items))
+        .then(itemList => res.json(itemList))
+        .catch(err => console.log(err));
 
 })
 
-router.get("/getItemByID/:ID", (req,res) => {
+router.get("/getItemByID/:ID", (req, res) => {
     Item.findById(req.params.ID)
-    .populate("sellerID")
-    .then(itemList => res.json(itemList))
-    .catch(err => console.log(err));
+        .populate("sellerID")
+        .then(itemList => res.json(itemList))
+        .catch(err => console.log(err));
 })
 
 router.put("/deleteItem/:ID", (req, res) => {
-    Item.updateOne( {_id: req.params.ID}, {enabled: false})
-    .then(console.log("Deleted Successfully"))
-    .catch(err => console.log(err));
+    Item.updateOne({ _id: req.params.ID }, { enabled: false })
+        .then(() => res.send('Item purchased successfully'))
+        .catch(err => console.log(err));
+})
+
+router.put("/restoreItems/", (req, res) => {
+    Item.updateMany({}, { enabled: true })
+        .catch(err => console.log(err));
 })
 
 router.put("/updateItem/:ID", (req, res) => {
-    Item.updateOne( {_id: req.params.ID}, {
+    Item.updateOne({ _id: req.params.ID }, {
         name: req.body.name,
         price: req.body.price,
         imgs: req.body.imgs,
         description: req.body.description,
         category: req.body.category
     })
-    .then(console.log("Updated Successfully"))
-    .catch(err => console.log(err));
+        .then(res.return("Updated Successfully"))
+        .catch(err => console.log(err));
 })
 
-// router.get("/getItemsBySellerId", (req, res) => {
-//     const sellerID = req.body.sellerID
-//     console.log(sellerID)
-//     Item.find({ sellerID: sellerID })
-//     .then(console.log(res))
-// })
 
 router.get("/getUserItems", (req,res) => {
 
-    Item.find({enabled: true})
-    .sort({ createdDate: -1 })
-    .then(items => res.json(items))
-    .then(itemList => res.json(itemList))
-    .catch(err => console.log(err));
+    Item.find({ enabled: true })
+        .sort({ createdDate: -1 })
+        .then(items => res.json(items))
+        .then(itemList => res.json(itemList))
+        .catch(err => console.log(err));
 
 })
 
@@ -93,81 +92,83 @@ function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 };
 
-//SHOPPING CART ROUTING
-router.get('/add-to-cart/:id', function(req, res, next) {
-    var itemID = req.params.id;
-    var cart = new Cart(req.session.cart ? req.session.cart : {});
+// //SHOPPING CART ROUTING
+// router.get('/add-to-cart/:id', function (req, res, next) {
+//     const itemID = req.params.id;
+//     // res.send(req.params)
+//     let cart = new Cart(req.session.cart ? req.session.cart : {});
+//     // const cart = new Cart({items: itemID, totalQty: 0, totalPrice: 0})
 
-    Item.findById(itemID, function(err, item) {
-       if (err) {
-           return console.log(err);
-       }
-        cart.add(item, item._id);
-        req.session.cart = cart;
-        console.log(req.session.cart);
-        res.redirect('/dashboard');
-    });
-});
+//     Item.findById(itemID, function (err, item) {
+//         if (err) {
+//             return console.log(err);
+//         }
+//         cart.add(item, item._id);
+//         req.session.cart = cart;
+//         console.log(req.session.cart);
+//         res.redirect('/dashboard');
+//     });
+// });
 
-router.get('/remove/:id', function(req, res, next) {
-    var itemID = req.params.id;
-    var cart = new Cart(req.session.cart ? req.session.cart : {});
+// router.get('/remove/:id', function (req, res, next) {
+//     var itemID = req.params.id;
+//     var cart = new Cart(req.session.cart ? req.session.cart : {});
 
-    cart.removeItem(itemID);
-    req.session.cart = cart;
-    res.redirect('/shopping-cart');
-});
+//     cart.removeItem(itemID);
+//     req.session.cart = cart;
+//     res.redirect('/shopping-cart');
+// });
 
-router.get('/shopping-cart', function(req, res, next) {
-   if (!req.session.cart) {
-       return res.render('shop/shopping-cart', {items: null});
-   } 
-    var cart = new Cart(req.session.cart);
-    res.render('shop/shopping-cart', {items: cart.generateArray(), totalPrice: cart.totalPrice});
-});
+// router.get('/shopping-cart', function (req, res, next) {
+//     if (!req.session.cart) {
+//         return res.render('shop/shopping-cart', { items: null });
+//     }
+//     var cart = new Cart(req.session.cart);
+//     res.render('shop/shopping-cart', { items: cart.generateArray(), totalPrice: cart.totalPrice });
+// });
 
-router.get('/checkout', function(req, res, next) {
-    if (!req.session.cart) {
-        return res.redirect('/shopping-cart');
-    }
-    var cart = new Cart(req.session.cart);
-    var errMsg = req.flash('error')[0];
-    res.render('shop/checkout', {total: cart.totalPrice, errMsg: errMsg, noError: !errMsg});
-});
+// router.get('/checkout', function (req, res, next) {
+//     if (!req.session.cart) {
+//         return res.redirect('/shopping-cart');
+//     }
+//     var cart = new Cart(req.session.cart);
+//     var errMsg = req.flash('error')[0];
+//     res.render('shop/checkout', { total: cart.totalPrice, errMsg: errMsg, noError: !errMsg });
+// });
 
-router.post('/checkout', function(req, res, next) {
-    if (!req.session.cart) {
-        return res.redirect('/shopping-cart');
-    }
-    var cart = new Cart(req.session.cart);
-    
-    var stripe = require("stripe")(
-        "sk_test_9lyhaU1ouzZkomnNocp02Ki800M8dFSfg9"
-    );
+// router.post('/checkout', function (req, res, next) {
+//     if (!req.session.cart) {
+//         return res.redirect('/shopping-cart');
+//     }
+//     var cart = new Cart(req.session.cart);
 
-    stripe.charges.create({
-        amount: cart.totalPrice * 100,
-        currency: "usd",
-        source: req.body.stripeToken, // obtained with Stripe.js
-        description: "Test Charge"
-    }, function(err, charge) {
-        if (err) {
-            req.flash('error', err.message);
-            return res.redirect('/checkout');
-        }
-        var order = new Order({
-            user: req.user,
-            cart: cart,
-            address: req.body.address,
-            name: req.body.name,
-            paymentId: charge.id
-        });
-        order.save(function(err, result) {
-            req.flash('success', 'Successfully bought item!');
-            req.session.cart = null;
-            res.redirect('/dashboard');
-        });
-    }); 
-});
+//     var stripe = require("stripe")(
+//         "sk_test_9lyhaU1ouzZkomnNocp02Ki800M8dFSfg9"
+//     );
+
+//     stripe.charges.create({
+//         amount: cart.totalPrice * 100,
+//         currency: "usd",
+//         source: req.body.stripeToken, // obtained with Stripe.js
+//         description: "Test Charge"
+//     }, function (err, charge) {
+//         if (err) {
+//             req.flash('error', err.message);
+//             return res.redirect('/checkout');
+//         }
+//         var order = new Order({
+//             user: req.user,
+//             cart: cart,
+//             address: req.body.address,
+//             name: req.body.name,
+//             paymentId: charge.id
+//         });
+//         order.save(function (err, result) {
+//             req.flash('success', 'Successfully bought item!');
+//             req.session.cart = null;
+//             res.redirect('/dashboard');
+//         });
+//     });
+// });
 
 module.exports = router;

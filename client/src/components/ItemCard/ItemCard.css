@@ -3,12 +3,11 @@
     margin: 15px 0;
     display: grid;
     grid-template-columns: 1fr 2fr;
-    height: 250px;  
+    height: 250px;
     border: solid #222 1px;
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 
-    0 15px 12px rgba(0,0,0,0.22);
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
     margin-bottom: 25px;
-    min-width: 750px;
+    /* min-width: 750px; */
 }
 
 .itemCardInfoGroup {
@@ -22,7 +21,7 @@
     align-content: center;
     align-items: center;
     border-right: solid #222 1px;
-    min-width: 250px;
+    /* min-width: 250px; */
 }
 
 .itemCardImage img {
@@ -81,4 +80,103 @@ p.itemDescription {
     /* white-space: nowrap; */
     /* text-overflow: ellipsis; */
     min-height: 50px;
+}
+
+.itemCardPrice {
+    display: none;
+}
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 993px) {
+    .itemCard {
+        min-width: 750px;
+    }
+    .itemCardImage {
+        min-width: 250px;
+    }
+    #itemCardContainer {
+        width: 85% !important;
+    }
+}
+
+@media only screen and (max-width: 812px) {
+    .itemCard {
+        min-width: 700px;
+    }
+    .itemCardImage {
+        min-width: 250px;
+    }
+    #itemCardContainer {
+        width: 95% !important;
+    }
+    
+    .profileContainer {
+        width: 100% !important;
+    }
+}
+
+@media only screen and (max-width: 601px) {
+    #itemCardContainer {
+        min-width: 95% !important;
+        margin: auto !important;
+    }
+    .itemCard {
+        min-width: 100%;
+        max-height: 125px;
+    }
+    .itemCardImage {
+        /* width: 30px !important; */
+        /* min-width: 100px; */
+        min-width: 125px;
+        max-height: 125px;
+    }
+    .itemCardImage img {
+        /* width: 40% !important; */
+        min-width: 100px;
+    }
+    /* .buttonGroup {
+        display: none;
+    } */
+    .itemPriceLocationGroup {
+        display: none;
+    }
+    p.itemDescription {
+        max-height: 25px;
+        font-size: 1rem;
+    }
+    .itemCardInfoGroup {
+        min-width: 100%;
+        max-height: 150px;
+        padding-left: 0;
+        display: block;
+    }
+    .itemCardInfoGroup hr {
+        display: none;
+    }
+    .itemCardPrice {
+        display: inline-block;
+        padding-right: 5px;
+    }
+    .itemCardCartButton {
+        display: none;
+    }
+    p.itemName {
+        font-size: 1.2rem;
+        font-weight: 100;
+        text-align: left;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        max-height: 25px;
+        max-width: 100%;
+    }
+    
+    .buttonGroup.sellerButton {
+        padding: 0;
+    }
+
+    .profileContainer {
+        width: 100% !important;
+    }
 }

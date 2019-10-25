@@ -36,7 +36,7 @@ class Cart extends Component {
 
   render() {
     console.log(this.state.items);
-    console.log(this.state.searchText);
+    // console.log(this.state.searchText);
     console.log(this.props);
     return (
       <>
@@ -58,10 +58,17 @@ class Cart extends Component {
             let searchHaystack2 = i.props.itemDescription.toLowerCase();
             let searchHaystack3 = i.props.itemCategory.toLowerCase();
             let searchNeedle = this.state.searchText.toLowerCase();
-            return searchNeedle === '' ? true : (searchHaystack.indexOf(searchNeedle) > -1) || (searchHaystack2.indexOf(searchNeedle) > -1) || (searchHaystack3.indexOf(searchNeedle) > -1);
+            return searchNeedle === '' ? true : 
+              (searchHaystack.indexOf(searchNeedle) > -1) || 
+              (searchHaystack2.indexOf(searchNeedle) > -1) || 
+              (searchHaystack3.indexOf(searchNeedle) > -1);
           })}
         </div>
-        <a className="btn-floating btn-large waves-effect waves-light orange darken-3 z-depth-3" id="scrollToTopButton" onClick={() => scroll.scrollToTop({ smooth: true })}><i className="material-icons">arrow_upward</i></a>
+        <a className="btn-floating btn-large waves-effect 
+          waves-light orange darken-3 z-depth-3" id="scrollToTopButton" 
+          onClick={() => scroll.scrollToTop({ smooth: true })}>
+          <i className="material-icons">arrow_upward</i>
+        </a>
 
         <Checkout />
         <Footer />
