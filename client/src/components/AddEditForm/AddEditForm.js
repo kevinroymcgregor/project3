@@ -51,9 +51,8 @@ class AddEditForm extends Component {
 
         }
 
-        // ItemsAPI.addItem()
         axios.post('/api/items/addItem', itemData)
-            .then(res => console.log(res.data));
+            // .then(res => console.log(res.data));
 
         window.location = '/dashboard'
     }

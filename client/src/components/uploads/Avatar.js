@@ -19,7 +19,7 @@ class Avatar extends Component {
 			avatar: this.state.selectedFile
 		}
         axios.put('/api/users/updateUserAvatar/'+ id, avatar)
-		.then(res => console.log(res));
+		// .then(res => console.log(res));
 
 		window.location = '/profile'
 	}
@@ -89,7 +89,6 @@ class Avatar extends Component {
 	};
 
 	render() {
-		console.log(this.state);
 		return (
 			<div className="container center">
 				{/* For Alert box*/}

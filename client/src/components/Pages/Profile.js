@@ -47,7 +47,6 @@ class Profile extends Component {
 
   loadItems = () => {
     const sellerID = this.props.auth.user.id
-    console.log('id:', sellerID)
     axios.get('/api/items/getUserItems')
       .then(res => this.setState({ items: res.data.filter(item => (item.sellerID[0] === sellerID)) }))
       // .then(res => this.setState({ items: res.data }))
@@ -57,24 +56,17 @@ class Profile extends Component {
 
   render() {
     const currentUser = this.state.user.items
-    // console.log('current user:', currentUser);
 
     const { user } = this.props.auth
-    // console.log(user.id)
 
     const theseItems = this.state.items
-    console.log(theseItems)
-    // let userItems = ({currentUserItems: theseItems.filter(item => ( item.sellerID[0] === user.id))})
-    // console.log(userItems)
 
     const { avatar } = this.state.user;
-    // console.log(avatar)
     const avatarLink = (
       <>{avatar ? `{avatar : ''}` : ''}</>
     )
 
     const useritemsArray = this.state.currentUserItems
-    console.log(useritemsArray)
 
     return (
       <>

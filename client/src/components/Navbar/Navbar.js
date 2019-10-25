@@ -31,8 +31,6 @@ class Navbar extends Component {
 
   loadUser = () => {
     const id = this.props.auth.user.id
-    // console.log(id)
-    // ItemsAPI.getUserById()
     axios.get('/api/users/getUserById/' + id)
       .then(res => this.setState({ user: res.data }))
       .catch(err => console.log(err));
@@ -44,10 +42,8 @@ class Navbar extends Component {
 
   render() {
     const { user } = this.props.auth;
-    // console.log(user)
 
     const { avatar } = this.state.user;
-    // console.log(avatar)
     const avatarLink = (
       <>{avatar ? `{avatar : ''}` : ''}</>
     )
@@ -59,7 +55,7 @@ class Navbar extends Component {
           {/* Right side menu dropdown */}
           <ul id="dropdown1" className="dropdown-content">
             <li>
-              <Link to="/profile" userId={user.id}>Account</Link></li>
+              <Link to="/profile" userid={user.id}>Account</Link></li>
             <li className="divider"></li>
             <li><a href="#!" onClick={this.onLogoutClick}>Logout</a></li>
           </ul>
