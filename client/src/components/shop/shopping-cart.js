@@ -35,9 +35,6 @@ class Cart extends Component {
   }
 
   render() {
-    console.log(this.state.items);
-    // console.log(this.state.searchText);
-    console.log(this.props);
     return (
       <>
         <Navbar callbackFromParent={this.handleSearch} />

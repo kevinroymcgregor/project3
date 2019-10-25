@@ -52,7 +52,7 @@ class ChatApp extends Component {
 
 
     addMessage(text) {
-        console.log(this.state);
+        // console.log(this.state);
         this.state.currentUser.sendMessage({
             text,
             roomId: this.state.currentRoom.id
@@ -66,7 +66,7 @@ class ChatApp extends Component {
                 <span className="chatHeaderContainer">
 
                 <h6 className="header chat-title chatHeader">RetroConnect  
-                <i class="material-icons chatIcon right" onClick={() => this.props.minimizeChat()}>get_app</i></h6>
+                <i className="material-icons chatIcon right" onClick={() => this.props.minimizeChat()}>get_app</i></h6>
 
                 </span>
                 <MessageList messages={this.state.messages} />

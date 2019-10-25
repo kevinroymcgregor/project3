@@ -14,7 +14,6 @@ class ItemCard extends Component {
                     window.location = '/dashboard';
                 }
             )
-        // , window.location = '/dashboard')
     }
 
     render() {
@@ -24,7 +23,7 @@ class ItemCard extends Component {
                     <img src={this.props.itemImages} alt="placeholder" />
                 </div>
                 <div className="itemCardInfoGroup">
-                    <p className="itemName">{this.props.itemName}</p>
+                <p className="itemName">{this.props.itemName}<span className="right itemCardPrice">${this.props.itemPrice}</span></p>
                     <hr></hr>
                     <div className="itemPriceLocationGroup">
                         <p className="itemPrice">${this.props.itemPrice}</p>
@@ -41,28 +40,12 @@ class ItemCard extends Component {
                                 itemID={this.props.itemID}
                             />
                         </Link>
-                        {/* <Button label="Message" icon="message" /> */}
-                        {/* <Link to={`/shopping-cart`}> */}
-                        {/* <button className="waves-effect waves-light btn-small btn-flat buttons"
-                            // fontWeight= "bold"
-                            // style={{
-                            //     width: "250px", height: "50px",
-                            //     backgroundColor: "#fb8122", fontSize: "24px"
-                            // }}
-                            onClick={this.addToCart}>Checkout</button> */}
 
                         <div className="waves-effect waves-light btn-small btn-flat buttons" 
                             onClick={this.addToCart}>
                             <i className="material-icons right">add_shopping_cart</i>
                             Purchase
                         </div>
-                        {/* <Button
-                            label="Add to Cart"
-                            icon="add_shopping_cart"
-                            itemID={this.props.itemID}
-                            onClick={this.addToCart}
-                        /> */}
-                        {/* </Link> */}
                     </div>
                 </div>
             </div>

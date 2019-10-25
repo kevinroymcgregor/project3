@@ -75,8 +75,7 @@ router.put("/updateItem/:ID", (req, res) => {
         .catch(err => console.log(err));
 })
 
-
-router.get("/getUserItems", (req,res) => {
+router.get("/getUserItems", (req, res) => {
 
     Item.find({ enabled: true })
         .sort({ createdDate: -1 })
