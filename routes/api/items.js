@@ -82,21 +82,21 @@ router.put("/updateItem/:ID", (req, res) => {
 //     .then(console.log(res))
 // })
 
-// router.get("/getUserItems", (req, res) => {
+router.get("/getUserItems", (req, res) => {
 
-//     Item.find({ enabled: true })
-//         .sort({ createdDate: -1 })
-//         .then(items => res.json(items))
-//         .then(itemList => res.json(itemList))
-//         .catch(err => console.log(err));
+    Item.find({ enabled: true })
+        .sort({ createdDate: -1 })
+        .then(items => res.json(items))
+        .then(itemList => res.json(itemList))
+        .catch(err => console.log(err));
 
-// })
+})
 
 
-// //For Searching to prevent attacks
-// function escapeRegex(text) {
-//     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
-// };
+//For Searching to prevent attacks
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
 
 // //SHOPPING CART ROUTING
 // router.get('/add-to-cart/:id', function (req, res, next) {

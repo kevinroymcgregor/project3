@@ -7,12 +7,14 @@ import AxiosAPI from "../../utils/axios"
 class ItemCard extends Component {
 
     addToCart = () => {
-        // console.log('React is a piece of shit');
-        // console.log(this.props.itemID);
         AxiosAPI.deleteItem(this.props.itemID)
-            .then(res => alert(res.data), window.location = '/dashboard')
-            // .then(window.location = '/dashboard')
-        // window.location = '/dashboard';
+            .then(
+                function (res) {
+                    alert(res.data);
+                    window.location = '/dashboard';
+                }
+            )
+        // , window.location = '/dashboard')
     }
 
     render() {
@@ -39,12 +41,21 @@ class ItemCard extends Component {
                                 itemID={this.props.itemID}
                             />
                         </Link>
-                        <Button label="Message" icon="message" />
+                        {/* <Button label="Message" icon="message" /> */}
                         {/* <Link to={`/shopping-cart`}> */}
-                        <button className="btn btn-info addEditSubmitBtn" 
-                            style={{ width: "250px", height: "50px", 
-                                backgroundColor: "#fb8122", fontSize: "24px" }} 
-                            onClick={this.addToCart}>Checkout</button>
+                        {/* <button className="waves-effect waves-light btn-small btn-flat buttons"
+                            // fontWeight= "bold"
+                            // style={{
+                            //     width: "250px", height: "50px",
+                            //     backgroundColor: "#fb8122", fontSize: "24px"
+                            // }}
+                            onClick={this.addToCart}>Checkout</button> */}
+
+                        <div className="waves-effect waves-light btn-small btn-flat buttons" 
+                            onClick={this.addToCart}>
+                            <i className="material-icons right">add_shopping_cart</i>
+                            Purchase
+                        </div>
                         {/* <Button
                             label="Add to Cart"
                             icon="add_shopping_cart"
