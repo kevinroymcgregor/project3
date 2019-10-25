@@ -73,11 +73,23 @@ class Dashboard extends Component {
     searchText: '',
     currentView: 'ChatMessage',
     currentUsername: '',
-    currentId: ''
+    currentId: '',
+    activePage: 1
   }
-
+  
   componentDidMount() {
     this.loadItems();
+    this.itemCount();
+  }
+
+  handlePageChange(pageNumber) {
+    console.log(`active page is ${pageNumber}`);
+    this.setState({activePage: pageNumber});
+  }
+
+  itemCount = () => {
+    ItemsAPI.getItemCount()
+      .then(res => this.setState({ itemCount: res.data }))
   }
 
   loadItems = () => {
@@ -100,6 +112,7 @@ class Dashboard extends Component {
     } else if (this.state.currentView === "ChatApp") {
       view = <ChatApp currentId={this.state.currentId} minimizeChat={this.minimizeChat} />
     }
+
     return (
         <>
         <Navbar callbackFromParent={this.handleSearch} searchText={this.state.searchText}/>
@@ -134,7 +147,7 @@ class Dashboard extends Component {
           lastPageText='last'
           activePage={this.state.activePage}
           itemsCountPerPage={10}
-          totalItemsCount={500}
+          totalItemsCount={this.state.itemCount}
           onChange={this.handlePageChange}
         />
         <Footer />

@@ -85,6 +85,10 @@ router.get("/getUserItems", (req, res) => {
 
 })
 
+router.get("/countItems", (req, res) => {
+    Item.countDocuments({enabled: true})
+        .then(items => res.json(items))
+})
 
 //For Searching to prevent attacks
 function escapeRegex(text) {

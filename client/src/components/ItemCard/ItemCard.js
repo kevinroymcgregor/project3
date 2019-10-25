@@ -40,8 +40,7 @@ class ItemCard extends Component {
                                 itemID={this.props.itemID}
                             />
                         </Link>
-
-                        <div className="waves-effect waves-light btn-small btn-flat buttons" 
+                        <div className="waves-effect waves-light btn-small btn-flat buttons"
                             onClick={this.addToCart}>
                             <i className="material-icons right">add_shopping_cart</i>
                             Purchase
