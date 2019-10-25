@@ -23,7 +23,7 @@ class ItemCard extends Component {
                     <img src={this.props.itemImages} alt="placeholder" />
                 </div>
                 <div className="itemCardInfoGroup">
-                    <p className="itemName">{this.props.itemName}</p>
+                <p className="itemName">{this.props.itemName}<span className="right itemCardPrice">${this.props.itemPrice}</span></p>
                     <hr></hr>
                     <div className="itemPriceLocationGroup">
                         <p className="itemPrice">${this.props.itemPrice}</p>
@@ -40,6 +40,7 @@ class ItemCard extends Component {
                                 itemID={this.props.itemID}
                             />
                         </Link>
+
                         <div className="waves-effect waves-light btn-small btn-flat buttons" 
                             onClick={this.addToCart}>
                             <i className="material-icons right">add_shopping_cart</i>
@@ -48,7 +49,6 @@ class ItemCard extends Component {
                     </div>
                 </div>
             </div>
-        </div>
         )
     }
 }

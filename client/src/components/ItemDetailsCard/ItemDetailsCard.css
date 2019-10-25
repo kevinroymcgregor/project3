@@ -54,3 +54,13 @@
     width: 100%;
     vertical-align: middle;
 }
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 993px) {
+    #selectedImage {
+        margin: 0;
+        width: 100%;
+        vertical-align: middle;
+    }
+}

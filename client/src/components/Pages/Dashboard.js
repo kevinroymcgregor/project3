@@ -11,6 +11,7 @@ import ChatMessage from '../Chat/ChatMessage';
 import Signup from '../Chat/Signup';
 import ChatApp from '../Chat/ChatApp';
 import { default as Chatkit } from '@pusher/chatkit-server';
+import Pagination from "react-js-pagination";
     
     const chatkit = new Chatkit({
       instanceLocator: "v1:us1:d8747459-b650-47c8-a4e6-f6226fdfbe19",
@@ -22,6 +23,7 @@ class Dashboard extends Component {
     super(props);
     this.changeView = this.changeView.bind(this);
     this.createUser = this.createUser.bind(this);
+    this.minimizeChat = this.minimizeChat.bind(this);
   }
 
   createUser(username) {
@@ -55,6 +57,12 @@ class Dashboard extends Component {
     })
   }
 
+  minimizeChat(view) {
+    this.setState({
+      currentView: 'ChatMessage'
+    })
+  }
+
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
@@ -85,11 +93,11 @@ class Dashboard extends Component {
   render() {
     let view ='';
             if (this.state.currentView === "ChatMessage") {
-                view = <ChatMessage  changeView={this.changeView}/>
+                view = <ChatMessage  changeView={this.changeView} />
             } else if (this.state.currentView === "Signup") {
-                view = <Signup onSubmit={this.createUser}/>
+                view = <Signup onSubmit={this.createUser} minimizeChat={this.minimizeChat}/>
             } else if (this.state.currentView === "ChatApp") {
-                view = <ChatApp currentId={this.state.currentId} />
+                view = <ChatApp currentId={this.state.currentId} minimizeChat={this.minimizeChat} />
             }
     return (
         <>
@@ -118,6 +126,16 @@ class Dashboard extends Component {
         <div className="AppChat">
           {view}
         </div>
+      <Pagination
+        prevPageText='prev'
+        nextPageText='next'
+        firstPageText='first'
+        lastPageText='last'
+        activePage={this.state.activePage}
+        itemsCountPerPage={10}
+        totalItemsCount={500}
+        onChange={this.handlePageChange}
+      />
         
         <Footer />
       </>
