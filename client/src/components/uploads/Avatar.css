@@ -28,3 +28,11 @@
     height: 50px;
     font-size: 24px;
 }
+
+.avatarUploadButton:hover {
+    background-color: #fb8122;
+}
+
+.avatarFileSelectButton:hover {
+    background-color: #fb8122;
+}
