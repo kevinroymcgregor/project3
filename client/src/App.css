@@ -190,6 +190,15 @@ hr {
   color: #fb8122;
 }
 
+.message-list {
+  overflow-x: hidden;
+  margin-bottom: 0;
+}
+
+.message-sender {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 /* Media Queries */
 @media only screen and (max-width: 601px) { 
   .reg-input {

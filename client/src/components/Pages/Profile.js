@@ -4,7 +4,6 @@ import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import axios from 'axios';
 import { connect } from "react-redux";
-// import ItemsAPI from "../../utils/axios";
 // import PropTypes from "prop-types";
 import ProfileDetailsCard from '../ProfileDetailsCard/ProfileDetailsCard';
 import "materialize-css/dist/css/materialize.min.css";
@@ -12,38 +11,29 @@ import M from "materialize-css";
 import '../ProfileTab/ProfileTab.css';
 import Avatar from "../uploads/Avatar";
 import SellerItemCard from "../SellerItemCard/SellerItemCard";
-import ItemsAPI from "../../utils/axios";
 import { Link } from "react-router-dom";
-import Button from '../Button/Button';
 
 
 class Profile extends Component {
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //       user: [],
-  //       items: []
-  //   };
-  // };
+    state = {
+      user: [],
+      items: []
+    }
 
-  state = {
-    user: [],
-    items: []
-  }
+    componentDidMount() {
+      M.AutoInit();
+      this.loadUser();
+      this.loadItems();
+    }
 
-  componentDidMount() {
-    M.AutoInit();
-    this.loadUser();
-    this.loadItems();
-  }
-
-  loadUser = () => {
-    const id = this.props.auth.user.id
-    axios.get('/api/users/getUserById/' + id)
-      .then(res => this.setState({ user: res.data }))
-      .catch(err => console.log(err));
-  }
+    loadUser = () => {
+      const id = this.props.auth.user.id
+      // console.log(id)
+      axios.get('/api/users/getUserById/' + id)
+        .then(res => this.setState({ user: res.data }))
+        .catch(err => console.log(err));
+    }
 
   loadItems = () => {
     const sellerID = this.props.auth.user.id
@@ -71,7 +61,7 @@ class Profile extends Component {
     return (
       <>
         <Navbar />
-        <div className="container">
+        <div className="container profileContainer">
           <div className="row">
             <div className="col s12">
               <ul className="tabs">
