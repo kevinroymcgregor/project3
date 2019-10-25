@@ -4,7 +4,11 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const users = require("./routes/api/users");
+const items = require("./routes/api/items");
 const app = express();
+const path = require("path");
+const upload = require("./routes/api/fileupload");
+
 
 // BODY-PARSER (MIDDLEWARE) =============================================================
 
@@ -15,13 +19,15 @@ app
     .use(bodyParser.json({ type: 'application/vnd.api+json' }))
 
 // PASSPORT CONFIG =============================================================
-
 // Passport middleware
 app.use(passport.initialize());
 // Passport config
 require("./config/passport")(passport);
 // Routes
 app.use("/api/users", users);
+app.use("/api/items", items);
+app.use("/api/profile", upload);
+
 
 // DATABASE CONFIG =============================================================
 
@@ -31,16 +37,35 @@ mongoose.Promise = Promise;
 
 const dbURI = process.env.MONGODB_URI || "mongodb://localhost:27017/retrogamer";
 
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
 // Database configuration with mongoose
 mongoose.connect(dbURI, { useNewUrlParser: true });
 
 const DB = mongoose.connection;
 const db = require("./config/keys").dbURI;
 
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+  }
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  });
+
 // Show any mongoose errors
 DB.on("error", function(error) {
     console.log("Mongoose Error: ", error);
 });
+
+// Added for heroku deploy to work
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  });
 
 // Once logged in to the db through mongoose, log a success message
 DB.once("open", function() {

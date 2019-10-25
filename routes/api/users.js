@@ -9,7 +9,7 @@ const keys = require("../../config/keys");
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 
-// Load User model
+// Load models
 const User = require("../../models/User");
 
 // @route POST api/users/register
@@ -30,12 +30,14 @@ router.post("/register", (req, res) => {
       const newUser = new User({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
+        avatar: req.body.avatar,
         email: req.body.email,
         password: req.body.password,
         city: req.body.city,
         state: req.body.state,
         zipCode: req.body.zipCode,
-        phone: req.body.phone
+        phone: req.body.phone,
+        rating: req.body.rating
       });
 
       // Hash password before saving in database
@@ -45,7 +47,7 @@ router.post("/register", (req, res) => {
           newUser.password = hash;
           newUser
             .save()
-            .then(user => res.json(user))
+            .then(user => console.log(res.json(user)))
             .catch(err => console.log(err));
         });
       });
@@ -88,7 +90,7 @@ router.post("/login", (req, res) => {
           payload,
           keys.secretOrKey,
           {
-            expiresIn: 31556926 // 1 year in seconds
+            expiresIn: 86400 // 1 day in seconds
           },
           (err, token) => {
             res.json({
@@ -105,5 +107,17 @@ router.post("/login", (req, res) => {
     });
   });
 });
+
+router.get('/getUserById/:id', (req, res) => {
+  User.findById(req.params.id)
+  .then(data => res.json(data))
+});
+
+router.put('/updateUserAvatar/:id', (req, res) => {
+  User.findOneAndUpdate({_id: req.params.id}, {
+    avatar: req.body.avatar
+  })
+  .then(console.log(res))
+})
 
 module.exports = router;

@@ -11,6 +11,7 @@ class Register extends Component {
     this.state = {
       firstName: "",
       lastName: "",
+      avatar: "",
       email: "",
       password: "",
       password2: "",
@@ -18,6 +19,7 @@ class Register extends Component {
       city: "",
       state: "",
       zipCode: "",
+      rating: "",
       errors: {}
     };
   }
@@ -47,6 +49,7 @@ class Register extends Component {
     const newUser = {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
+      avatar: "",
       email: this.state.email,
       password: this.state.password,
       password2: this.state.password2,
@@ -54,6 +57,7 @@ class Register extends Component {
       state: this.state.state,
       zipCode: this.state.zipCode,
       phone: this.state.phone,
+      rating: "",
       errors: {}
     };
 
@@ -64,162 +68,169 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col s8 offset-s2">
-            <Link to="/" className="btn-flat waves-effect">
-              <i className="material-icons left">keyboard_backspace</i> Home
+      <div className="containerWrapper">
+        <div className="container" id="registerForm">
+          <div className="row registerRow">
+            <div style={{ marginBottom: "30px" }} className="col s12  m8 offset-m2 l8 offset-l2">
+              <Link to="/" className="btn-flat waves-effect">
+                <i className="material-icons left">keyboard_backspace</i> back
             </Link>
-            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-              <h4>
-                <b>Register</b>
-              </h4>
-              <p className="grey-text text-darken-1">
-                Already have an account? <Link to="/login">Login</Link>
-              </p>
-            </div>
-            <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.firstName}
-                  error={errors.firstName}
-                  id="firstName"
-                  type="text"
-                  className={classnames("", {
-                    invalid: errors.firstName
-                  })}
-                />
-                <label htmlFor="name">First Name</label>
-                <span className="red-text">{errors.firstName}</span>
-              </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.lastName}
-                  error={errors.lastName}
-                  id="lastName"
-                  type="text"
-                  className={classnames("", {
-                    invalid: errors.lastName
-                  })}
-                />
-                <label htmlFor="name">Last Name</label>
-                <span className="red-text">{errors.lastName}</span>
-              </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.email}
-                  error={errors.email}
-                  id="email"
-                  type="email"
-                  className={classnames("", {
-                    invalid: errors.email
-                  })}
-                />
-                <label htmlFor="email">Email</label>
-                <span className="red-text">{errors.email}</span>
-              </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.password}
-                  error={errors.password}
-                  id="password"
-                  type="password"
-                  className={classnames("", {
-                    invalid: errors.password
-                  })}
-                />
-                <label htmlFor="password">Password</label>
-                <span className="red-text">{errors.password}</span>
-              </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.password2}
-                  error={errors.password2}
-                  id="password2"
-                  type="password"
-                  className={classnames("", {
-                    invalid: errors.password2
-                  })}
-                />
-                <label htmlFor="password2">Confirm Password</label>
-                <span className="red-text">{errors.password2}</span>
-              </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.city}
-                  error={errors.city}
-                  id="city"
-                  type="text"
-                  className={classnames("", {
-                    invalid: errors.city
-                  })}
-                />
-                <label htmlFor="name">City</label>
-                <span className="red-text">{errors.city}</span>
-              </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.state}
-                  error={errors.state}
-                  id="state"
-                  type="text"
-                  className={classnames("", {
-                    invalid: errors.state
-                  })}
-                />
-                <label htmlFor="name">State</label>
-                <span className="red-text">{errors.state}</span>
-              </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.zipCode}
-                  error={errors.zipCode}
-                  id="zipCode"
-                  type="text"
-                  className={classnames("", {
-                    invalid: errors.zipCode
-                  })}
-                />
-                <label htmlFor="name">Zip Code</label>
-                <span className="red-text">{errors.zipCode}</span>
-              </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.phone}
-                  error={errors.phone}
-                  id="phone"
-                  type="text"
-                  className={classnames("", {
-                    invalid: errors.phone
-                  })}
-                />
-                <label htmlFor="name">Phone</label>
-                <span className="red-text">{errors.phone}</span>
-              </div>
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                <button
-                  style={{
-                    width: "150px",
-                    borderRadius: "3px",
-                    letterSpacing: "1.5px",
-                    marginTop: "1rem"
-                  }}
-                  type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-                >
+                <h4>
                   Register
-                </button>
+              </h4>
+              <span className="reg-span">
+                <p className="black-text text-darken-1 alreadyHaveAccountText">
+                  Already have an account? 
+                </p>
+                <p className="center-align">
+                  <Link to="/login" className="goToOtherPageFormLink"> Click here to Login</Link>
+                </p>
+                </span>
               </div>
-            </form>
+              <form noValidate onSubmit={this.onSubmit}>
+                <div className="input-field col s12 reg-input">
+                  <input
+                    onChange={this.onChange}
+                    value={this.state.firstName}
+                    error={errors.firstName}
+                    id="firstName"
+                    type="text"
+                    className={classnames("", {
+                      invalid: errors.firstName
+                    })}
+                  />
+                  <label htmlFor="name">First Name</label>
+                  <span className="red-text">{errors.firstName}</span>
+                </div>
+                <div className="input-field col s12 reg-input">
+                  <input
+                    onChange={this.onChange}
+                    value={this.state.lastName}
+                    error={errors.lastName}
+                    id="lastName"
+                    type="text"
+                    className={classnames("", {
+                      invalid: errors.lastName
+                    })}
+                  />
+                  <label htmlFor="name">Last Name</label>
+                  <span className="red-text">{errors.lastName}</span>
+                </div>
+                <div className="input-field col s12 reg-input">
+                  <input
+                    onChange={this.onChange}
+                    value={this.state.email}
+                    error={errors.email}
+                    id="email"
+                    type="email"
+                    className={classnames("", {
+                      invalid: errors.email
+                    })}
+                  />
+                  <label htmlFor="email">Email</label>
+                  <span className="red-text">{errors.email}</span>
+                </div>
+                <div className="input-field col s12 reg-input">
+                  <input
+                    onChange={this.onChange}
+                    value={this.state.password}
+                    error={errors.password}
+                    id="password"
+                    type="password"
+                    className={classnames("", {
+                      invalid: errors.password
+                    })}
+                  />
+                  <label htmlFor="password">Password</label>
+                  <span className="red-text">{errors.password}</span>
+                </div>
+                <div className="input-field col s12 reg-input">
+                  <input
+                    onChange={this.onChange}
+                    value={this.state.password2}
+                    error={errors.password2}
+                    id="password2"
+                    type="password"
+                    className={classnames("", {
+                      invalid: errors.password2
+                    })}
+                  />
+                  <label htmlFor="password2">Confirm Password</label>
+                  <span className="red-text">{errors.password2}</span>
+                </div>
+                <div className="input-field col s12 reg-input">
+                  <input
+                    onChange={this.onChange}
+                    value={this.state.city}
+                    error={errors.city}
+                    id="city"
+                    type="text"
+                    className={classnames("", {
+                      invalid: errors.city
+                    })}
+                  />
+                  <label htmlFor="name">City</label>
+                  <span className="red-text">{errors.city}</span>
+                </div>
+                <div className="input-field col s12 reg-input">
+                  <input
+                    onChange={this.onChange}
+                    value={this.state.state}
+                    error={errors.state}
+                    id="state"
+                    type="text"
+                    className={classnames("", {
+                      invalid: errors.state
+                    })}
+                  />
+                  <label htmlFor="name">State</label>
+                  <span className="red-text">{errors.state}</span>
+                </div>
+                <div className="input-field col s12 reg-input">
+                  <input
+                    onChange={this.onChange}
+                    value={this.state.zipCode}
+                    error={errors.zipCode}
+                    id="zipCode"
+                    type="text"
+                    className={classnames("", {
+                      invalid: errors.zipCode
+                    })}
+                  />
+                  <label htmlFor="name">Zip Code</label>
+                  <span className="red-text">{errors.zipCode}</span>
+                </div>
+                <div className="input-field col s12 reg-input">
+                  <input
+                    onChange={this.onChange}
+                    value={this.state.phone}
+                    error={errors.phone}
+                    id="phone"
+                    type="text"
+                    className={classnames("", {
+                      invalid: errors.phone
+                    })}
+                  />
+                  <label htmlFor="name">Phone</label>
+                  <span className="red-text">{errors.phone}</span>
+                </div>
+                <div className="col s12 center-align reg-input" style={{ paddingLeft: "11.250px" }}>
+                  <button
+                    style={{
+                      width: "150px",
+                      borderRadius: "3px",
+                      letterSpacing: "1.5px",
+                      marginTop: "1rem",
+                    }}
+                    type="submit"
+                    className="btn btn-large waves-effect waves-light hoverable orange darken-3"
+                  >
+                    Register
+                </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>

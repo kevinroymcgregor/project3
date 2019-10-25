@@ -10,6 +10,10 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
+    avatar: {
+        type: String,
+        required: false
+    },
     email: {
         type: String,
         required: true
@@ -41,6 +45,11 @@ const UserSchema = new Schema({
     isActive: {
         type: Boolean,
         default: true
-    }
+    },
+    rating: {
+        type: Number,
+        required: false
+    },
+    items: [{ type: Schema.Types.ObjectId, ref: "items"}]
 });
 module.exports = User = mongoose.model("users", UserSchema);

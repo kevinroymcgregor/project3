@@ -1,22 +1,219 @@
-.App {
+#itemCardContainer {
+  width: 70%;
+  margin: 0 auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+input:focus {
+  border-bottom: 1px solid #fb8122 !important;
+  box-shadow: 0 1px 0 0 #fb8122 !important;
+}
+
+label.active {
+  color: #fb8122 !important;
+}
+
+textarea:focus {
+  border-bottom: 1px solid #fb8122 !important;
+  box-shadow: 0 1px 0 0 #fb8122 !important;
+}
+
+ul.dropdown-content.select-dropdown li span {
+    color: #000; 
+}
+
+body {
+  background-color: #b2b4b2;
+}
+
+.containerWrapper {
+  width: 100%;
+  background-color: #1D2228;
+}
+
+.loginRow {
+  min-height: 100vh;
+  margin-bottom: 0;
+  background-color: #b2b4b2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.registerRow {
+  min-height: 100vh;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#registerForm {
+  background-color: #b2b4b2;
+}
+
+#registerButton {
+  width: 250px !important;
+  margin: 50px;
+}
+
+#logInButton {
+  width: 250px !important;
+  color: black !important;
+  margin: 50px;
+}
+
+.goToOtherPageFormLink {
+  color: #fb8122;
+}
+
+.goToOtherPageFormLink:hover {
+  color: #fafafa;
+}
+
+.alreadyHaveAccountText {
+  font-weight: bold;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+h4 {
+  font-family: johnny-fever;
+  text-align: center;
+  font-size: 54px;
+  font-weight: bold;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+#scrollToTopButton {
+  position: fixed;
+  right: 3%;
+  bottom: 25%;
+}
+
+/* MATERIALIZE FORM CSS */
+
+/* label color */
+.input-field {
+  background: rgba(255, 255, 255, 0.3);
+}
+.input-field label {
+  color: #000;
+  font-weight: bold;
+  pointer-events: none;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+  color: #000;
+  font-weight: bold;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+  font-weight: bold;
+}
+/* valid color */
+.input-field input[type=text].valid {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+  font-weight: bold;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+  font-weight: bold;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: #000;
+  font-weight: bold;
+}
+
+hr {
+  margin: 0 12.5%;
+}
+
+
+/* CHAT STYLES */
+.Chat {
+  text-align: center;
+  z-index: 1;
+  background-color: #b2b4b2;
+}
+
+.Chat-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.Chat-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: #fb8122;
+}
+
+.Chat-title {
+  font-size: 1.5em;
+}
+
+.Chat-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.chatHeader {
+  text-align: center;
+  width: auto;
+  background-color: #1D2228;
+  color: #fb8122;
+}
+
+.chatIcon {
+  cursor: pointer;
   color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+.chatIcon:hover {
+  color: #fb8122;
 }
+
+.message-list {
+  overflow-x: hidden;
+  margin-bottom: 0;
+}
+
+.message-sender {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 601px) { 
+  .reg-input {
+    margin: 5px 0;
+  }
+  #logInButton {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+@media only screen and (max-width: 993px) { 
+  .Chat {
+    display: none;
+  }
+}
+
+
+

@@ -1,0 +1,182 @@
+.itemCard {
+    background-color: #fefefa;
+    margin: 15px 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    height: 250px;
+    border: solid #222 1px;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+    margin-bottom: 25px;
+    /* min-width: 750px; */
+}
+
+.itemCardInfoGroup {
+    display: grid;
+    align-content: space-between;
+}
+
+.itemCardImage {
+    display: flex;
+    overflow: hidden;
+    align-content: center;
+    align-items: center;
+    border-right: solid #222 1px;
+    /* min-width: 250px; */
+}
+
+.itemCardImage img {
+    max-width: 100%;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.buttonGroup {
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-evenly;
+    max-height: 100%;
+    min-height: 100%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+p.itemName {
+    padding-left: 5px;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: #fb8122;
+    font-family: johnny-fever;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.itemPriceLocationGroup {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    text-decoration: underline;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+p.itemPrice {
+    max-height: 500%;
+    width: 45%;
+    font-size: 1.1rem;
+}
+
+p.itemLocation {
+    max-height: 500%;
+    width: 45%;
+    font-size: 1.1rem;
+}
+
+p.itemDescription {
+    padding: 0 5% 0 5%;
+    font-size: 1.1rem;
+    max-height: 75px;
+    overflow: hidden;
+    /* white-space: nowrap; */
+    /* text-overflow: ellipsis; */
+    min-height: 50px;
+}
+
+.itemCardPrice {
+    display: none;
+}
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 993px) {
+    .itemCard {
+        min-width: 750px;
+    }
+    .itemCardImage {
+        min-width: 250px;
+    }
+    #itemCardContainer {
+        width: 85% !important;
+    }
+}
+
+@media only screen and (max-width: 812px) {
+    .itemCard {
+        min-width: 700px;
+    }
+    .itemCardImage {
+        min-width: 250px;
+    }
+    #itemCardContainer {
+        width: 95% !important;
+    }
+    
+    .profileContainer {
+        width: 100% !important;
+    }
+}
+
+@media only screen and (max-width: 601px) {
+    #itemCardContainer {
+        min-width: 95% !important;
+        margin: auto !important;
+    }
+    .itemCard {
+        min-width: 100%;
+        max-height: 125px;
+    }
+    .itemCardImage {
+        /* width: 30px !important; */
+        /* min-width: 100px; */
+        min-width: 125px;
+        max-height: 125px;
+    }
+    .itemCardImage img {
+        /* width: 40% !important; */
+        min-width: 100px;
+    }
+    /* .buttonGroup {
+        display: none;
+    } */
+    .itemPriceLocationGroup {
+        display: none;
+    }
+    p.itemDescription {
+        max-height: 25px;
+        font-size: 1rem;
+    }
+    .itemCardInfoGroup {
+        min-width: 100%;
+        max-height: 150px;
+        padding-left: 0;
+        display: block;
+    }
+    .itemCardInfoGroup hr {
+        display: none;
+    }
+    .itemCardPrice {
+        display: inline-block;
+        padding-right: 5px;
+    }
+    .itemCardCartButton {
+        display: none;
+    }
+    p.itemName {
+        font-size: 1.2rem;
+        font-weight: 100;
+        text-align: left;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        max-height: 25px;
+        max-width: 100%;
+    }
+    
+    .buttonGroup.sellerButton {
+        padding: 0;
+    }
+
+    .profileContainer {
+        width: 100% !important;
+    }
+}

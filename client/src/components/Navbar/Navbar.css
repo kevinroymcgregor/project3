@@ -1,0 +1,87 @@
+.brand-logo {
+    margin-left: 5px;
+    color: #fb8122 !important;
+    font-family: videophreak !important;
+    z-index: 100; 
+}
+
+.nav-icons:hover {
+    color: #fb8122;
+}
+
+.sidenav-overlay {
+    z-index: 1;
+}
+
+.sidenav-trigger {
+    margin-left: 0 !important;
+    padding-left: 10px !important;
+}
+
+.input-field.main {
+    background-color: #2a313a;
+}
+
+.background {
+    background-color: #1d2228 !important;
+}
+
+nav {
+    background-color: #1d2228 !important;
+  }
+
+nav .right{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.nav-wrapper form{
+    margin: auto;
+    width: 50%;
+}
+
+.nav-wrapper .input-field{
+    padding-top: 7px;
+}
+
+.nav-wrapper form #search{
+    height: 50px;
+}
+
+
+nav .right img{
+    margin: 17px;
+    height: 30px;
+    width: 30px;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+nav .right .imgProfil a{
+    height: 64px;
+}
+
+.hidden{
+    display: none;
+}
+
+#dropdown1 a {
+    color: #000 !important;
+    background-color: #fff;
+}
+
+#dropdown1 a:hover {
+    background-color: #fb8122 !important;
+}
+
+
+@media only screen and (max-width: 601px) { 
+    .brand-logo {
+      font-size: 22px !important;
+    }
+    .rightIcons {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+  }

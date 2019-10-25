@@ -1,0 +1,12 @@
+.itemDetailsCarousel {
+    border: solid #222 1px;
+    border-bottom: none;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 
+                0 15px 12px rgba(0,0,0,0.22);
+}
+
+.carousel-item img {
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
