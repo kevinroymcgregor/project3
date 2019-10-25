@@ -66,6 +66,7 @@ class ItemCard extends Component {
                     </div>
                 </div>
             </div>
+        </div>
         )
     }
 }
