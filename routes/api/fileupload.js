@@ -118,7 +118,6 @@ router.post('/multiple-file-upload', ( req, res ) => {
 				const galleryImgLocationArray = [];
 				for ( let i = 0; i < fileArray.length; i++ ) {
 					fileLocation = fileArray[ i ].location;
-					console.log( 'filenm', fileLocation );
 					galleryImgLocationArray.push( fileLocation )
 				}
 				// Save the file name into database

@@ -91,8 +91,6 @@ class Dashboard extends Component {
   }
 
   render() {
-    console.log(this.state.items);
-    console.log(this.state.searchText);
     let view ='';
             if (this.state.currentView === "ChatMessage") {
                 view = <ChatMessage  changeView={this.changeView} />

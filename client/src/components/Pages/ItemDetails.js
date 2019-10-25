@@ -33,8 +33,6 @@ class ItemDetails extends Component {
     }
 
     changeImage = (imageID) => {
-        console.log(this);
-        console.log(this.state.item.imgs);
         if (this.state.item.imgs[imageID] !== undefined) {
             this.setState({ selectedImageID: imageID });
         }

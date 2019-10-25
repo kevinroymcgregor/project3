@@ -31,8 +31,6 @@ class Navbar extends Component {
 
   loadUser = () => {
     const id = this.props.auth.user.id
-    // console.log(id)
-    // ItemsAPI.getUserById()
     axios.get('/api/users/getUserById/' + id)
       .then(res => this.setState({ user: res.data }))
       .catch(err => console.log(err));
@@ -50,10 +48,8 @@ class Navbar extends Component {
 
   render() {
     const { user } = this.props.auth;
-    // console.log(user)
 
     const { avatar } = this.state.user;
-    // console.log(avatar)
     const avatarLink = (
       <>{avatar ? `{avatar : ''}` : ''}</>
     )

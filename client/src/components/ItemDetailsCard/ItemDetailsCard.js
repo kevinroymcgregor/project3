@@ -18,7 +18,6 @@ class ItemDetailsCard extends Component {
     render() {
         return (
             <div className="card details-card itemDetailsCard">
-                {console.log(this.props)}
                 <div className="card-content item-details-header">
                     <div className="card-title">
                         <h5 className="itemDetailsNameText">{this.props.itemName}
