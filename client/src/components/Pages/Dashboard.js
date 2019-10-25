@@ -87,6 +87,7 @@ class Dashboard extends Component {
   }
 
   handleSearch = (queryText) => {
+    console.log('parent')
     this.setState({ searchText: queryText });
   }
 
@@ -100,8 +101,8 @@ class Dashboard extends Component {
       view = <ChatApp currentId={this.state.currentId} minimizeChat={this.minimizeChat} />
     }
     return (
-      <>
-        <Navbar callbackFromParent={this.handleSearch} />
+        <>
+        <Navbar callbackFromParent={this.handleSearch} searchText={this.state.searchText}/>
         <div id="itemCardContainer">
           {this.state.items.map(item => (
             <ItemCard key={item._id}

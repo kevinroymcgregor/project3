@@ -46,6 +46,10 @@ class Navbar extends Component {
     }
   }
 
+  clearText() {
+    document.getElementById('search').value = ''
+  }
+
   render() {
     const { user } = this.props.auth;
 
@@ -85,7 +89,7 @@ class Navbar extends Component {
                   <div className="input-field main">
                     <input id="search" type="search" name="search" onKeyUp={this.handleSearch.bind(this)} onKeyDown={this.handleEnter} required />
                     <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
-                    <i className="material-icons">close</i>
+                    <i className="material-icons" onClick={() => this.clearText()}>close</i>
                   </div>
                 </form>
               </div>
