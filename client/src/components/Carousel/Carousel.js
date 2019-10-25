@@ -33,14 +33,8 @@ class Carousel extends Component {
             <div className="retro-carousel itemDetailsCarousel">
                 <div className="carousel carousel-slider">
                     {this.props.itemImages ? this.props.itemImages.map(img => (
-                        // console.log(img)
                         <a className="carousel-item"><img src={img} key={img} /> </a>
                     )) : <a className="carousel-item"><img src="https://lorempixel.com/800/400/food/1" /></a> }
-                {/* <a className="carousel-item"><img src={this.props.itemImages} /></a> */}
-                    {/* <a className="carousel-item"><img src="https://lorempixel.com/800/400/food/1" /></a>
-                    <a className="carousel-item"><img src="https://lorempixel.com/800/400/food/2" /></a>
-                    <a className="carousel-item"><img src="https://lorempixel.com/800/400/food/3" /></a>
-                    <a className="carousel-item"><img src="https://lorempixel.com/800/400/food/4" /></a> */}
                 </div>
             </div>
         )

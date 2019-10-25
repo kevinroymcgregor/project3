@@ -199,6 +199,23 @@ hr {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+/* Pagination */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  font-family: johnny-fever;
+  margin-bottom: 5px;
+}
+
+.pagination li a {
+  color: #222;
+}
+
+.pagination li.active {
+  background-color: #fb8122;
+}
+
 /* Media Queries */
 @media only screen and (max-width: 601px) { 
   .reg-input {
@@ -207,6 +224,9 @@ hr {
   #logInButton {
     margin-left: 0;
     margin-right: 0;
+  }
+  .chat-button {
+    display: none;
   }
 }
 @media only screen and (max-width: 993px) { 

@@ -33,8 +33,6 @@ class ItemDetails extends Component {
     }
 
     changeImage = (imageID) => {
-        console.log(this);
-        console.log(this.state.item.imgs);
         if (this.state.item.imgs[imageID] !== undefined) {
             this.setState({ selectedImageID: imageID });
         }
@@ -51,7 +49,9 @@ class ItemDetails extends Component {
                         </Link>
                     </div>
 
+                    <div className="selectedImageWrapper">
                     <img className="row" id="selectedImage" src={this.state.item.imgs[this.state.selectedImageID]} />
+                    </div>
 
                     <div className="row" style={{ margin: 0 }}>
                         <div className="thumbnails">

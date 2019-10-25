@@ -35,26 +35,28 @@ class Profile extends Component {
         .catch(err => console.log(err));
     }
 
-    loadItems = () => {
-      const sellerID = this.props.auth.user.id
-      // console.log('id:', sellerID)
-      axios.get('/api/items/getUserItems')
-        .then(res => this.setState({ items: res.data.filter(item => (item.sellerID[0] === sellerID)) }))
-        // .then(res => this.setState({ items: res.data }))
-        .catch(err => console.log(err));
-      // this.getUserItems()
-    }
+  loadItems = () => {
+    const sellerID = this.props.auth.user.id
+    axios.get('/api/items/getUserItems')
+      .then(res => this.setState({ items: res.data.filter(item => (item.sellerID[0] === sellerID)) }))
+      // .then(res => this.setState({ items: res.data }))
+      .catch(err => console.log(err));
+    // this.getUserItems()
+  }
 
   render() {
-    // const currentUser = this.state.user.items
-    // const { user } = this.props.auth
-    // const theseItems = this.state.items
+    const currentUser = this.state.user.items
+
+    const { user } = this.props.auth
+
+    const theseItems = this.state.items
+
     const { avatar } = this.state.user;
-    // const useritemsArray = this.state.currentUserItems
-    // let userItems = ({currentUserItems: theseItems.filter(item => ( item.sellerID[0] === user.id))})
     const avatarLink = (
       <>{avatar ? `{avatar : ''}` : ''}</>
     )
+
+    const useritemsArray = this.state.currentUserItems
 
     return (
       <>
