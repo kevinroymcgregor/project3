@@ -11,9 +11,7 @@ import M from "materialize-css";
 import '../ProfileTab/ProfileTab.css';
 import Avatar from "../uploads/Avatar";
 import SellerItemCard from "../SellerItemCard/SellerItemCard";
-// import ItemsAPI from "../../utils/axios";
 import { Link } from "react-router-dom";
-// import Button from '../Button/Button';
 
 
 class Profile extends Component {
