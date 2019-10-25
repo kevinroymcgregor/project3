@@ -92,8 +92,8 @@ h4 {
 }
 
 #scrollToTopButton {
-  position: absolute;
-  right: 22px;
+  position: fixed;
+  right: 3%;
   bottom: 25%;
 }
 
