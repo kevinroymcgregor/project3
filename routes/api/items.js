@@ -86,7 +86,7 @@ router.get("/getUserItems", (req, res) => {
 })
 
 router.get("/countItems", (req, res) => {
-    Item.countDocuments({})
+    Item.countDocuments({enabled: true})
         .then(items => res.json(items))
 })
 

@@ -26,6 +26,9 @@ export default {
     },
     addItemToCart: function(id) {
         return axios.get("/api/items/add-to-cart/" + id);
+    },
+    getItemCount: function() {
+        return axios.get("/api/items/countItems");
     }
 }
 
