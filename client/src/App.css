@@ -208,6 +208,9 @@ hr {
     margin-left: 0;
     margin-right: 0;
   }
+  .chat-button {
+    display: none;
+  }
 }
 @media only screen and (max-width: 993px) { 
   .Chat {
