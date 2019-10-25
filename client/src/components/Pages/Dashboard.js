@@ -99,6 +99,7 @@ class Dashboard extends Component {
   }
 
   handleSearch = (queryText) => {
+    console.log('parent')
     this.setState({ searchText: queryText });
   }
 
@@ -111,11 +112,10 @@ class Dashboard extends Component {
     } else if (this.state.currentView === "ChatApp") {
       view = <ChatApp currentId={this.state.currentId} minimizeChat={this.minimizeChat} />
     }
-    console.log(ItemsAPI.getItemCount());
-    console.log(this.state);
+
     return (
-      <>
-        <Navbar callbackFromParent={this.handleSearch} />
+        <>
+        <Navbar callbackFromParent={this.handleSearch} searchText={this.state.searchText}/>
         <div id="itemCardContainer">
           {this.state.items.map(item => (
             <ItemCard key={item._id}
@@ -150,7 +150,6 @@ class Dashboard extends Component {
           totalItemsCount={this.state.itemCount}
           onChange={this.handlePageChange}
         />
-
         <Footer />
       </>
     );
