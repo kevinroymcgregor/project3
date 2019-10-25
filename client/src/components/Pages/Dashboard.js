@@ -11,6 +11,7 @@ import ChatMessage from '../Chat/ChatMessage';
 import Signup from '../Chat/Signup';
 import ChatApp from '../Chat/ChatApp';
 import { default as Chatkit } from '@pusher/chatkit-server';
+import Pagination from "react-js-pagination";
     
     const chatkit = new Chatkit({
       instanceLocator: "v1:us1:d8747459-b650-47c8-a4e6-f6226fdfbe19",
@@ -127,6 +128,16 @@ class Dashboard extends Component {
         <div className="AppChat">
           {view}
         </div>
+      <Pagination
+        prevPageText='prev'
+        nextPageText='next'
+        firstPageText='first'
+        lastPageText='last'
+        activePage={this.state.activePage}
+        itemsCountPerPage={10}
+        totalItemsCount={500}
+        onChange={this.handlePageChange}
+      />
         
         <Footer />
       </>
