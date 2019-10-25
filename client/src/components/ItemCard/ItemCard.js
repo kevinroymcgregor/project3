@@ -5,46 +5,65 @@ import "../ItemCard/ItemCard.css";
 import AxiosAPI from "../../utils/axios"
 
 class ItemCard extends Component {
-    // const ItemCard = (props) => {
 
-    addToCart = (id) => {
-        AxiosAPI.addItemToCart(id);
+    addToCart = () => {
+        AxiosAPI.deleteItem(this.props.itemID)
+            .then(
+                function (res) {
+                    alert(res.data);
+                    window.location = '/dashboard';
+                }
+            )
+        // , window.location = '/dashboard')
     }
 
     render() {
         return (
-
             <div className="itemCard">
                 <div className="itemCardImage">
-
-                <img src={this.props.itemImages} alt="placeholder" />
-            </div>
-            <div className="itemCardInfoGroup">
-                <p className="itemName">{this.props.itemName}<span className="right itemCardPrice">${this.props.itemPrice}</span></p>
-                <hr></hr>
-                <div className="itemPriceLocationGroup">
-                    <p className="itemPrice">${this.props.itemPrice}</p>
-                    <p className="itemCategory">{this.props.itemCategory}</p>
-                    <p className="itemLocation">{this.props.itemLocation}</p>
+                    <img src={this.props.itemImages} alt="placeholder" />
                 </div>
-                <p className="itemDescription">{this.props.itemDescription}</p>
-                <hr></hr>
-                <div className="buttonGroup">
-                    <Link to={`/itemdetails/${this.props.itemID}`}>
-                    <Button 
-                        label="Details" 
-                        icon="search" 
-                        itemId={this.props.itemId}
-                        />
-                    </Link>
-                    {/* <Button label="Message" icon="message" /> */}
-                    <Link to={`/shopping-cart`} className="itemCardCartButton">
-                    <Button 
-                        label="Cart" 
-                        icon="add_shopping_cart" 
-                        itemId={this.props.itemId}
-                        />
-                    </Link>
+                <div className="itemCardInfoGroup">
+                    <p className="itemName">{this.props.itemName}</p>
+                    <hr></hr>
+                    <div className="itemPriceLocationGroup">
+                        <p className="itemPrice">${this.props.itemPrice}</p>
+                        <p className="itemCategory">{this.props.itemCategory}</p>
+                        <p className="itemLocation">{this.props.itemLocation}</p>
+                    </div>
+                    <p className="itemDescription">{this.props.itemDescription}</p>
+                    <hr></hr>
+                    <div className="buttonGroup">
+                        <Link to={`/itemdetails/${this.props.itemID}`}>
+                            <Button
+                                label="Details"
+                                icon="search"
+                                itemID={this.props.itemID}
+                            />
+                        </Link>
+                        {/* <Button label="Message" icon="message" /> */}
+                        {/* <Link to={`/shopping-cart`}> */}
+                        {/* <button className="waves-effect waves-light btn-small btn-flat buttons"
+                            // fontWeight= "bold"
+                            // style={{
+                            //     width: "250px", height: "50px",
+                            //     backgroundColor: "#fb8122", fontSize: "24px"
+                            // }}
+                            onClick={this.addToCart}>Checkout</button> */}
+
+                        <div className="waves-effect waves-light btn-small btn-flat buttons" 
+                            onClick={this.addToCart}>
+                            <i className="material-icons right">add_shopping_cart</i>
+                            Purchase
+                        </div>
+                        {/* <Button
+                            label="Add to Cart"
+                            icon="add_shopping_cart"
+                            itemID={this.props.itemID}
+                            onClick={this.addToCart}
+                        /> */}
+                        {/* </Link> */}
+                    </div>
                 </div>
             </div>
         </div>

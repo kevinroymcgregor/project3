@@ -63,6 +63,7 @@ class ItemDetails extends Component {
                     </div>
 
                     <ItemDetailsCard
+                        itemID={this.state.item._id}
                         itemName={this.state.item.name}
                         itemDescription={this.state.item.description}
                         itemCategory={this.state.item.category}
