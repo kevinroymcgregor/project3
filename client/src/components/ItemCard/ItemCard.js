@@ -14,24 +14,27 @@ class ItemCard extends Component {
     render() {
         return (
 
-                <img src={props.itemImages} alt="placeholder" />
+            <div className="itemCard">
+                <div className="itemCardImage">
+
+                <img src={this.props.itemImages} alt="placeholder" />
             </div>
             <div className="itemCardInfoGroup">
-                <p className="itemName">{props.itemName}<span className="right itemCardPrice">${props.itemPrice}</span></p>
+                <p className="itemName">{this.props.itemName}<span className="right itemCardPrice">${this.props.itemPrice}</span></p>
                 <hr></hr>
                 <div className="itemPriceLocationGroup">
-                    <p className="itemPrice">${props.itemPrice}</p>
-                    <p className="itemCategory">{props.itemCategory}</p>
-                    <p className="itemLocation">{props.itemLocation}</p>
+                    <p className="itemPrice">${this.props.itemPrice}</p>
+                    <p className="itemCategory">{this.props.itemCategory}</p>
+                    <p className="itemLocation">{this.props.itemLocation}</p>
                 </div>
-                <p className="itemDescription">{props.itemDescription}</p>
+                <p className="itemDescription">{this.props.itemDescription}</p>
                 <hr></hr>
                 <div className="buttonGroup">
-                    <Link to={`/itemdetails/${props.itemID}`}>
+                    <Link to={`/itemdetails/${this.props.itemID}`}>
                     <Button 
                         label="Details" 
                         icon="search" 
-                        itemId={props.itemId}
+                        itemId={this.props.itemId}
                         />
                     </Link>
                     {/* <Button label="Message" icon="message" /> */}
@@ -39,11 +42,12 @@ class ItemCard extends Component {
                     <Button 
                         label="Cart" 
                         icon="add_shopping_cart" 
-                        itemId={props.itemId}
+                        itemId={this.props.itemId}
                         />
                     </Link>
                 </div>
             </div>
+        </div>
         )
     }
 }
