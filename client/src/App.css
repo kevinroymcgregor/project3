@@ -201,6 +201,22 @@ hr {
 
 .profileContainer {
   height: 100vh;
+
+/* Pagination */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  font-family: johnny-fever;
+  margin-bottom: 5px;
+}
+
+.pagination li a {
+  color: #222;
+}
+
+.pagination li.active {
+  background-color: #fb8122;
 }
 
 /* Media Queries */

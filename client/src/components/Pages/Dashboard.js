@@ -12,11 +12,11 @@ import Signup from '../Chat/Signup';
 import ChatApp from '../Chat/ChatApp';
 import { default as Chatkit } from '@pusher/chatkit-server';
 import Pagination from "react-js-pagination";
-    
-    const chatkit = new Chatkit({
-      instanceLocator: "v1:us1:d8747459-b650-47c8-a4e6-f6226fdfbe19",
-      key: "8e867358-a73e-4811-9268-f6fda29db331:HTeREMP2e+HhaQLTjHC9V+Lp+LIFpBuFQ2SXhRJk+sA="
-    })
+
+const chatkit = new Chatkit({
+  instanceLocator: "v1:us1:d8747459-b650-47c8-a4e6-f6226fdfbe19",
+  key: "8e867358-a73e-4811-9268-f6fda29db331:HTeREMP2e+HhaQLTjHC9V+Lp+LIFpBuFQ2SXhRJk+sA="
+})
 
 class Dashboard extends Component {
   constructor(props) {
@@ -27,29 +27,29 @@ class Dashboard extends Component {
   }
 
   createUser(username) {
-            chatkit.createUser({
-                id: username,
-                name: username,
-            })
-            .then((currentUser) => {
-                this.setState({
-                    currentUsername: username,
-                    currentId: username,
-                    currentView: 'ChatApp'
-                })
-            }).catch((err) => {
-                     if(err.status === 400) {
-                    this.setState({
-                        currentUsername: username,
-                        currentId: username,
-                        currentView: 'ChatMessage'
-                    })
-                    alert("Oops! Please use another user email.  The one you have selected is currently in use.");
-                } else {
-                    console.log(err.status);
-                }
-            });
+    chatkit.createUser({
+      id: username,
+      name: username,
+    })
+      .then((currentUser) => {
+        this.setState({
+          currentUsername: username,
+          currentId: username,
+          currentView: 'ChatApp'
+        })
+      }).catch((err) => {
+        if (err.status === 400) {
+          this.setState({
+            currentUsername: username,
+            currentId: username,
+            currentView: 'ChatMessage'
+          })
+          alert("Oops! Please use another user email.  The one you have selected is currently in use.");
+        } else {
+          console.log(err.status);
         }
+      });
+  }
 
   changeView(view) {
     this.setState({
@@ -73,11 +73,23 @@ class Dashboard extends Component {
     searchText: '',
     currentView: 'ChatMessage',
     currentUsername: '',
-    currentId: ''
+    currentId: '',
+    activePage: 1
   }
-
+  
   componentDidMount() {
     this.loadItems();
+    this.itemCount();
+  }
+
+  handlePageChange(pageNumber) {
+    console.log(`active page is ${pageNumber}`);
+    this.setState({activePage: pageNumber});
+  }
+
+  itemCount = () => {
+    ItemsAPI.getItemCount()
+      .then(res => this.setState({ itemCount: res.data }))
   }
 
   loadItems = () => {
@@ -87,21 +99,23 @@ class Dashboard extends Component {
   }
 
   handleSearch = (queryText) => {
+    console.log('parent')
     this.setState({ searchText: queryText });
   }
 
   render() {
-    let view ='';
-            if (this.state.currentView === "ChatMessage") {
-                view = <ChatMessage  changeView={this.changeView} />
-            } else if (this.state.currentView === "Signup") {
-                view = <Signup onSubmit={this.createUser} minimizeChat={this.minimizeChat}/>
-            } else if (this.state.currentView === "ChatApp") {
-                view = <ChatApp currentId={this.state.currentId} minimizeChat={this.minimizeChat} />
-            }
+    let view = '';
+    if (this.state.currentView === "ChatMessage") {
+      view = <ChatMessage changeView={this.changeView} />
+    } else if (this.state.currentView === "Signup") {
+      view = <Signup onSubmit={this.createUser} minimizeChat={this.minimizeChat} />
+    } else if (this.state.currentView === "ChatApp") {
+      view = <ChatApp currentId={this.state.currentId} minimizeChat={this.minimizeChat} />
+    }
+
     return (
         <>
-        <Navbar callbackFromParent={this.handleSearch} />
+        <Navbar callbackFromParent={this.handleSearch} searchText={this.state.searchText}/>
         <div id="itemCardContainer">
           {this.state.items.map(item => (
             <ItemCard key={item._id}
@@ -126,17 +140,16 @@ class Dashboard extends Component {
         <div className="AppChat">
           {view}
         </div>
-      <Pagination
-        prevPageText='prev'
-        nextPageText='next'
-        firstPageText='first'
-        lastPageText='last'
-        activePage={this.state.activePage}
-        itemsCountPerPage={10}
-        totalItemsCount={500}
-        onChange={this.handlePageChange}
-      />
-        
+        <Pagination
+          prevPageText='prev'
+          nextPageText='next'
+          firstPageText='first'
+          lastPageText='last'
+          activePage={this.state.activePage}
+          itemsCountPerPage={10}
+          totalItemsCount={this.state.itemCount}
+          onChange={this.handlePageChange}
+        />
         <Footer />
       </>
     );
