@@ -92,8 +92,8 @@ h4 {
 }
 
 #scrollToTopButton {
-  position: absolute;
-  right: 22px;
+  position: fixed;
+  right: 3%;
   bottom: 25%;
 }
 
@@ -207,6 +207,9 @@ hr {
   #logInButton {
     margin-left: 0;
     margin-right: 0;
+  }
+  .chat-button {
+    display: none;
   }
 }
 @media only screen and (max-width: 993px) { 

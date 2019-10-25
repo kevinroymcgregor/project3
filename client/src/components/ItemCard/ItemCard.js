@@ -23,7 +23,7 @@ class ItemCard extends Component {
                     <img src={this.props.itemImages} alt="placeholder" />
                 </div>
                 <div className="itemCardInfoGroup">
-                    <p className="itemName">{this.props.itemName}</p>
+                <p className="itemName">{this.props.itemName}<span className="right itemCardPrice">${this.props.itemPrice}</span></p>
                     <hr></hr>
                     <div className="itemPriceLocationGroup">
                         <p className="itemPrice">${this.props.itemPrice}</p>
