@@ -41,7 +41,7 @@ class ItemCard extends Component {
                             />
                         </Link>
 
-                        <div className="waves-effect waves-light btn-small btn-flat buttons" 
+                        <div className="waves-effect waves-light btn-small btn-flat buttons addItemToCartButton" 
                             onClick={this.addToCart}>
                             <i className="material-icons right">add_shopping_cart</i>
                             Purchase

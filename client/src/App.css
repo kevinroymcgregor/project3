@@ -199,6 +199,10 @@ hr {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.profileContainer {
+  height: 100vh;
+}
+
 /* Media Queries */
 @media only screen and (max-width: 601px) { 
   .reg-input {
