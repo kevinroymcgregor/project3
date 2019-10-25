@@ -199,6 +199,9 @@ hr {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.profileContainer {
+  height: 100vh;
+
 /* Pagination */
 
 .pagination {
