@@ -1,8 +1,8 @@
 Stripe.setPublishableKey('pk_test_skrIIcFzraRQHffvVyvIuazb00MexzCbpd');
 
-import { submit, find, append, get } from "../../src/components/shop/checkout";
+// import { submit, find, append, get } from "../../src/components/shop/checkout";
 
-submit(function (event) {
+submit = (event) => {
     $('#charge-error').addClass('hidden');
     find('button').prop('disabled', true);
     Stripe.card.createToken({
@@ -13,7 +13,7 @@ submit(function (event) {
         name: $('#card-name').val()
     }, stripeResponseHandler);
     return false;
-});
+};
 
 function stripeResponseHandler(status, response) {
     if (response.error) { // Problem!
