@@ -42,6 +42,12 @@ class Navbar extends Component {
     this.props.callbackFromParent(event.target.value);
   }
 
+  handleEnter = (event) => {
+    if(event.key === 'Enter'){
+      event.preventDefault();
+    }
+  }
+
   render() {
     const { user } = this.props.auth;
     // console.log(user)
@@ -81,7 +87,7 @@ class Navbar extends Component {
               <div className="nav-wrapper search-form">
                 <form action="/dashboard" method="GET" className="hide-on-med-and-down">
                   <div className="input-field main">
-                    <input id="search" type="search" name="search" onKeyUp={this.handleSearch.bind(this)} required />
+                    <input id="search" type="search" name="search" onKeyUp={this.handleSearch.bind(this)} onKeyDown={this.handleEnter} required />
                     <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
                     <i className="material-icons">close</i>
                   </div>
