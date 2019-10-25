@@ -14,6 +14,7 @@
 
 body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -36,13 +37,14 @@ a:hover {
 .chat-button {
   position: absolute;
   right: 10px;
-  bottom: 10px;
-  background: #5E0565;
-  height: 50px;
+  bottom: 15%;
+  background: #fb8122;
+  height: 56px;
+  width: 56px;
   font-size: 16px;
   color: white;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 30px;
   border: 0;
   box-shadow: 1px 1px 4px 1px grey;
   cursor: pointer;
@@ -50,7 +52,7 @@ a:hover {
 
 .form-container {
   height: 450px;
-  border: 1px solid #5E0565;
+  border: 1px solid #1d2228;
   max-height: 25%;
 }
 .form-container h5 {
@@ -104,6 +106,17 @@ a:hover {
 
 .form {
   padding: 30px;
+}
+
+.AppChat {
+  width: 350px;
+  position: absolute;
+  right: 10px;
+  bottom: 14%;
+  background-color: #a1a1a4;
+  z-index: 1;
+  border-radius: 5px;
+  
 }
 
 .input  {

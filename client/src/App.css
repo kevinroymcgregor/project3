@@ -92,9 +92,9 @@ h4 {
 }
 
 #scrollToTopButton {
-  position: fixed;
-  left: 50px;
-  bottom: 25px;
+  position: absolute;
+  right: 22px;
+  bottom: 25%;
 }
 
 /* MATERIALIZE FORM CSS */

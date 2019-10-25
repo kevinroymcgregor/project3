@@ -2,13 +2,17 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Button from "../Button/Button.js";
 import "../ItemCard/ItemCard.css";
+import AxiosAPI from "../../utils/axios"
 
+class ItemCard extends Component {
+    // const ItemCard = (props) => {
 
-const ItemCard = (props) => {
-    return (
+    addToCart = (id) => {
+        AxiosAPI.addItemToCart(id);
+    }
 
-        <div className="itemCard">
-            <div className="itemCardImage">
+    render() {
+        return (
 
                 <img src={props.itemImages} alt="placeholder" />
             </div>
@@ -40,8 +44,8 @@ const ItemCard = (props) => {
                     </Link>
                 </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 export default ItemCard; 

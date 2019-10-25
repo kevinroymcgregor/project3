@@ -15,20 +15,29 @@ class ItemDetails extends Component {
         super(props);
         this.state = {
             item: {
-                sellerID: [{ city: '', state: '' }]
-            }
+                sellerID: [{ city: '', state: '' }],
+                imgs: []
+            },
+            selectedImageID: 0
         };
     }
 
     componentDidMount() {
         this.loadItem(this.props.match.params.ID);
-
     }
 
     loadItem = (ID) => {
         ItemAPI.getItemByID(ID)
             .then(res => this.setState({ item: res.data }))
             .catch(err => console.log(err));
+    }
+
+    changeImage = (imageID) => {
+        console.log(this);
+        console.log(this.state.item.imgs);
+        if (this.state.item.imgs[imageID] !== undefined) {
+            this.setState({ selectedImageID: imageID });
+        }
     }
 
     render() {
@@ -41,7 +50,18 @@ class ItemDetails extends Component {
                             <i className="material-icons left">keyboard_backspace</i> back
                         </Link>
                     </div>
-                    <Carousel itemImages={this.state.item.imgs} />
+
+                    <img className="row" id="selectedImage" src={this.state.item.imgs[this.state.selectedImageID]} />
+
+                    <div className="row" style={{ margin: 0 }}>
+                        <div className="thumbnails">
+                            <img onClick={(e) => this.changeImage(0, e)} src={this.state.item.imgs[0] ? this.state.item.imgs[0] : "https://dummyimage.com/600x400/222/fff.png&text=No+Image"} />
+                            <img onClick={(e) => this.changeImage(1, e)} src={this.state.item.imgs[1] ? this.state.item.imgs[1] : "https://dummyimage.com/600x400/222/fff.png&text=No+Image"} />
+                            <img onClick={(e) => this.changeImage(2, e)} src={this.state.item.imgs[2] ? this.state.item.imgs[2] : "https://dummyimage.com/600x400/222/fff.png&text=No+Image"} />
+                            <img onClick={(e) => this.changeImage(3, e)} src={this.state.item.imgs[3] ? this.state.item.imgs[3] : "https://dummyimage.com/600x400/222/fff.png&text=No+Image"} />
+                        </div>
+                    </div>
+
                     <ItemDetailsCard
                         itemName={this.state.item.name}
                         itemDescription={this.state.item.description}

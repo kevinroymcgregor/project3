@@ -4,6 +4,8 @@ const router = express.Router();
 // Load User model
 const Item = require("../../models/Item");
 const User = require("../../models/User");
+// const Order = require("../../models/order");
+// const Cart = require("../../models/cart");
 
 // @route POST api/users/register
 router.post("/addItem", async (req, res) => {

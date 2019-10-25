@@ -15,7 +15,6 @@ class Items extends Component {
 		this.setState({
 			selectedFiles: event.target.files
 		});
-		console.log( event.target.files );
 	};
 
 	multipleFileUploadHandler = () => {
@@ -34,7 +33,6 @@ class Items extends Component {
 				}
 			})
 				.then( ( response ) => {
-					console.log( 'res', response );
 					if ( 200 === response.status ) {
 						// If file size is larger than expected.
 						if( response.data.error ) {
@@ -79,7 +77,6 @@ class Items extends Component {
 	};
 
 	render() {
-		console.log( this.state );
 		return(
 			<div className="container">
 				{/* For Alert box*/}

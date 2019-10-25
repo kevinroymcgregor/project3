@@ -98,7 +98,8 @@ class Dashboard extends Component {
         <Navbar callbackFromParent={this.handleSearch} />
         <div id="itemCardContainer">
           {this.state.items.map(item => (
-            <ItemCard itemID={item._id}
+            <ItemCard key={item._id}
+              itemID={item._id}
               itemImage={item.imgs[0]}
               itemName={item.name}
               itemPrice={item.price}
@@ -116,7 +117,9 @@ class Dashboard extends Component {
           })}
         </div>
         <a className="btn-floating btn-large waves-effect waves-light orange darken-3 z-depth-3" id="scrollToTopButton" onClick={() => scroll.scrollToTop({ smooth: true })}><i className="material-icons">arrow_upward</i></a>
-        <div className="Chat">{view}</div>
+        <div className="AppChat">
+          {view}
+        </div>
         
         <Footer />
       </>
