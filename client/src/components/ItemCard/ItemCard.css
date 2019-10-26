@@ -179,4 +179,8 @@ p.itemDescription {
     .profileContainer {
         width: 100% !important;
     }
+
+    .addItemToCartButton {
+        display: none;
+    }
 }

@@ -30,7 +30,7 @@ class ChatApp extends Component {
                 this.setState({ currentUser: currentUser })
 
                 return currentUser.subscribeToRoom({
-                    roomId: "33a9c429-eb1b-4642-9eeb-6998b8dd9fea",
+                    roomId: "cb344147-0736-417b-b2db-45aa4ca1ba31",
                     messageLimit: 100,
                     hooks: {
                         onMessage: message => {
