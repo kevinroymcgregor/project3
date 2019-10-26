@@ -65,7 +65,7 @@ class ChatApp extends Component {
             <div>
                 <span className="chatHeaderContainer">
 
-                <h6 className="header chat-title chatHeader">RetroConnect  
+                <h6 className="header chat-title chatHeader">Retro-Connect  
                 <i className="material-icons chatIcon right" onClick={() => this.props.minimizeChat()}>get_app</i></h6>
 
                 </span>

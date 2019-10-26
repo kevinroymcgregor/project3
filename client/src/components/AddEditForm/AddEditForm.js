@@ -135,7 +135,7 @@ class AddEditForm extends Component {
         const { isAuthenticated, user } = this.props.auth;
 
         return (
-            <div className="container center-align edit-form-bg profileContainer">
+            <div className="container center-align edit-form-bg">
                 <div className="addEditBackButton">
                 <Link to="/dashboard" className="left btn-flat waves-effect">
                     <i className="material-icons left">keyboard_backspace</i> back
