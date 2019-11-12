@@ -6,31 +6,58 @@ function Footer(props) {
     return (
 
         <footer className="page-footer">
-            <div className="container">
-                {/* <div className="row">
-                    <div className="col l6 s12">
-                        <h5 className="white-text footer-logo">RETRO-TRADE</h5>
-                        <p className="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-
+            {/* <div className="container"> */}
+                <div className="badgeWrapper">
+                    <div className="badge">
+                        <img src="/jon.png" alt="jon"></img>
+                        <div>
+                            <p>Jonathan King</p>
+                            <hr className="badgeHr"></hr>
+                            <ul>
+                                <li><a><i class="fab fa-github fa-2x fa-fw"></i></a></li>
+                                <li><a><i class="fab fa-linkedin fa-2x fa-fw"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div className="col l4 offset-l2 s12">
-                        <h5 className="white-text">Links</h5>
-                        <ul>
-                            <li><a className="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                            <li><a className="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                            <li><a className="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                            <li><a className="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                        </ul>
+                    <div className="badge">
+                        <img src="/nathan.jfif" alt="nathan"></img>
+                        <div>
+                            <p>Nathan Benzor</p>
+                            <hr className="badgeHr"></hr>
+                            <ul>
+                                <li><a><i class="fab fa-github fa-2x fa-fw"></i></a></li>
+                                <li><a><i class="fab fa-linkedin fa-2x fa-fw"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
-                </div> */}
-            </div>
-            <div className="footer-copyright">
+                    <div className="badge">
+                        <img src="/kevin.jfif" alt="kevin"></img>
+                        <div>
+                            <p>Kevin McGregor</p>
+                            <hr className="badgeHr"></hr>
+                            <ul>
+                                <li><a><i class="fab fa-github fa-2x fa-fw"></i></a></li>
+                                <li><a><i class="fab fa-linkedin  fa-2x fa-fw"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="badge">
+                        <img src="/christine.jfif" alt="christine"></img>
+                        <div>
+                            <p>Christine Treviranus</p>
+                            <hr className="badgeHr"></hr>
+                            <ul>
+                                <li><a><i class="fab fa-github fa-2x fa-fw"></i></a></li>
+                                <li><a><i class="fab fa-linkedin fa-2x fa-fw"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            {/* </div> */}
                 <div className="container footer-logo center-align">
                     RETRO-TRADE
                     <span style={{ color: "#fafafa", fontFamily: "Verdana, Geneva, Tahoma, sans-serif" }}> © 2019</span>
-                    {/* <a className="grey-text text-lighten-4 right" href="#!">More Links</a> */}
                 </div>
-            </div>
         </footer>
     )
 }
