@@ -30,7 +30,7 @@ class ChatApp extends Component {
                 this.setState({ currentUser: currentUser })
 
                 return currentUser.subscribeToRoom({
-                    roomId: "33a9c429-eb1b-4642-9eeb-6998b8dd9fea",
+                    roomId: "cb344147-0736-417b-b2db-45aa4ca1ba31",
                     messageLimit: 100,
                     hooks: {
                         onMessage: message => {
@@ -52,7 +52,7 @@ class ChatApp extends Component {
 
 
     addMessage(text) {
-        console.log(this.state);
+        // console.log(this.state);
         this.state.currentUser.sendMessage({
             text,
             roomId: this.state.currentRoom.id
@@ -65,8 +65,8 @@ class ChatApp extends Component {
             <div>
                 <span className="chatHeaderContainer">
 
-                <h6 className="header chat-title chatHeader">RetroConnect  
-                <i class="material-icons chatIcon right" onClick={() => this.props.minimizeChat()}>get_app</i></h6>
+                <h6 className="header chat-title chatHeader">Retro-Connect  
+                <i className="material-icons chatIcon right" onClick={() => this.props.minimizeChat()}>get_app</i></h6>
 
                 </span>
                 <MessageList messages={this.state.messages} />

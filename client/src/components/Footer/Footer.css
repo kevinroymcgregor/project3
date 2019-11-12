@@ -1,9 +1,53 @@
 footer {
-    background-color: #1d2228 !important;
-    height: 100px;
-  }
+  background-color: #1d2228 !important;
+  padding: 0 10%;
+ }
 
-  .footer-logo {
-    color: #fb8122 !important;
-    font-family: videophreak !important; 
-  }
+.footer-logo {
+  color: #fb8122 !important;
+  font-family: videophreak !important;
+  padding: 20px 0;
+}
+
+.badgeWrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.badge ul > li {
+  display: inline-block;
+}
+
+.badge img {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  border: solid #fb8122 3px;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.badgeHr {
+  border: 1px solid #fb8122;
+  width: 100px;
+  margin: 0 auto;
+}
+
+.badge i {
+  color: #fafafa;
+  margin: 5px 5px 0 5px;
+}
+
+.badge ul {
+  display: flex;
+  justify-content: center;
+
+}

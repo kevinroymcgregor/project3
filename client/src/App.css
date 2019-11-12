@@ -94,7 +94,7 @@ h4 {
 #scrollToTopButton {
   position: fixed;
   right: 3%;
-  bottom: 25%;
+  bottom: 12%;
 }
 
 /* MATERIALIZE FORM CSS */
@@ -192,11 +192,32 @@ hr {
 
 .message-list {
   overflow-x: hidden;
-  margin-bottom: 0;
+  /* margin-bottom: 30px; */
 }
 
 .message-sender {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.profileContainer {
+  height: 100vh;
+}
+
+/* Pagination */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  font-family: johnny-fever;
+  margin-bottom: 5px;
+}
+
+.pagination li a {
+  color: #222;
+}
+
+.pagination li.active {
+  background-color: #fb8122;
 }
 
 /* Media Queries */
@@ -207,6 +228,9 @@ hr {
   #logInButton {
     margin-left: 0;
     margin-right: 0;
+  }
+  .chat-button {
+    display: none;
   }
 }
 @media only screen and (max-width: 993px) { 

@@ -75,8 +75,7 @@ router.put("/updateItem/:ID", (req, res) => {
         .catch(err => console.log(err));
 })
 
-
-router.get("/getUserItems", (req,res) => {
+router.get("/getUserItems", (req, res) => {
 
     Item.find({ enabled: true })
         .sort({ createdDate: -1 })
@@ -86,6 +85,10 @@ router.get("/getUserItems", (req,res) => {
 
 })
 
+router.get("/countItems", (req, res) => {
+    Item.countDocuments({enabled: true})
+        .then(items => res.json(items))
+})
 
 //For Searching to prevent attacks
 function escapeRegex(text) {

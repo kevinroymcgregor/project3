@@ -47,7 +47,6 @@ class Items extends Component {
 						} else {
 							// Success
 							let fileName = response.data;
-							console.log( 'fileName', fileName );
 							this.ocShowAlert( 'File Successfully Uploaded', '#3089cf' );
 						}
 					}
