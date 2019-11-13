@@ -63,3 +63,12 @@
         #1d2228
       );
 }
+
+@media only screen and (max-width: 601px) {
+    .watchCard {
+        height: 20vh;
+        font-size: 45px;
+        text-align: center;
+    }
+}
+
