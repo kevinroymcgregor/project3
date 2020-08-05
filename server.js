@@ -35,7 +35,7 @@ const PORT = process.env.PORT || 8080; // process.env.port is Heroku's port if y
 
 mongoose.Promise = Promise;
 
-const dbURI = process.env.MONGODB_URI || "mongodb://localhost:27017/retrogamer";
+const dbURI = process.env.DB_URI || "mongodb://localhost:27017/retrogamer";
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
